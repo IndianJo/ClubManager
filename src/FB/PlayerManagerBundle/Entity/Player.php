@@ -1,6 +1,7 @@
 <?php
+// src\FB\PlayerManagerBundle\Entity\Player.php
 
-namespace FB\ClubManagerBundle\Entity;
+namespace FB\PlayerManagerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Player
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="FB\ClubManagerBundle\Entity\PlayerRepository")
+ * @ORM\Entity(repositoryClass="FB\PlayerManagerBundle\Entity\PlayerRepository")
  */
 class Player
 {
@@ -83,7 +84,7 @@ class Player
         $this->setStreet("inconnu");
         $this->setStreetnumber(00);
         $this->setCP(25000);
-        $this->setCity("Besançon");
+        $this->setCity("Besancon");
         $this->setEmail("");
     }
     /**

@@ -12,6 +12,7 @@ namespace FB\ClubManagerBundle\Controller;
 use Symfony\Component\BrowserKit\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+
 class ManagerController extends Controller
 {
     /**
@@ -19,14 +20,6 @@ class ManagerController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('FBClubManagerBundle:ClubManager:index.html.twig');
-    }
-
-    /**
-     * @summary Use to add new player in database.
-     */
-    public function addAction()
-    {
-
+       return $this->render('FBClubManagerBundle:ClubManager:index.html.twig');
     }
 }

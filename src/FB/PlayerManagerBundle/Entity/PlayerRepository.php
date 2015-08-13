@@ -1,6 +1,6 @@
 <?php
-
-namespace FB\ClubManagerBundle\Entity;
+// src\FB\PlayerManagerBundle\Entity\PlayerRepository.php
+namespace FB\PlayerManagerBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

@@ -1,7 +1,8 @@
 fb_clubmanager_home:
-    path:     /clubmanager
+    path:     /
     defaults: { _controller: FBClubManagerBundle:Manager:index }
 
-fb_clubmanager_add:
-    path:     /clubmanager/add
-    defaults: { _controller: FBClubManagerBundle:Manager:add }
+fb_clubmanager_view:
+    path:    /clubmanager/view
+    defaults: { _controller: FBClubManagerBundle:Manager:view }
+

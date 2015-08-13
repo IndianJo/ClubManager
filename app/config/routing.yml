@@ -1,3 +1,7 @@
+fb_player_manager:
+    resource: "@FBPlayerManagerBundle/Resources/config/routing.yml"
+    prefix:   /player
+
 fb_club_manager:
     resource: "@FBClubManagerBundle/Resources/config/routing.yml"
     prefix:   /

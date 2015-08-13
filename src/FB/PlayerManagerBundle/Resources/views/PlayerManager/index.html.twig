@@ -1,0 +1,43 @@
+{# \src\FB\PlayerManagerBundle\Resources\views\PlayerManager\index.html.twig #}
+
+{% extends "FBClubManagerBundle::layout.html.twig" %}
+{% block title %}
+    Accueil Player Manager- {{ parent() }}
+{% endblock %}
+
+{% block headerWelcome %}
+    Welcom in Player Manager
+{% endblock %}
+{% block headerMessage %}
+    <p> Ce module permet de gérer les joueurs du club</p>
+{% endblock %}
+{% block fbclubmanager_body %}
+
+    <h2>Liste des joueurs</h2>
+    <div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th data-field="id">Id</th>
+            <th data-field="firstname">Prénom</th>
+            <th data-field="lastname">Nom</th>
+            <th data-field="phone">Téléphone</th>
+            <th data-field="adress">Adresse</th>
+            <th data-field="email">email</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for player in listPlayers %}
+            <tr>
+                <td>{{ player.id }}</td>
+                <td>{{ player.firstname }}</td>
+                <td>{{ player.lastname }}</td>
+                <td>{{ player.phonenumber }}</td>
+                <td>{{ player.streetnumber }} {{ player.street }} {{ player.cP }} {{ player.city }}</td>
+                <td>{{ player.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

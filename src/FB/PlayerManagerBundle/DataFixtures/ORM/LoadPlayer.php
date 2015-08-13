@@ -7,11 +7,11 @@
  * Time: 16:36
  */
 
-namespace FB\ClubManagerBundle\DataFixtures\ORM;
+namespace FB\PlayerManagerBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use FB\ClubManagerBundle\Entity\Player;
+use FB\PlayerManagerBundle\Entity\Player;
 
 class LoadPlayer implements FixtureInterface
 {

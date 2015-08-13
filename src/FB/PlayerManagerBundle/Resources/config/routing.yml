@@ -1,0 +1,4 @@
+# src\FB\PlayerManagerBundle\Resources\config\routing.yml
+fb_playermanager_home:
+    path:     /
+    defaults: { _controller: FBPlayerManagerBundle:PlayerManager:index }

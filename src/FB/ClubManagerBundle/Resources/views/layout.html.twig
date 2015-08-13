@@ -1,17 +1,61 @@
-{# \src\FB\ClubManagerBundle\Resources\views\layout.html.twig #}
+{# app/Resources/views/layout.html.twig #}
 
-{% extends "::layout.html.twig" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% block title %}
-    Club Manager
-{% endblock %}
+    <title>{% block title %}FB Club Manager{% endblock %}</title>
 
-{% block body %}
-    <h1> Accueil </h1>
+    {% block stylesheets %}
+        {# On charge le CSS de bootstrap depuis le site directement #}
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    {% endblock %}
+</head>
+
+<body>
+<div class="container">
+    <div id="header" class="jumbotron">
+        <h1> {% block headerWelcome%} Welcome in  Club Manager {% endblock %}</h1>
+        <p> {% block headerMessage %}
+            Ce projet est propulsé par Symfony2,
+            et construit grâce au MOOC OpenClassrooms et SensioLabs.
+            {% endblock %}
+        </p>
+    </div>
+
+    <div class="row">
+        <div id="menu" class="col-md-3">
+            <a href="{{ path ('fb_clubmanager_home') }}">Retour Club Manager</a>
+            <h3>Les joueurs</h3>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="{{ path ('fb_playermanager_home') }}">Accueil</a></li>
+                <li><a href="">Ajouter un joueur</a></li>
+            </ul>
+
+ {#           <h4>Dernières annonces</h4>
+            {{ render(controller("OCPlatformBundle:Advert:menu", {'limit': 3})) }}
+ #}
+        </div>
+        <div id="content" class="col-md-9">
+            {% block fbclubmanager_body %}
+            {% endblock %}
+        </div>
+    </div>
 
     <hr>
 
-    {# On d�finit un nouveau bloc, que les vues du bundle pourront remplir #}
-    {% block ocplatform_body %}
-    {% endblock %}
+    <footer>
+        <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
+    </footer>
+</div>
+
+{% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 {% endblock %}
+
+</body>
+</html>
