@@ -1,8 +1,9 @@
+# src\FB\ClubManagerBundle\Resources\config\routing.yml
 fb_clubmanager_home:
     path:     /
     defaults: { _controller: FBClubManagerBundle:Manager:index }
 
-fb_clubmanager_view:
-    path:    /clubmanager/view
-    defaults: { _controller: FBClubManagerBundle:Manager:view }
-
+# temp rout for forum, TODO create bundle for forum
+fb_clubmanager_forum:
+   path:    /clubmanager/forum
+   defaults: { _controller: FBClubManagerBundle:Manager:forum }

@@ -8,4 +8,11 @@
 {% block fbclubmanager_body %}
     <h1> Accueil </h1>
     <p>Page d'accueil du club manager, elle permet l'accès au différents modules</p>
+
+    {% for flashMessage in app.session.flashbag.get('info') %}
+        <h3>
+            <span class="label label-info">{{ flashMessage }}</span>
+        </h3>
+        <a href="http://forum.ucvesontio.fr/"> Accéder au forum UCV</a>
+    {% endfor %}
 {% endblock %}
