@@ -2,3 +2,7 @@
 fb_playermanager_home:
     path:     /
     defaults: { _controller: FBPlayerManagerBundle:PlayerManager:index }
+
+fb_playermanager_add:
+    path:    /add
+    defaults: { _controller: FBPlayerManagerBundle:PlayerManager:add }
