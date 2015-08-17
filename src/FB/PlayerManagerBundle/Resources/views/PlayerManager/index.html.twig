@@ -35,6 +35,14 @@
                 <td>{{ player.phonenumber }}</td>
                 <td>{{ player.streetnumber }} {{ player.street }} {{ player.cP }} {{ player.city }}</td>
                 <td>{{ player.email }}</td>
+                <td>
+                    <a class="btn btn-default" type="button" href="{{ path('fb_playermanager_update', {'id': player.id}) }}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a class="btn btn-danger" type="button" href="{{ path('fb_playermanager_delete', {'id': player.id}) }}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

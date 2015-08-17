@@ -11,7 +11,7 @@ namespace FB\ClubManagerBundle\Controller;
 
 use Symfony\Component\BrowserKit\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+//use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 class ManagerController extends Controller

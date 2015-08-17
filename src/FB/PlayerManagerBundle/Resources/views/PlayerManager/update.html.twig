@@ -2,14 +2,14 @@
 
 {% extends "FBClubManagerBundle::layout.html.twig" %}
 {% block title %}
-    Add Player - {{ parent() }}
+    Update Player - {{ parent() }}
 {% endblock %}
 
 {% block headerWelcome %}
-    Add new player
+    Update player
 {% endblock %}
 {% block headerMessage %}
-    <p> Ajouter un nouveau joueur</p>
+    <p> Modifier un joueur</p>
 {% endblock %}
 {% block fbclubmanager_body %}
     {{ include ('FBPlayerManagerBundle:PlayerManager:form.html.twig') }}
