@@ -7,10 +7,27 @@ Use Symfony 2.7.*
 
 It's a software to manage your sport club (player, team, event...)
 
----------------------------------------------------------------------------------------
-How to use : 
+---
+##Get dependency : 
 
 -> Clone git repository.
 -> Update lib dependency with composer.
-  Command "php composer.phar update"
-  more information about composer in : https://getcomposer.org/
+ ```
+ php composer.phar update
+ ```
+ more information about composer in : https://getcomposer.org/
+
+---
+##How to generate database
+to build database use : 
+```
+php app/console doctrine:database:create
+```
+next generate tables : 
+```
+php app/console doctrine:schema:update --force
+```
+Add testdata on database : 
+```
+php app/console doctrine:fixtures:load
+```
