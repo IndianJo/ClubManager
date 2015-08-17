@@ -1,3 +1,7 @@
+fb_set_manager:
+    resource: "@FBSetManagerBundle/Resources/config/routing.yml"
+    prefix:   /
+
 fb_player_manager:
     resource: "@FBPlayerManagerBundle/Resources/config/routing.yml"
     prefix:   /player

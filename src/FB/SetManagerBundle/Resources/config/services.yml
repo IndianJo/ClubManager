@@ -1,0 +1,4 @@
+services:
+#    fb_set_manager.example:
+#        class: FB\SetManagerBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

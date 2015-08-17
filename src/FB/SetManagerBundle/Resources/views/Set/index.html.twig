@@ -1,0 +1,47 @@
+{# src\FB\SetManagerBundle\Resources\views\Set\index.html.twig #}
+
+{% extends "FBClubManagerBundle::layout.html.twig" %}
+{% block title %}
+    Accueil Set Manager - {{ parent() }}
+{% endblock %}
+
+{% block headerWelcome %}
+    Welcom in Set Manager
+{% endblock %}
+{% block headerMessage %}
+    <p> Ce module permet de gérer les maillots du club</p>
+{% endblock %}
+{% block fbclubmanager_body %}
+
+    <h2>Liste des maillots</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th data-field="id">Id</th>
+                <th data-field="number">Numéro</th>
+                <th data-field="size">Taille</th>
+                <th data-field="sexe">Genre</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for GameSet in listGameSet %}
+                <tr>
+                    <td>{{ GameSet.id }}</td>
+                    <td>{{ GameSet.number }}</td>
+                    <td>{{ GameSet.size }}</td>
+                    <td>{{ GameSet.sexe }}</td>
+                    <td>
+                        <a class="btn btn-default" type="button" href="{{ path('fb_playermanager_update', {'id': player.id}) }}">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a class="btn btn-danger" type="button" href="{{ path('fb_playermanager_delete', {'id': player.id}) }}">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
