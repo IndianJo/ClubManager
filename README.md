@@ -8,7 +8,7 @@ Use Symfony 2.7.*
 It's a software to manage your sport club (player, team, event...)
 ##Get composer
 ```
-$ curl -sS https://getcomposer.org/installer | php
+curl -sS https://getcomposer.org/installer | php
 ```
 ---
 ##Get dependency : 
