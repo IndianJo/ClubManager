@@ -18,24 +18,24 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th data-field="id">Id</th>
                 <th data-field="number">Numéro</th>
                 <th data-field="size">Taille</th>
                 <th data-field="sexe">Genre</th>
+                <th data-field="player">Joueur</th>
             </tr>
             </thead>
             <tbody>
             {% for GameSet in listGameSet %}
                 <tr>
-                    <td>{{ GameSet.id }}</td>
                     <td>{{ GameSet.number }}</td>
                     <td>{{ GameSet.size }}</td>
                     <td>{{ GameSet.sexe }}</td>
+                    <td>{{ (GameSet.player is not null) ? GameSet.player.firstname }}</td>
                     <td>
-                        <a class="btn btn-default" type="button" href="{{ path('fb_playermanager_update', {'id': player.id}) }}">
+                        <a class="btn btn-default" type="button" href="{{ path('fb_setmanager_update', {'id': GameSet.id}) }}">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
-                        <a class="btn btn-danger" type="button" href="{{ path('fb_playermanager_delete', {'id': player.id}) }}">
+                        <a class="btn btn-danger" type="button" href="{{ path('fb_setmanager_delete', {'id': GameSet.id}) }}">
                             <span class="glyphicon glyphicon-trash"></span>
                         </a>
                     </td>

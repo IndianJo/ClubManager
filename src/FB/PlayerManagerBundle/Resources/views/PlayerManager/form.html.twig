@@ -74,6 +74,16 @@
             {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>
+
+    {# TODO A voir comment ajouter la gestion des maillots depuis le form de modifs d'un joueurs un joueurs peut avoir plusieurs set
+    <div class="form-group">
+        {{ form_label(form.GameSets, "Numéro de maillot", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_errors(form.GameSets) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.GameSets, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>#}
+
     {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary' } }) }}
 

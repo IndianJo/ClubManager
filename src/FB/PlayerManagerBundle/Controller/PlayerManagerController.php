@@ -82,8 +82,8 @@ class PlayerManagerController extends Controller
         // Récupération du joueurs
         $player = $this->getDoctrine()->getManager()->getRepository('FBPlayerManagerBundle:Player')->find($id);
 
-        // Et on construit le formBuilder avec cette instance de l'annonce, comme précédemment
-        $form = $this->get('form.factory')->create(new PlayerType, $player);
+        // Et on construit le formBuilder a partir de l'entité
+        $form = $this->get('form.factory')->create(new PlayerType(), $player);
 
         // On fait le lien Requête<->formulaire
         $form->handleRequest($request);

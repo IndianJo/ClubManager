@@ -1,0 +1,16 @@
+{# src\FB\SetManagerBundle\Resources\views\Set\update.html.twig#}
+
+{% extends "FBClubManagerBundle::layout.html.twig" %}
+{% block title %}
+    Update Games set - {{ parent() }}
+{% endblock %}
+
+{% block headerWelcome %}
+    Update game set
+{% endblock %}
+{% block headerMessage %}
+    <p> Modifier un jeu de maillot</p>
+{% endblock %}
+{% block fbclubmanager_body %}
+    {{ include ('FBSetManagerBundle:Set:form.html.twig') }}
+{% endblock %}

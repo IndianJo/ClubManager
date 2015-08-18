@@ -4,6 +4,7 @@
 namespace FB\PlayerManagerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FB\SetManagerBundle\Entity;
 
 /**
  * Player
@@ -78,6 +79,11 @@ class Player
      */
     private $email;
 
+    /**
+     * @ORM\OneToMany(targetEntity="FB\SetManagerBundle\Entity\GameSet", mappedBy="player")
+     */
+    private $GameSets;
+
     public function __construct()
     {
         $this->setPhonenumber(0000000000);
@@ -87,6 +93,7 @@ class Player
         $this->setCity("Besancon");
         $this->setEmail("");
     }
+
     /**
      * Get id
      *
@@ -279,5 +286,43 @@ class Player
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Add GameSets
+     *
+     * @param Entity\GameSet $gameSet
+     * @return Player
+     */
+    public function addGameSet(Entity\GameSet $gameSet)
+    {
+        $this->GameSets[] = $gameSet;
+
+        // on lie le joueur au set
+        $gameSet->setPlayer($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove GameSets
+     *
+     * @param Entity\GameSet $gameSet
+     */
+    public function removeGameSet(Entity\GameSet $gameSet)
+    {
+        $this->GameSets->removeElement($gameSet);
+
+        $gameSet->setPlayer(null);
+    }
+
+    /**
+     * Get GameSets
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGameSets()
+    {
+        return $this->GameSets;
     }
 }

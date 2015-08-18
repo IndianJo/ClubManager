@@ -24,6 +24,8 @@
             <th data-field="phone">Téléphone</th>
             <th data-field="adress">Adresse</th>
             <th data-field="email">email</th>
+            <th data-field="gamessets">Numéro de maillot</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -35,6 +37,9 @@
                 <td>{{ player.phonenumber }}</td>
                 <td>{{ player.streetnumber }} {{ player.street }} {{ player.cP }} {{ player.city }}</td>
                 <td>{{ player.email }}</td>
+                <td>{% for gameset in player.gameSets %}
+                        {{ gameset.number }}
+                    {% endfor %}</td>
                 <td>
                     <a class="btn btn-default" type="button" href="{{ path('fb_playermanager_update', {'id': player.id}) }}">
                         <span class="glyphicon glyphicon-pencil"></span>

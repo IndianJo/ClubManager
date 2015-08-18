@@ -1,0 +1,48 @@
+{# src\FB\SetManagerBundle\Resources\views\Set\form.html.twig#}
+<div class="well">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.number, "Numéro", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_errors(form.number) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.number, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.size, "Taille", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_errors(form.size) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.size, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.sexe, "Sexe", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_errors(form.sexe) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.sexe, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {{ form_label(form.player, "Joueur", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_errors(form.player) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.player, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary' } }) }}
+
+    {# Génération automatique des champs pas encore écrits.
+       Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+       et tous les champs cachés (type « hidden »).
+    {{ form_rest(form) }}
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+</div>

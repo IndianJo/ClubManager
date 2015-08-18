@@ -1,7 +1,16 @@
+# src\FB\SetManagerBundle\Resources\config\routing.yml
 fb_setmanager_home:
-    path:     /set
+    path:     /
     defaults: { _controller: FBSetManagerBundle:SetManager:index }
 
 fb_setmanager_add:
-    path:   /set/add
+    path:   /add
     defaults: { _controller: FBSetManagerBundle:SetManager:add }
+
+fb_setmanager_update:
+    path:    /update/{id}
+    defaults: { _controller: FBSetManagerBundle:SetManager:update }
+
+fb_setmanager_delete:
+    path:   /delete/{id}
+    defaults: { _controller: FBSetManagerBundle:SetManager:delete }
