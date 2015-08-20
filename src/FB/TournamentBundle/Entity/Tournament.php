@@ -54,7 +54,7 @@ class Tournament
      *
      * @ORM\Column(name="startDate", type="date")
      */
-    private $startdate;
+    private $startDate;
 
     /**
      * @var \DateTime
@@ -84,6 +84,11 @@ class Tournament
      */
     private $surface;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="FB\TournamentBundle\Entity\Season")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $season;
 
     /**
      * Get id
@@ -188,26 +193,26 @@ class Tournament
     }
 
     /**
-     * Set startdate
+     * Set startDate
      *
-     * @param \DateTime $startdate
+     * @param \DateTime $startDate
      * @return Tournament
      */
-    public function setStartdate($startdate)
+    public function setStartDate($startDate)
     {
-        $this->startdate = $startdate;
+        $this->startDate = $startDate;
 
         return $this;
     }
 
     /**
-     * Get startdate
+     * Get startDate
      *
      * @return \DateTime 
      */
-    public function getStartdate()
+    public function getStartDate()
     {
-        return $this->startdate;
+        return $this->startDate;
     }
 
     /**
@@ -300,5 +305,28 @@ class Tournament
     public function getSurface()
     {
         return $this->surface;
+    }
+
+    /**
+     * Set season
+     *
+     * @param \FB\TournamentBundle\Entity\Season $season
+     * @return Tournament
+     */
+    public function setSeason(\FB\TournamentBundle\Entity\Season $season)
+    {
+        $this->season = $season;
+
+        return $this;
+    }
+
+    /**
+     * Get season
+     *
+     * @return \FB\TournamentBundle\Entity\Season 
+     */
+    public function getSeason()
+    {
+        return $this->season;
     }
 }

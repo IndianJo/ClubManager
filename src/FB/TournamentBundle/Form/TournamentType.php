@@ -19,7 +19,7 @@ class TournamentType extends AbstractType
             ->add('address',    'text')
             ->add('city',       'text')
             ->add('country',    'text')
-            ->add('startdate',  'date')
+            ->add('startDate',  'date')
             ->add('endDate',    'date')
             ->add('category',   'choice', array('choices' => array(
                 'Open'=>'Open',
@@ -37,6 +37,10 @@ class TournamentType extends AbstractType
                 'Indoor'=>'Indoor',
                 'Outdoor'=>'Outdoor',
                 'Beach'=>'Beach')))
+            ->add('season',      'entity', array('class' => 'FB\TournamentBundle\Entity\Season',
+                'property' => 'name',
+                'empty_value' => 'Sélectionner une saison',
+            ))
             ->add('save', 'submit')
         ;
     }

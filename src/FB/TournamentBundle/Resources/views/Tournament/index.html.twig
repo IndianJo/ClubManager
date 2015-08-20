@@ -14,6 +14,29 @@
 {% block fbclubmanager_body %}
 
     <h2>Liste des tournois</h2>
+    <div class="well">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+        <div class="form-group">
+            {{ form_label(form.name, "Saisons : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {{ form_errors(form.name) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            </div>
+    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+           {{ form_widget(form.filter, {'attr': {'class': 'btn btn-primary' } }) }}
+        </div>
+
+    {# Génération automatique des champs pas encore écrits.
+       Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+       et tous les champs cachés (type « hidden »).
+    {{ form_rest(form) }}
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+    </div>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -31,7 +54,7 @@
                 <tr>
                     <td>{{ tournament.name }}</td>
                     <td>{{ tournament.address }} {{ tournament.city }} {{ tournament.country }}</td>
-                    <td>Du {{ tournament.startdate|date('d-m') }} au {{ tournament.endDate|date('d-m') }}</td>
+                    <td>Du {{ tournament.startDate|date('d-m') }} au {{ tournament.endDate|date('d-m') }}</td>
                     <td>{{ tournament.category }}</td>
                     <td>{{ tournament.division }}</td>
                     <td>{{ tournament.surface }}</td>

@@ -27,7 +27,7 @@
             {% for season in listSeasons %}
                 <tr>
                     <td>{{ season.name }}</td>
-                    <td>{{ season.startdate|date('d-m') }}</td>
+                    <td>{{ season.startDate|date('d-m') }}</td>
                     <td>{{ season.endDate|date('d-m') }}</td>
                     <td>
                         <a class="btn btn-default" type="button" href="{{ path('fb_season', {'id': tournament.id}) }}">
