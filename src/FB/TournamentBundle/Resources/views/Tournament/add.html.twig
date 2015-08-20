@@ -1,0 +1,16 @@
+{# src\FB\TournamentBundle\Resources\views\Set\add.html.twig#}
+
+{% extends "FBClubManagerBundle::layout.html.twig" %}
+{% block title %}
+    Add Tournament - {{ parent() }}
+{% endblock %}
+
+{% block headerWelcome %}
+    Add new Tournament
+{% endblock %}
+{% block headerMessage %}
+    <p> Ajouter un nouveau tournoi</p>
+{% endblock %}
+{% block fbclubmanager_body %}
+    {{ include ('FBTournamentBundle:Tournament:form.html.twig') }}
+{% endblock %}

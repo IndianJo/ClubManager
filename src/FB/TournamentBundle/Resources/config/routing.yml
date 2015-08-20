@@ -1,3 +1,15 @@
 fb_tournament_home:
     path:     /
     defaults: { _controller: FBTournamentBundle:Tournament:index }
+
+fb_tournament_add:
+    path:     /add
+    defaults: { _controller: FBTournamentBundle:Tournament:add }
+
+fb_tournament_update:
+    path:    /update/{id}
+    defaults: { _controller: FBTournamentBundle:Tournament:update }
+
+fb_tournament_delete:
+    path:    /delete/{id}
+    defaults: { _controller: FBTournamentBundle:Tournament:delete }

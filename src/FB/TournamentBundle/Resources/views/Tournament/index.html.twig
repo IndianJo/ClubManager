@@ -9,9 +9,43 @@
     Welcom in Tournament Manager
 {% endblock %}
 {% block headerMessage %}
-    <p> Ce module permet de g�rer les tournois jouer par le club</p>
+    <p> Ce module permet de gérer les tournois jouer par le club</p>
 {% endblock %}
 {% block fbclubmanager_body %}
 
     <h2>Liste des tournois</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th data-field="name">Nom</th>
+                <th data-field="place">Lieu</th>
+                <th data-field="date">Date</th>
+                <th data-field="category">Catégory</th>
+                <th data-field="division">Division</th>
+                <th data-field="surface">surface</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for tournament in listTournament %}
+                <tr>
+                    <td>{{ tournament.name }}</td>
+                    <td>{{ tournament.address }} {{ tournament.city }} {{ tournament.country }}</td>
+                    <td>Du {{ tournament.startdate|date('d-m-Y') }} au {{ tournament.endDate|date('d-m-Y') }}</td>
+                    <td>{{ tournament.category }}</td>
+                    <td>{{ tournament.division }}</td>
+                    <td>{{ tournament.surface }}</td>
+                    <td>
+                        <a class="btn btn-default" type="button" href="{{ path('fb_tournament_update', {'id': tournament.id}) }}">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a class="btn btn-danger" type="button" href="{{ path('fb_tournament_delete', {'id': tournament.id}) }}">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

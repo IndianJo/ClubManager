@@ -1,0 +1,16 @@
+{# src\FB\TournamentBundle\Resources\views\Set\update.html.twig#}
+
+{% extends "FBClubManagerBundle::layout.html.twig" %}
+{% block title %}
+    Update Tournament - {{ parent() }}
+{% endblock %}
+
+{% block headerWelcome %}
+    Update tournament
+{% endblock %}
+{% block headerMessage %}
+    <p> Modifier un tournoi</p>
+{% endblock %}
+{% block fbclubmanager_body %}
+    {{ include ('FBTournamentBundle:Tournament:form.html.twig') }}
+{% endblock %}
