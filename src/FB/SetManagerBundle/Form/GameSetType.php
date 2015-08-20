@@ -20,11 +20,12 @@ class GameSetType extends AbstractType
         //$players = $em->getRepository('FBPlayerManagerBundle:Player')->findAll();
         $builder
             ->add('number', 'number')
-            ->add('size', 'choice', array('choices' => array('S', 'M', 'L', 'XL', 'XXL')))
-            ->add('sexe','choice', array('choices' => array('m'=>'Men', 'w' => 'Women')))
+            ->add('size', 'choice', array('choices' => array('S'=>'S', 'M'=>'M', 'L'=>'L', 'XL'=>'XL', 'XXL'=>'XXL')))
+            ->add('sexe','choice', array('choices' => array('Men'=>'Men', 'Women' => 'Women')))
             ->add('player', 'entity', array( 'class' => 'FB\PlayerManagerBundle\Entity\Player',
                     'property' => 'firstname',
-                    'empty_value' => 'Sélectionner un joueur'))
+                    'empty_value' => 'Sélectionner un joueur',
+                    'required' => false))
             ->add('save', 'submit')
         ;
     }
