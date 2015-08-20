@@ -14,6 +14,8 @@
     <file url="file://$PROJECT_DIR$/src/FB/SetManagerBundle/Resources/views/Set/index.html.twig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/FB/SetManagerBundle/Resources/views/Set/update.html.twig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/FB/TournamentBundle/Form/TournamentType.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/form.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/index.html.twig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Tournament/add.html.twig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Tournament/form.html.twig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Tournament/index.html.twig" charset="UTF-8" />

@@ -1,0 +1,45 @@
+{# src\FB\TournamentBundle\Resources\views\Season\index.html.twig #}
+
+{% extends "FBClubManagerBundle::layout.html.twig" %}
+{% block title %}
+    Accueil Season Manager - {{ parent() }}
+{% endblock %}
+
+{% block headerWelcome %}
+    Welcom in Season Manager
+{% endblock %}
+{% block headerMessage %}
+    <p> Ce module permet de gérer les saison</p>
+{% endblock %}
+{% block fbclubmanager_body %}
+
+    <h2>Liste des saison</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th data-field="name">Nom</th>
+                <th data-field="startDate">Date de début</th>
+                <th data-field="endDate">Date de fin</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for season in listSeasons %}
+                <tr>
+                    <td>{{ season.name }}</td>
+                    <td>{{ season.startdate|date('d-m') }}</td>
+                    <td>{{ season.endDate|date('d-m') }}</td>
+                    <td>
+                        <a class="btn btn-default" type="button" href="{{ path('fb_season', {'id': tournament.id}) }}">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a class="btn btn-danger" type="button" href="{{ path('fb_tournament_delete', {'id': tournament.id}) }}">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

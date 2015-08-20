@@ -1,0 +1,16 @@
+{# src\FB\Tournamentundle\Resources\views\Season\update.html.twig#}
+
+{% extends "FBClubManagerBundle::layout.html.twig" %}
+{% block title %}
+    Update Season - {{ parent() }}
+{% endblock %}
+
+{% block headerWelcome %}
+    Update season
+{% endblock %}
+{% block headerMessage %}
+    <p> Modifier une saison</p>
+{% endblock %}
+{% block fbclubmanager_body %}
+    {{ include ('FBTournamentBundle:Season:form.html.twig') }}
+{% endblock %}
