@@ -1,0 +1,4 @@
+services:
+#    fb_tournament.example:
+#        class: FB\TournamentBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
