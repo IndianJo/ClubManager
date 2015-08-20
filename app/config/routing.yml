@@ -1,3 +1,7 @@
+fb_tournament:
+    resource: "@FBTournamentBundle/Resources/config/routing.yml"
+    prefix:   /tournament
+
 fb_set_manager:
     resource: "@FBSetManagerBundle/Resources/config/routing.yml"
     prefix:   /set

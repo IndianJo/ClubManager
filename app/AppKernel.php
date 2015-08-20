@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new FB\PlayerManagerBundle\FBPlayerManagerBundle(),
             new FB\SetManagerBundle\FBSetManagerBundle(),
+            new FB\TournamentBundle\FBTournamentBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
