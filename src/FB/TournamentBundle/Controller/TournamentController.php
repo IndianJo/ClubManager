@@ -92,7 +92,21 @@ class TournamentController extends Controller
 
     public function deleteAction($id)
     {
+        // Récupération du tournoi
+        $em = $this->getDoctrine()->getManager();
+        $tournament = $em->getRepository('FBTournamentBundle:Tournament')->find($id);
 
+        if ($tournament === null)
+            throw new NotFoundHttpException("Le tournoi d'id".$id." n'existe pas");
+
+        // delete tournament
+        $em->remove($tournament);
+        $em->flush();
+
+        // récupération des infos de la bases
+        $tournaments = $em->getRepository('FBTournamentBundle:Tournament')->findAll();
+        //affichage de la liste des jeu de maillot
+        return $this->render('FBTournamentBundle:Tournament:index.html.twig', array('listTournament' => $tournaments));
     }
 
 }
