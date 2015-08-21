@@ -35,7 +35,7 @@
                         <a class="btn btn-default" type="button" href="{{ path('fb_setmanager_update', {'id': GameSet.id}) }}">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
-                        <a class="btn btn-danger" type="button" href="{{ path('fb_setmanager_delete', {'id': GameSet.id}) }}">
+                        <a class="btn btn-danger" type="button" href="{{ path('fb_setmanager_delete', {'id': GameSet.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
                             <span class="glyphicon glyphicon-trash"></span>
                         </a>
                     </td>
