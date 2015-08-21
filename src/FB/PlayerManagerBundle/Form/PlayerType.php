@@ -25,7 +25,7 @@ class PlayerType extends AbstractType
             ->add('email',          'email')
             //->add('GameSets',       'entity', array('class'=> 'FB\SetManagerBundle\Entity\GameSet', 'property'=> 'number'))
             ->add('save',           'submit')
-            ->add('saveexit',           'submit')
+            ->add('saveexit',       'submit')
         ;
     }
     
