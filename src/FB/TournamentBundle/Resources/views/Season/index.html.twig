@@ -9,11 +9,14 @@
     Welcom in Season Manager
 {% endblock %}
 {% block headerMessage %}
-    <p> Ce module permet de gérer les saison</p>
+    <p> Ce module permet de gérer les saisons</p>
 {% endblock %}
 {% block fbclubmanager_body %}
 
-    <h2>Liste des saison</h2>
+    <h2>Liste des saisons </h2>
+    {# Adding form #}
+    {{ include ('FBTournamentBundle:Season:form.html.twig') }}
+
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -30,10 +33,10 @@
                     <td>{{ season.startDate|date('d-m') }}</td>
                     <td>{{ season.endDate|date('d-m') }}</td>
                     <td>
-                        <a class="btn btn-default" type="button" href="{{ path('fb_season', {'id': tournament.id}) }}">
+                        <a class="btn btn-default" type="button" href="{{ path('fb_season_update', {'id': season.id}) }}">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
-                        <a class="btn btn-danger" type="button" href="{{ path('fb_tournament_delete', {'id': tournament.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
+                        <a class="btn btn-danger" type="button" href="{{ path('fb_tournament_delete', {'id': season.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
                             <span class="glyphicon glyphicon-trash"></span>
                         </a>
                     </td>

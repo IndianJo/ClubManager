@@ -16,9 +16,39 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SeasonController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        $season = new Season();
 
+        // Création du formulaire de saisie
+        $form = $this->get('form.factory')->create(new SeasonType(), $season);
+
+        // récupération de l'entity manager
+        $em = $this->getDoctrine()->getManager();
+
+        // On fait le lien Requête<->formulaire
+        $form->handleRequest($request);
+
+        // on vérife la validité des donnnées du formulaire
+        if($form->isValid()){
+            // sauvegarde dans la BDD
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($season);
+            $em->flush();
+
+            $this->get('session')->getFlashBag()->add('notice', 'Saison enregitrée');
+
+            //Clear the form
+            unset($season);
+            unset($form);
+            $season = new Season();
+            $form = $this->get('form.factory')->create(new SeasonType(), $season);
+        }
+
+        // récupération de la liste des saisons stockés en BDD
+        $seasons = $em->getRepository('FBTournamentBundle:Season')->findAll();
+
+        return $this->render('FBTournamentBundle:Season:index.html.twig', array('listSeasons' => $seasons, 'form' => $form->createView()));
     }
 
     public function addAction(Request $request)

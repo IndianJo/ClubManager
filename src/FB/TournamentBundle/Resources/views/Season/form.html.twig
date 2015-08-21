@@ -6,30 +6,27 @@
     {# Les erreurs générales du formulaire. #}
     {{ form_errors(form) }}
 
-<div class="form-group">
-    {{ form_label(form.name, "Nom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-    {{ form_errors(form.name) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+    <div class="form-group">
+        {{ form_label(form.name, "Nom", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.name) }}
+        <div class="col-sm-2">
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+        </div>
     </div>
-</div>
-
-<div class="form-group">
-    {{ form_label(form.startDate, "Date de début", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-    {{ form_errors(form.startDate) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.startDate, {'attr': {'class': 'form-control'}}) }}
+    <div class="form-group">
+        {{ form_label(form.startDate, "Date de début", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.startDate) }}
+        <div class="col-sm-3">
+            {{ form_widget(form.startDate, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        {{ form_label(form.endDate, "Date de fin", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.endDate) }}
+        <div class="col-sm-3">
+            {{ form_widget(form.endDate, {'attr': {'class': 'form-control'}}) }}
+        </div>
     </div>
-</div>
-<div class="form-group">
-    {{ form_label(form.endDate, "Date de fin", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-    {{ form_errors(form.endDate) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.endDate, {'attr': {'class': 'form-control'}}) }}
-    </div>
-</div>
-{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary' } }) }}
+    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+    {{ form_widget(form.Save, { 'label': 'Ajouter', 'attr': {'class': 'btn btn-primary' }} ) }}
 
     {# Génération automatique des champs pas encore écrits.
        Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)

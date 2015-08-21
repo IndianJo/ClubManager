@@ -18,7 +18,7 @@ class SeasonType extends AbstractType
             ->add('name',       'text')
             ->add('startDate',  'date')
             ->add('endDate',    'date')
-            ->add('save',       'submit')
+            ->add('Save',       'submit')
         ;
     }
     
