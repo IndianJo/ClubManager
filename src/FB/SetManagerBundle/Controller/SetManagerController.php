@@ -41,6 +41,12 @@ class SetManagerController extends Controller
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('notice', 'GameSet enregitré');
+
+            //Clear the form
+            unset($gameSet);
+            unset($form);
+            $gameSet = new GameSet();
+            $form = $this->get('form.factory')->create(new GameSetType(), $gameSet);
         }
         return $this->render('FBSetManagerBundle:Set:add.html.twig', array('form' => $form->createView()));
     }

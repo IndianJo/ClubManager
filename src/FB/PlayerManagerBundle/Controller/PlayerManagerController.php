@@ -48,6 +48,13 @@ class PlayerManagerController extends Controller
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('notice', 'Joueur enregitré');
+
+            //Clear the form
+            unset($player);
+            unset($form);
+            $player = new Player();
+            $form = $this->get('form.factory')->create(new PlayerType(), $player);
+
         }
         return $this->render('FBPlayerManagerBundle:PlayerManager:add.html.twig', array('form' => $form->createView()));
     }

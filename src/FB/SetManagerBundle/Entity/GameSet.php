@@ -41,7 +41,7 @@ class GameSet
     /**
      * @var string
      *
-     * @ORM\Column(name="sexe", type="string", length=1)
+     * @ORM\Column(name="sexe", type="string", length=5)
      */
     private $sexe;
 

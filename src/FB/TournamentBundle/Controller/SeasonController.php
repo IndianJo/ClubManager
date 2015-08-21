@@ -39,6 +39,12 @@ class SeasonController extends Controller
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('notice', 'Saison enregitrée');
+
+            //Clear the form
+            unset($season);
+            unset($form);
+            $season = new Season();
+            $form = $this->get('form.factory')->create(new SeasonType(), $season);
         }
         return $this->render('FBTournamentBundle:Season:add.html.twig', array('form' => $form->createView()));
     }

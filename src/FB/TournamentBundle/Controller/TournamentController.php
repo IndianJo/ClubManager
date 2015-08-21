@@ -53,6 +53,12 @@ class TournamentController extends Controller
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('notice', 'Tournoi enregitré');
+
+            //Clear the form
+            unset($tournament);
+            unset($form);
+            $tournament = new Tournament();
+            $form = $this->get('form.factory')->create(new TournamentType(), $tournament);
         }
         return $this->render('FBTournamentBundle:Tournament:add.html.twig', array('form' => $form->createView()));
     }
