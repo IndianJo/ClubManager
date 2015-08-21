@@ -39,6 +39,8 @@ class PlayerManagerController extends Controller
 
         // On fait le lien Requête<->formulaire
         $form->handleRequest($request);
+        
+        //echo '<pre>'.print_r($request->request->get('fb_playermanagerbundle_player')['saveexit'], true).'</pre>';
 
         // on vérife la validité des donnnées du formulaire
         if($form->isValid()){
@@ -54,6 +56,10 @@ class PlayerManagerController extends Controller
             unset($form);
             $player = new Player();
             $form = $this->get('form.factory')->create(new PlayerType(), $player);
+
+			if(isset($request->request->get('fb_playermanagerbundle_player')['saveexit'])){
+				return $this->redirect($this->generateUrl('fb_playermanager_home'));
+			}
 
         }
         return $this->render('FBPlayerManagerBundle:PlayerManager:add.html.twig', array('form' => $form->createView()));
