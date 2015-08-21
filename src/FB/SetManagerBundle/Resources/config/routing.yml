@@ -3,10 +3,6 @@ fb_setmanager_home:
     path:     /
     defaults: { _controller: FBSetManagerBundle:SetManager:index }
 
-fb_setmanager_add:
-    path:   /add
-    defaults: { _controller: FBSetManagerBundle:SetManager:add }
-
 fb_setmanager_update:
     path:    /update/{id}
     defaults: { _controller: FBSetManagerBundle:SetManager:update }

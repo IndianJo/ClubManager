@@ -12,23 +12,18 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class SetManagerController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        $gameSet = new GameSet();
+
+        // Création du formulaire
+        $form = $this->get('form.factory')->create(new GameSetType(), $gameSet);
+
         // récupération de l'entity manager
         $em = $this->getDoctrine()->getManager();
 
         // récupération de la liste des maillots stockés en BDD
         $GameSets = $em->getRepository('FBSetManagerBundle:GameSet')->findAll();
-
-        return $this->render('@FBSetManager/Set/index.html.twig', array('listGameSet' => $GameSets));
-    }
-
-    public function addAction(Request $request)
-    {
-        $gameSet = new GameSet();
-
-        // Création du formulaire de saisie d'un nouveau joueur à partir du formBuilder
-        $form = $this->get('form.factory')->create(new GameSetType(), $gameSet);
 
         // On fait le lien Requête<->formulaire
         $form->handleRequest($request);
@@ -48,7 +43,8 @@ class SetManagerController extends Controller
             $gameSet = new GameSet();
             $form = $this->get('form.factory')->create(new GameSetType(), $gameSet);
         }
-        return $this->render('FBSetManagerBundle:Set:add.html.twig', array('form' => $form->createView()));
+
+        return $this->render('@FBSetManager/Set/index.html.twig', array('listGameSet' => $GameSets,'form' => $form->createView()));
     }
 
     public function updateAction($id, Request $request)

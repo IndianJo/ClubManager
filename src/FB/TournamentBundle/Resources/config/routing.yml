@@ -18,10 +18,6 @@ fb_season_home:
     path:    /season
     defaults: { _controller: FBTournamentBundle:Season:index }
 
-fb_season_add:
-    path:   /season/add/
-    defaults: { _controller: FBTournamentBundle:Season:add }
-
 fb_season_update:
     path:   /season/update/{id}
     defaults: { _controller: FBTournamentBundle:Season:update }
