@@ -78,7 +78,7 @@ class PlayerManagerController extends Controller
         // récupération des infos de la bases
         $players = $em->getRepository('FBPlayerManagerBundle:Player')->findAll();
         //affichage de la liste des joueurs
-        return $this->render('@FBPlayerManager/PlayerManager/index.html.twig', array('listPlayers' => $players));
+        return $this->redirect($this->generateUrl('fb_playermanager_home', array('listPlayers' => $players)));
     }
 
     /**
@@ -107,7 +107,7 @@ class PlayerManagerController extends Controller
             // récupération des infos de la bases
             $players = $em->getRepository('FBPlayerManagerBundle:Player')->findAll();
             //affichage de la liste des joueurs
-            return $this->render('@FBPlayerManager/PlayerManager/index.html.twig', array('listPlayers' => $players));
+            return $this->redirect($this->generateUrl('fb_playermanager_home', array('listPlayers' => $players)));
         }
 
         return $this->render('FBPlayerManagerBundle:PlayerManager:update.html.twig', array('form' => $form->createView()));

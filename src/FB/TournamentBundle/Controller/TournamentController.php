@@ -84,7 +84,7 @@ class TournamentController extends Controller
                 // récupération des infos de la bases
                 $tournaments = $em->getRepository('FBTournamentBundle:Tournament')->findAll();
                 //affichage de la liste des set de maillot
-                return $this->render('FBTournamentBundle:Tournament:index.html.twig', array('listTournament' => $tournaments));
+                return $this->redirect($this->generateUrl('fb_tournament_home', array('listTournament' => $tournaments)));
             }
         }
         return $this->render('FBTournamentBundle:Tournament:update.html.twig', array('form' => $form->createView()));
@@ -106,7 +106,7 @@ class TournamentController extends Controller
         // récupération des infos de la bases
         $tournaments = $em->getRepository('FBTournamentBundle:Tournament')->findAll();
         //affichage de la liste des jeu de maillot
-        return $this->render('FBTournamentBundle:Tournament:index.html.twig', array('listTournament' => $tournaments));
+        return $this->redirect($this->generateUrl('fb_tournament_home', array('listTournament' => $tournaments)));
     }
 
 }

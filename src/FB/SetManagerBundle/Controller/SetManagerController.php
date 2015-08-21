@@ -74,7 +74,7 @@ class SetManagerController extends Controller
             // récupération des infos de la bases
             $gameSets = $em->getRepository('FBSetManagerBundle:GameSet')->findAll();
             //affichage de la liste des set de maillot
-            return $this->render('FBSetManagerBundle:Set:index.html.twig', array('listGameSet' => $gameSets));
+            return $this->redirect($this->generateUrl('fb_setmanager_home', array('listGameSet' => $gameSets)));
         }
 
         return $this->render('FBSetManagerBundle:Set:update.html.twig', array('form' => $form->createView()));
@@ -96,6 +96,6 @@ class SetManagerController extends Controller
         // récupération des infos de la bases
         $gamesets = $em->getRepository('FBSetManagerBundle:GameSet')->findAll();
         //affichage de la liste des jeu de maillot
-        return $this->render('@FBSetManager/Set/index.html.twig', array('listGameSet' => $gamesets));
+        return $this->redirect($this->generateUrl('fb_setmanager_home', array('listGameSet' => $gamesets)));
     }
 }

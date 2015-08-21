@@ -101,7 +101,7 @@ class SeasonController extends Controller
                 // récupération des infos de la bases
                 $seasons = $em->getRepository('FBTournamentBundle:Season')->findAll();
                 //affichage de la liste des set de maillot
-                return $this->render('FBTournamentBundle:Season:index.html.twig', array('listSeasons' => $seasons));
+                return $this->redirect($this->generateUrl('fb_season_home', array('listSeasons' => $seasons)));
             }
         }
         return $this->render('FBTournamentBundle:Season:update.html.twig', array('form' => $form->createView()));
@@ -123,6 +123,6 @@ class SeasonController extends Controller
         // récupération des infos de la bases
         $seasons = $em->getRepository('FBTournamentBundle:Season')->findAll();
         //affichage de la liste des jeu de maillot
-        return $this->render('FBTournamentBundle:Season:index.html.twig', array('listSeasons' => $seasons));
+        return $this->redirect($this->generateUrl('fb_season_home', array('listSeasons' => $seasons)));
     }
 }
