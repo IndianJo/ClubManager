@@ -14,10 +14,10 @@ class SetManagerController extends Controller
 {
     public function indexAction()
     {
-        // récupération de l'entity manager
+        // rÃ©cupÃ©ration de l'entity manager
         $em = $this->getDoctrine()->getManager();
 
-        // récupération de la liste des maillots stockés en BDD
+        // rÃ©cupÃ©ration de la liste des maillots stockÃ©s en BDD
         $GameSets = $em->getRepository('FBSetManagerBundle:GameSet')->findAll();
 
         return $this->render('@FBSetManager/Set/index.html.twig', array('listGameSet' => $GameSets));
@@ -27,20 +27,20 @@ class SetManagerController extends Controller
     {
         $gameSet = new GameSet();
 
-        // Création du formulaire de saisie d'un nouveau joueur à partir du formBuilder
+        // CrÃ©ation du formulaire de saisie d'un nouveau joueur Ã  partir du formBuilder
         $form = $this->get('form.factory')->create(new GameSetType(), $gameSet);
 
-        // On fait le lien Requête<->formulaire
+        // On fait le lien RequÃªte<->formulaire
         $form->handleRequest($request);
 
-        // on vérife la validité des donnnées du formulaire
+        // on vÃ©rife la validitÃ© des donnnÃ©es du formulaire
         if($form->isValid()){
             // sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($gameSet);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('notice', 'GameSet enregitré');
+            $this->get('session')->getFlashBag()->add('info', 'jeu de maillot enregitrÃ©');
 
             //Clear the form
             unset($gameSet);
@@ -53,25 +53,25 @@ class SetManagerController extends Controller
 
     public function updateAction($id, Request $request)
     {
-        // Récupération du jeu de maillot
+        // RÃ©cupÃ©ration du jeu de maillot
         $gameSet = $this->getDoctrine()->getManager()->getRepository('FBSetManagerBundle:GameSet')->find($id);
 
         // Et on construit le formBuilder
         $form = $this->get('form.factory')->create(new GameSetType(), $gameSet);
 
-        // On fait le lien Requête<->formulaire
+        // On fait le lien RequÃªte<->formulaire
         $form->handleRequest($request);
 
-        // on vérife la validité des donnnées du formulaire
+        // on vÃ©rife la validitÃ© des donnnÃ©es du formulaire
         if($form->isValid()){
             // sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($gameSet);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('notice', 'jeu de maillot mis à jour');
+            $this->get('session')->getFlashBag()->add('success', 'jeu de maillot mis Ã  jour');
 
-            // récupération des infos de la bases
+            // rÃ©cupÃ©ration des infos de la bases
             $gameSets = $em->getRepository('FBSetManagerBundle:GameSet')->findAll();
             //affichage de la liste des set de maillot
             return $this->redirect($this->generateUrl('fb_setmanager_home', array('listGameSet' => $gameSets)));
@@ -82,7 +82,7 @@ class SetManagerController extends Controller
 
     public function deleteAction($id)
     {
-        // Récupération du maillot
+        // RÃ©cupÃ©ration du maillot
         $em = $this->getDoctrine()->getManager();
         $gameset = $em->getRepository('FBSetManagerBundle:GameSet')->find($id);
 
@@ -92,8 +92,9 @@ class SetManagerController extends Controller
         // delete gameset
         $em->remove($gameset);
         $em->flush();
+        $this->get('session')->getFlashBag()->add('success', 'jeu de maillot supprimer');
 
-        // récupération des infos de la bases
+        // rÃ©cupÃ©ration des infos de la bases
         $gamesets = $em->getRepository('FBSetManagerBundle:GameSet')->findAll();
         //affichage de la liste des jeu de maillot
         return $this->redirect($this->generateUrl('fb_setmanager_home', array('listGameSet' => $gamesets)));
