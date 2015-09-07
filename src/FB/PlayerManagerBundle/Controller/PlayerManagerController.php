@@ -18,10 +18,10 @@ class PlayerManagerController extends Controller
      */
     public function indexAction()
     {
-        // récupération de l'entity manager
+        // rÃ©cupÃ©ration de l'entity manager
         $em = $this->getDoctrine()->getManager();
 
-        // récupération de la liste des joueurs stckés en BDD
+        // rÃ©cupÃ©ration de la liste des joueurs stckÃ©s en BDD
         $players = $em->getRepository('FBPlayerManagerBundle:Player')->findAll();
 
         return $this->render('@FBPlayerManager/PlayerManager/index.html.twig', array('listPlayers' => $players));
@@ -34,22 +34,22 @@ class PlayerManagerController extends Controller
     {
         $player = new Player();
 
-        // Création du formulaire de saisie d'un nouveau joueur à partir du formBuilder
+        // CrÃ©ation du formulaire de saisie d'un nouveau joueur Ã  partir du formBuilder
         $form = $this->get('form.factory')->create(new PlayerType, $player);
 
-        // On fait le lien Requête<->formulaire
+        // On fait le lien RequÃªte<->formulaire
         $form->handleRequest($request);
         
         //echo '<pre>'.print_r($request->request->get('fb_playermanagerbundle_player')['saveexit'], true).'</pre>';
 
-        // on vérife la validité des donnnées du formulaire
+        // on vÃ©rife la validitÃ© des donnnÃ©es du formulaire
         if($form->isValid()){
             // sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($player);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('notice', 'Joueur enregitré');
+            $this->get('session')->getFlashBag()->add('notice', 'Joueur enregitrÃ©');
 
             //Clear the form
             unset($player);
@@ -70,7 +70,7 @@ class PlayerManagerController extends Controller
      */
     public function deleteAction($id)
     {
-        // Récupération du joueurs
+        // RÃ©cupÃ©ration du joueurs
         $em = $this->getDoctrine()->getManager();
         $player = $em->getRepository('FBPlayerManagerBundle:Player')->find($id);
 
@@ -81,7 +81,7 @@ class PlayerManagerController extends Controller
         $em->remove($player);
         $em->flush();
 
-        // récupération des infos de la bases
+        // rÃ©cupÃ©ration des infos de la bases
         $players = $em->getRepository('FBPlayerManagerBundle:Player')->findAll();
         //affichage de la liste des joueurs
         return $this->redirect($this->generateUrl('fb_playermanager_home', array('listPlayers' => $players)));
@@ -92,25 +92,25 @@ class PlayerManagerController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-        // Récupération du joueurs
+        // RÃ©cupÃ©ration du joueurs
         $player = $this->getDoctrine()->getManager()->getRepository('FBPlayerManagerBundle:Player')->find($id);
 
-        // Et on construit le formBuilder a partir de l'entité
+        // Et on construit le formBuilder a partir de l'entitÃ©
         $form = $this->get('form.factory')->create(new PlayerType(), $player);
 
-        // On fait le lien Requête<->formulaire
+        // On fait le lien RequÃªte<->formulaire
         $form->handleRequest($request);
 
-        // on vérife la validité des donnnées du formulaire
+        // on vÃ©rife la validitÃ© des donnnÃ©es du formulaire
         if($form->isValid()){
             // sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($player);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('notice', 'Joueur mis à jour');
+            $this->get('session')->getFlashBag()->add('success', 'Joueur mis Ã  jour');
 
-            // récupération des infos de la bases
+            // rÃ©cupÃ©ration des infos de la bases
             $players = $em->getRepository('FBPlayerManagerBundle:Player')->findAll();
             //affichage de la liste des joueurs
             return $this->redirect($this->generateUrl('fb_playermanager_home', array('listPlayers' => $players)));

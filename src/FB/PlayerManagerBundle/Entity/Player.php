@@ -5,6 +5,7 @@ namespace FB\PlayerManagerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FB\SetManagerBundle\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Player
@@ -27,6 +28,7 @@ class Player
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $firstname;
 
@@ -34,13 +36,15 @@ class Player
      * @var string
      *
      * @ORM\Column(name="lastname", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $lastname;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="phonenumber", type="integer")
+     * @ORM\Column(name="phonenumber", type="string", length=10)
+     * @Assert\Length(min=10, max=10, exactMessage="Le numéro de téléphone doit faire {{ limit }} caractères")
      */
     private $phonenumber;
 
@@ -76,6 +80,7 @@ class Player
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\Email()
      */
     private $email;
 

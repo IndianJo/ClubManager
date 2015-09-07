@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$/src/FB/ClubManagerBundle/Controller/ManagerController.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/FB/ClubManagerBundle/Resources/views/ClubManager/index.html.twig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/FB/ClubManagerBundle/Resources/views/layout.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/FB/PlayerManagerBundle/Controller/PlayerManagerController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/FB/PlayerManagerBundle/Entity/Player.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/FB/PlayerManagerBundle/Resources/views/PlayerManager/add.html.twig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/FB/PlayerManagerBundle/Resources/views/PlayerManager/form.html.twig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/FB/PlayerManagerBundle/Resources/views/PlayerManager/index.html.twig" charset="UTF-8" />
