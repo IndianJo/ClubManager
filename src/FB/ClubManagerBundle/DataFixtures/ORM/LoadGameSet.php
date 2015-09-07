@@ -14,23 +14,23 @@ class LoadGameSet implements FixtureInterface
         $sets = array(array());
         $sets[0][0] = 87;
         $sets[0][1] = "M";
-        $sets[0][2] = "M";
+        $sets[0][2] = "Men";
 
         $sets[1][0] = 22;
         $sets[1][1] = "XL";
-        $sets[1][2] = "M";
+        $sets[1][2] = "Men";
 
         $sets[2][0] = 88;
         $sets[2][1] = "S";
-        $sets[2][2] = "W";
+        $sets[2][2] = "Women";
 
         foreach ($sets as $set) {
-            $gameset = new GameSet();
-            $gameset->setNumber($set[0]);
-            $gameset->setSize($set[1]);
-            $gameset->setSexe($set[2]);
+            $gameSet = new GameSet();
+            $gameSet->setNumber($set[0]);
+            $gameSet->setSize($set[1]);
+            $gameSet->setSexe($set[2]);
 
-            $manager->persist($gameset);
+            $manager->persist($gameSet);
         }
         $manager->flush();
     }

@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\BrowserKit\Response;
 use FB\PlayerManagerBundle\Entity\Player;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class PlayerManagerController extends Controller
 {
@@ -29,6 +30,7 @@ class PlayerManagerController extends Controller
 
     /**
      * Use to add new player in database.
+     * @Security("has_role('ROLE_MEMBER')")
      */
     public function addAction(Request $request)
     {
@@ -57,9 +59,9 @@ class PlayerManagerController extends Controller
             $player = new Player();
             $form = $this->get('form.factory')->create(new PlayerType(), $player);
 
-			if(isset($request->request->get('fb_playermanagerbundle_player')['saveexit'])){
-				return $this->redirect($this->generateUrl('fb_playermanager_home'));
-			}
+            if(isset($request->request->get('fb_playermanagerbundle_player')['saveexit'])){
+                return $this->redirect($this->generateUrl('fb_playermanager_home'));
+            }
 
         }
         return $this->render('FBPlayerManagerBundle:PlayerManager:add.html.twig', array('form' => $form->createView()));

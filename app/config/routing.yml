@@ -13,3 +13,13 @@ fb_player_manager:
 fb_club_manager:
     resource: "@FBClubManagerBundle/Resources/config/routing.yml"
     prefix:   /
+
+login:
+    pattern:   /login
+    defaults:  { _controller: FBUserBundle:Security:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout

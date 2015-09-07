@@ -40,7 +40,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Joueurs <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path ('fb_playermanager_home') }}">Gérer les joueurs</a></li>
+                        {% if is_granted('ROLE_MEMBER') %}
                         <li><a href="{{ path('fb_playermanager_add') }}">Ajouter un joueur</a></li>
+                        {% endif %}
                     </ul>
                 </li>
                 <li class="dropdown">

@@ -1,11 +1,21 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+        FB\UserBundle\Entity\User: plaintext
+
+    role_hierarchy:
+        ROLE_MEMBER:      ROLE_PLAYER
+        ROLE_ADMIN:       [ROLE_PLAYER, ROLE_MEMBER]
+        ROLE_SUPER_ADMIN: [ROLE_PLAYER, ROLE_MEMBER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        main:
+            entity:
+                class: FB\UserBundle\Entity\User
+                property: username
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -14,7 +24,15 @@ security:
             security: false
 
         main:
-            anonymous: ~
+            pattern: ^/
+            anonymous: true
+            provider: main
+            form_login:
+                login_path: login
+                check_path: login_check
+            logout:
+                path: logout
+                target: /
             # activate different ways to authenticate
 
             # http_basic: ~
