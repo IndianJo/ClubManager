@@ -18,7 +18,7 @@ class TournamentType extends AbstractType
             ->add('name',       'text')
             ->add('address',    'text')
             ->add('city',       'text')
-            ->add('country',    'text')
+            ->add('country',    'country', array('preferred_choices' => array('FR')))
             ->add('startDate',  'date')
             ->add('endDate',    'date')
             ->add('category',   'choice', array('choices' => array(
@@ -41,6 +41,11 @@ class TournamentType extends AbstractType
                 'property' => 'name',
                 'empty_value' => 'Sélectionner une saison',
             ))
+            ->add('players', 'entity', array( 'class' => 'FB\PlayerManagerBundle\Entity\Player',
+                'property' => 'firstname',
+                'empty_value' => 'Sélectionner un joueur',
+                'required' => false,
+                'multiple' => true))
             ->add('save', 'submit')
         ;
     }

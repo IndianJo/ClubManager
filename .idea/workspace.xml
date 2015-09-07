@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ade7cf8-eed9-4365-9d47-f068eca7cbc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FB/PlayerManagerBundle/Resources/views/PlayerManager/form.html.twig" afterPath="$PROJECT_DIR$/src/FB/PlayerManagerBundle/Resources/views/PlayerManager/form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FB/SetManagerBundle/Resources/views/Set/form.html.twig" afterPath="$PROJECT_DIR$/src/FB/SetManagerBundle/Resources/views/Set/form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/form.html.twig" afterPath="$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FB/TournamentBundle/Entity/Tournament.php" afterPath="$PROJECT_DIR$/src/FB/TournamentBundle/Entity/Tournament.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FB/TournamentBundle/Form/TournamentType.php" afterPath="$PROJECT_DIR$/src/FB/TournamentBundle/Form/TournamentType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Tournament/form.html.twig" afterPath="$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Tournament/form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FB/ClubManagerBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/FB/ClubManagerBundle/Resources/views/layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ClubManager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,50 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PlayerType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FB/PlayerManagerBundle/Form/PlayerType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.346153">
-              <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="add.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FB/PlayerManagerBundle/Resources/views/PlayerManager/add.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-7.8461537">
               <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SetManagerController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FB/SetManagerBundle/Controller/SetManagerController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.038462">
-              <caret line="55" column="63" selection-start-line="55" selection-start-column="63" selection-end-line="55" selection-end-column="63" />
-              <folding>
-                <element signature="e#114#153#0#PHP" expanded="true" />
-                <element signature="e#820#848#1#PHP" expanded="true" />
-                <element signature="e#1536#1571#0#PHP" expanded="true" />
-                <element signature="e#1819#1847#1#PHP" expanded="true" />
-                <element signature="e#2509#2537#1#PHP" expanded="true" />
-                <element signature="e#2759#2800#0#PHP" expanded="true" />
-                <element signature="e#3015#3043#1#PHP" expanded="true" />
-                <element signature="e#3436#3464#1#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameSetType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FB/SetManagerBundle/Form/GameSetType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.692307">
-              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -98,41 +56,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="form.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Tournament/form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55982435">
-              <caret line="66" column="77" selection-start-line="66" selection-start-column="77" selection-end-line="66" selection-end-column="77" />
+            <state vertical-scroll-proportion="-9.115385">
+              <caret line="71" column="10" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/update.html.twig">
+      <file leaf-file-name="TournamentType.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Form/TournamentType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.576923">
-              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.76094276">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/form.html.twig">
+      <file leaf-file-name="Tournament.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Entity/Tournament.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.307692">
-              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+            <state vertical-scroll-proportion="-16.307692">
+              <caret line="367" column="7" selection-start-line="367" selection-start-column="7" selection-end-line="367" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FB/PlayerManagerBundle/Resources/views/PlayerManager/index.html.twig">
+      <file leaf-file-name="GameSetType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FB/SetManagerBundle/Form/GameSetType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.6153846">
-              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+            <state vertical-scroll-proportion="-13.076923">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="27" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -206,8 +164,6 @@
         <option value="$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Tournament/update.html.twig" />
         <option value="$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/add.html.twig" />
         <option value="$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/update.html.twig" />
-        <option value="$PROJECT_DIR$/src/FB/TournamentBundle/Entity/Tournament.php" />
-        <option value="$PROJECT_DIR$/src/FB/TournamentBundle/Form/TournamentType.php" />
         <option value="$PROJECT_DIR$/src/FB/PlayerManagerBundle/Resources/views/PlayerManager/index.html.twig" />
         <option value="$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Tournament/index.html.twig" />
         <option value="$PROJECT_DIR$/src/FB/SetManagerBundle/Entity/GameSet.php" />
@@ -232,7 +188,9 @@
         <option value="$PROJECT_DIR$/src/FB/PlayerManagerBundle/Resources/views/PlayerManager/form.html.twig" />
         <option value="$PROJECT_DIR$/src/FB/SetManagerBundle/Resources/views/Set/form.html.twig" />
         <option value="$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/form.html.twig" />
+        <option value="$PROJECT_DIR$/src/FB/TournamentBundle/Entity/Tournament.php" />
         <option value="$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Tournament/form.html.twig" />
+        <option value="$PROJECT_DIR$/src/FB/TournamentBundle/Form/TournamentType.php" />
       </list>
     </option>
   </component>
@@ -477,26 +435,12 @@
               <option name="myItemId" value="FB" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ClubManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ClubManager" />
+              <option name="myItemId" value="TournamentBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PlayerManagerBundle" />
+              <option name="myItemId" value="Form" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -518,19 +462,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PlayerManagerBundle" />
+              <option name="myItemId" value="TournamentBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PlayerManager" />
+              <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -549,14 +485,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PlayerManagerBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -676,7 +604,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284974" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.4936034" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3284974" sideWeight="0.4936034" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2585288" sideWeight="0.5054096" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32331607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -737,16 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.2692308">
           <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FB/PlayerManagerBundle/Entity/Player.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.307693">
-          <caret line="299" column="0" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
-          <folding>
-            <element signature="e#97#129#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -836,13 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Entity/Tournament.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="7" selection-start-line="112" selection-start-column="7" selection-end-line="112" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/Form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.64440733">
@@ -874,13 +785,6 @@
           <folding>
             <element signature="e#86#123#0#Twig" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Form/TournamentType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17982456">
-          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -918,15 +822,15 @@
         <state vertical-scroll-proportion="-21.5">
           <caret line="81" column="50" selection-start-line="81" selection-start-column="39" selection-end-line="81" selection-end-column="50" />
           <folding>
-            <element signature="e#115#153#0#PHP" expanded="true" />
-            <element signature="e#1128#1159#1#PHP" expanded="true" />
-            <element signature="e#1288#1319#1#PHP" expanded="true" />
-            <element signature="e#1362#1409#0#PHP" expanded="true" />
-            <element signature="e#2403#2448#0#PHP" expanded="true" />
-            <element signature="e#2693#2724#1#PHP" expanded="true" />
-            <element signature="e#3320#3351#1#PHP" expanded="true" />
-            <element signature="e#3866#3897#1#PHP" expanded="true" />
-            <element signature="e#4205#4236#1#PHP" expanded="true" />
+            <element signature="e#115#153#0#PHP" expanded="false" />
+            <element signature="e#1128#1159#1#PHP" expanded="false" />
+            <element signature="e#1288#1319#1#PHP" expanded="false" />
+            <element signature="e#1362#1409#0#PHP" expanded="false" />
+            <element signature="e#2403#2448#0#PHP" expanded="false" />
+            <element signature="e#2693#2724#1#PHP" expanded="false" />
+            <element signature="e#3320#3351#1#PHP" expanded="false" />
+            <element signature="e#3866#3897#1#PHP" expanded="false" />
+            <element signature="e#4205#4236#1#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1049,14 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FB/SetManagerBundle/Form/GameSetType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.692307">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/FormView.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20526893">
@@ -1105,26 +1001,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/update.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/FB/PlayerManagerBundle/Entity/Player.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Entity/Tournament.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.307692">
+          <caret line="367" column="7" selection-start-line="367" selection-start-column="7" selection-end-line="367" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.307692">
+        <state vertical-scroll-proportion="0.8013468">
           <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Season/update.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2003367">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FB/SetManagerBundle/Form/GameSetType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="27" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Resources/views/Tournament/form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55982435">
-          <caret line="66" column="77" selection-start-line="66" selection-start-column="77" selection-end-line="66" selection-end-column="77" />
+        <state vertical-scroll-proportion="-9.115385">
+          <caret line="71" column="10" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FB/TournamentBundle/Form/TournamentType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76094276">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>

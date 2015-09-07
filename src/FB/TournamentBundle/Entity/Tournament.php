@@ -91,6 +91,11 @@ class Tournament
     private $season;
 
     /**
+     * @ORM\ManyToMany(targetEntity="FB\PlayerManagerBundle\Entity\Player", cascade={"persist"})
+     */
+    private $players;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -328,5 +333,45 @@ class Tournament
     public function getSeason()
     {
         return $this->season;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->players = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add players
+     *
+     * @param \FB\PlayerManagerBundle\Entity\Player $player
+     * @return Tournament
+     */
+    public function addPlayer(\FB\PlayerManagerBundle\Entity\Player $player)
+    {
+        $this->players[] = $player;
+
+        return $this;
+    }
+
+    /**
+     * Remove players
+     *
+     * @param \FB\PlayerManagerBundle\Entity\Player $player
+     */
+    public function removePlayer(\FB\PlayerManagerBundle\Entity\Player $player)
+    {
+        $this->players->removeElement($player);
+    }
+
+    /**
+     * Get players
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPlayers()
+    {
+        return $this->players;
     }
 }
