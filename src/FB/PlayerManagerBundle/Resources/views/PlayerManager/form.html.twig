@@ -71,12 +71,11 @@
         </div>
     </div>#}
 
-    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
     <div class="span7 text-center">
-    {{ form_widget(form.save, {'label': 'Sauvegarder', 'attr': { 'class': 'btn btn-primary' } }) }}
-    
-    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-    {{ form_widget(form.saveexit, {'label': 'Sauvegarder et quitter', 'attr': {'class': 'btn btn-primary' } }) }}
+        {{ form_widget(form.save, {'label': 'Sauvegarder', 'attr': { 'class': 'btn btn-primary' } }) }}
+
+        {{ form_widget(form.saveexit, {'label': 'Sauvegarder et quitter', 'attr': {'class': 'btn btn-primary' } }) }}
+        <a class="btn btn-primary" type="button" href="{{ path('fb_playermanager_home') }}">Annuler</a>
     </div>
     {# Génération automatique des champs pas encore écrits.
        Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)

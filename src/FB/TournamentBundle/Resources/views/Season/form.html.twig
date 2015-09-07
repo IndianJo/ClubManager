@@ -25,8 +25,12 @@
             {{ form_widget(form.endDate, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>
-    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-    {{ form_widget(form.Save, { 'label': 'Ajouter', 'attr': {'class': 'btn btn-primary' }} ) }}
+    <div class="form-group">
+        <div class="span6 text-center">
+            {{ form_widget(form.Save, {'label': 'Sauvegarder', 'attr': {'class': 'btn btn-primary col-sm-' } }) }}
+            <a class="btn btn-primary" type="button" href="{{ path('fb_tournament_home') }}">Annuler</a>
+        </div>
+    </div>
 
     {# Génération automatique des champs pas encore écrits.
        Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)

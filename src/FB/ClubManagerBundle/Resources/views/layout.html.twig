@@ -7,18 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %}FB Club Manager{% endblock %}</title>
-    <style>
-        @media (min-width: 768px) {
-            .navbar-collapse {
-                height: auto;
-                border-top: 0;
-                box-shadow: none;
-                max-height: none;
-                padding-left: 0;
-                padding-right: 0;
-            }
-        }
-    </style>
+
     {% block stylesheets %}
         {# On charge le CSS de bootstrap depuis le site directement #}
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -28,7 +17,7 @@
 <body>
 <div class="container">
     <div id="header" class="jumbotron">
-        <h1> {% block headerWelcome%} Welcome in  Club Manager {% endblock %}</h1>
+        <h1> {% block headerWelcome%} Welcome in Club Manager {% endblock %}</h1>
         <p> {% block headerMessage %}
             Ce projet est propulsé par Symfony2,
             et construit grâce au MOOC OpenClassrooms et SensioLabs.
