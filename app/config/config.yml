@@ -65,6 +65,8 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #     path:     "%database_path%"
+        types:
+            json: Sonata\Doctrine\Types\JsonType
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -83,3 +85,34 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: FB\UserBundle\Entity\User
+    group:
+        group_class: FB\UserBundle\Entity\Group
+    from_email:
+        address: jo@mesny.info
+        sender_name: jom
+
+# SONATA User Bundle
+sonata_user:
+    security_acl: false
+    manager_type: orm
+    class:
+        user: FB\UserBundle\Entity\User
+        group: FB\UserBundle\Entity\Group
+    impersonating:
+        route: homepage
+    admin:
+        user:
+            class: FB\UserBundle\Admin\UserAdmin
+            controller: SonataAdminBundle:CRUD
+            translation: SonataUserBundle
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.block.service.text: ~
+        sonata.block.service.action: ~
+        sonata.block.service.rss: ~
+        sonata.admin.block.search_result: ~
+        sonata.user.block.menu: ~

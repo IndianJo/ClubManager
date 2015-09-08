@@ -6,8 +6,10 @@ security:
 
     role_hierarchy:
         ROLE_MEMBER:      ROLE_PLAYER
-        ROLE_ADMIN:       [ROLE_PLAYER, ROLE_MEMBER]
-        ROLE_SUPER_ADMIN: [ROLE_PLAYER, ROLE_MEMBER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN:       [ROLE_PLAYER, ROLE_MEMBER, ROLE_SONATA_ADMIN]
+        ROLE_SUPER_ADMIN: [ROLE_PLAYER, ROLE_MEMBER, ROLE_SONATA_ADMIN, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        SONATA:
+                    - ROLE_SONATA_PAGE_ADMIN_PAGE_EDIT
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
@@ -19,6 +21,22 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+        # -> custom firewall for the admin area of the URL
+        admin:
+            pattern:      /admin/
+            form_login:
+                provider:       main
+                login_path:     sonata_user_admin_security_login
+                use_forward:    true
+                use_referer: true
+                check_path:     sonata_user_admin_security_check
+                #failure_path:   null
+            logout:
+                path:           sonata_user_admin_security_logout
+                target:         /
+            anonymous:    true
+        # -> end custom configuration
 
         main:
             pattern:        ^/
@@ -39,3 +57,13 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+    access_control:
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login_check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, roles: ROLE_ADMIN }
+        - { path: ^/connexion, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/inscription, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/mot-de-passe-oublie, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/profile, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/deconnexion$, role: IS_AUTHENTICATED_FULLY }
