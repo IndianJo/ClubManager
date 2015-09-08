@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new FB\SetManagerBundle\FBSetManagerBundle(),
             new FB\TournamentBundle\FBTournamentBundle(),
             new FB\UserBundle\FBUserBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
