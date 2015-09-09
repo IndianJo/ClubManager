@@ -2,6 +2,12 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block breacrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path ('fb_clubmanager_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li class="active">Connexion</li>
+    </ol>
+{% endblock %}
 {% block fos_user_content %}
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>

@@ -11,6 +11,12 @@
 {% block headerMessage %}
     <p> Ce module permet de gérer les tournois jouer par le club</p>
 {% endblock %}
+{% block breacrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path ('fb_clubmanager_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li class="active">Tournois</li>
+    </ol>
+{% endblock %}
 {% block fbclubmanager_body %}
 
     <h2>Liste des tournois</h2>

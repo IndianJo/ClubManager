@@ -1,0 +1,12 @@
+{% extends "FBUserBundle::layout.html.twig" %}
+{% block fos_breacrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path ('fb_clubmanager_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li><a href="{{ path ('fos_user_profile_show') }}">profil</a></li>
+        <li class="active">Edition</li>
+    </ol>
+{% endblock %}
+{% block fos_user_content %}
+    <p>edit profil</p>
+{% include "FBUserBundle:Profile:edit_content.html.twig" %}
+{% endblock fos_user_content %}

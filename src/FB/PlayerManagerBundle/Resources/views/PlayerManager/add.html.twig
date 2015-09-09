@@ -11,6 +11,13 @@
 {% block headerMessage %}
     <p> Ajouter un nouveau joueur</p>
 {% endblock %}
+{% block breacrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path ('fb_clubmanager_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li><a href="{{ path ('fb_playermanager_home') }}">Joueurs</a></li>
+        <li class="active">Ajouter</li>
+    </ol>
+{% endblock %}
 {% block fbclubmanager_body %}
     {{ include ('FBPlayerManagerBundle:PlayerManager:form.html.twig') }}
 {% endblock %}

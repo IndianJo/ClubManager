@@ -11,6 +11,12 @@
 {% block headerMessage %}
     <p> Ce module permet de gérer les maillots du club</p>
 {% endblock %}
+{% block breacrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path ('fb_clubmanager_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li class="active">Maillots</li>
+    </ol>
+{% endblock %}
 {% block fbclubmanager_body %}
     {% if is_granted('ROLE_MEMBER') %}
         <h2>Ajouter un jeu de maillot</h2>

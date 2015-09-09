@@ -11,6 +11,14 @@
 {% block headerMessage %}
     <p> Modifier une saison</p>
 {% endblock %}
+{% block breacrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path ('fb_clubmanager_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li><a href="{{ path ('fb_tournament_home') }}">Tournois</a></li>
+        <li><a href="{{ path ('fb_season_home') }}">Saison</a></li>
+        <li class="active">Modifier</li>
+    </ol>
+{% endblock %}
 {% block fbclubmanager_body %}
     {{ include ('FBTournamentBundle:Season:form.html.twig') }}
 {% endblock %}

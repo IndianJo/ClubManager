@@ -24,6 +24,11 @@
             {% endblock %}
         </p>
     </div>
+     {% block breacrumb %}
+        <ol class="breadcrumb">
+            <li class="active"><span class="glyphicon glyphicon-home"></span></li>
+        </ol>
+    {% endblock %}
     <nav class="navbar navbar-default" role="navigation">
 
         <div class="navbar-header">
@@ -86,6 +91,7 @@
             </ul>
         </div>
     </nav>
+
 {#    <div class="row">
         <div id="menu" class="col-md-3">
             <a href="{{ path ('fb_clubmanager_home') }}">Retour Club Manager</a>

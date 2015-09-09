@@ -11,6 +11,13 @@
 {% block headerMessage %}
     <p> Modifier un jeu de maillot</p>
 {% endblock %}
+{% block breacrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path ('fb_clubmanager_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li><a href="{{ path ('fb_setmanager_home') }}">Maillots</a></li>
+        <li class="active">Modifier</li>
+    </ol>
+{% endblock %}
 {% block fbclubmanager_body %}
     {{ include ('FBSetManagerBundle:Set:form.html.twig') }}
 {% endblock %}
