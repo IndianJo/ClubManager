@@ -34,3 +34,6 @@ soanata_user:
 sonata_user_impersonating:
     pattern: /
     defaults: { _controller: SonataPageBundle:Page:catchAll }
+
+homepage:
+  pattern:  /
