@@ -69,6 +69,7 @@ class PlayerManagerController extends Controller
 
     /**
      * Use to delete player on database.
+     * @Security("has_role('ROLE_MEMBER')")
      */
     public function deleteAction($id)
     {
@@ -91,6 +92,7 @@ class PlayerManagerController extends Controller
 
     /**
      * Use to update player on database.
+     * @Security("has_role('ROLE_MEMBER')")
      */
     public function updateAction(Request $request, $id)
     {

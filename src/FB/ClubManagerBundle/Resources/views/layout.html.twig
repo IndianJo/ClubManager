@@ -55,7 +55,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tournois <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path ('fb_tournament_home') }}">Gérer les tournois</a></li>
-                        <li><a href="{{ path('fb_tournament_add') }}">Ajouter un tournoi</a></li>
+                        {% if is_granted('ROLE_MEMBER') %}
+                            <li><a href="{{ path('fb_tournament_add') }}">Ajouter un tournoi</a></li>
+                        {% endif %}
                         <li class="divider"></li>
                         <li><a href="{{ path('fb_season_home') }}">Gérer les saisons</a></li>
                     </ul>

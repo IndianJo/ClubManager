@@ -41,12 +41,14 @@
                         {{ gameset.number }}
                     {% endfor %}</td>
                 <td>
-                    <a class="btn btn-default" type="button" href="{{ path('fb_playermanager_update', {'id': player.id}) }}">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                    <a class="btn btn-danger" type="button" href="{{ path('fb_playermanager_delete', {'id': player.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </a>
+                    {% if is_granted('ROLE_MEMBER') %}
+                        <a class="btn btn-default" type="button" href="{{ path('fb_playermanager_update', {'id': player.id}) }}">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a class="btn btn-danger" type="button" href="{{ path('fb_playermanager_delete', {'id': player.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}

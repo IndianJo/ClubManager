@@ -9,6 +9,7 @@ use FB\SetManagerBundle\Form\GameSetType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class SetManagerController extends Controller
 {
@@ -47,6 +48,12 @@ class SetManagerController extends Controller
         return $this->render('@FBSetManager/Set/index.html.twig', array('listGameSet' => $GameSets,'form' => $form->createView()));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Security("has_role('ROLE_MEMBER')")
+     */
     public function updateAction($id, Request $request)
     {
         // Récupération du jeu de maillot
@@ -76,6 +83,11 @@ class SetManagerController extends Controller
         return $this->render('FBSetManagerBundle:Set:update.html.twig', array('form' => $form->createView()));
     }
 
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Security("has_role('ROLE_MEMBER')")
+     */
     public function deleteAction($id)
     {
         // Récupération du maillot
