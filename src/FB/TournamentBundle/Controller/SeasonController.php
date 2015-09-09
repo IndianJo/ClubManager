@@ -14,6 +14,7 @@ use FB\TournamentBundle\Form\SeasonType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class SeasonController extends Controller
 {
@@ -52,6 +53,12 @@ class SeasonController extends Controller
         return $this->render('FBTournamentBundle:Season:index.html.twig', array('listSeasons' => $seasons, 'form' => $form->createView()));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Security("has_role('ROLE_MEMBER')")
+     */
     public function updateAction($id, Request $request)
     {
         // récupération de l'entity manager
@@ -79,6 +86,12 @@ class SeasonController extends Controller
         return $this->render('FBTournamentBundle:Season:update.html.twig', array('form' => $form->createView()));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Security("has_role('ROLE_MEMBER')")
+     */
     public function deleteAction($id, Request $request)
     {
         // Récupération de la saison

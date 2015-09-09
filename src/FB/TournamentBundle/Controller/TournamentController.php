@@ -10,6 +10,7 @@ use FB\TournamentBundle\Form\TournamentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class TournamentController extends Controller
 {
@@ -35,6 +36,11 @@ class TournamentController extends Controller
         return $this->render('FBTournamentBundle:Tournament:index.html.twig', array('listTournament' => $tournaments, 'form' => $form->CreateView()));
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Security("has_role('ROLE_MEMBER')")
+     */
     public function addAction(Request $request)
     {
         $tournament = new Tournament();
@@ -63,6 +69,12 @@ class TournamentController extends Controller
         return $this->render('FBTournamentBundle:Tournament:add.html.twig', array('form' => $form->createView()));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Security("has_role('ROLE_MEMBER')")
+     */
     public function updateAction($id, Request $request)
     {
         // récupération de l'entity manager
@@ -90,6 +102,11 @@ class TournamentController extends Controller
         return $this->render('FBTournamentBundle:Tournament:update.html.twig', array('form' => $form->createView()));
     }
 
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Security("has_role('ROLE_MEMBER')")
+     */
     public function deleteAction($id)
     {
         // Récupération du tournoi
