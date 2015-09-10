@@ -60,7 +60,7 @@
                 <tr>
                     <td>{{ tournament.name }}</td>
                     <td>{{ tournament.address }} {{ tournament.city }} {{ tournament.country }}</td>
-                    <td>Du {{ tournament.startDate|date('d-m') }} au {{ tournament.endDate|date('d-m') }}</td>
+                    <td>Du {{ tournament.startDate|localizeddate('medium','none', 'fr') }} au {{ tournament.endDate|date('d-m') }}</td>
                     <td>{{ tournament.category }}</td>
                     <td>{{ tournament.division }}</td>
                     <td>{{ tournament.surface }}</td>
