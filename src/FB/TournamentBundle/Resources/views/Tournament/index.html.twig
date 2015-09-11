@@ -43,6 +43,185 @@
     {# Fermeture de la balise <form> du formulaire HTML #}
     {{ form_end(form) }}
     </div>
+    <div>
+        <div class="panel-group" id="accordion">
+            {% for tournament in listTournament %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th data-field="name">Nom</th>
+                                    <th data-field="place">Lieu</th>
+                                    <th data-field="date">Date</th>
+                                    <th data-field="category">Catégory</th>
+                                    <th data-field="division">Division</th>
+                                    <th data-field="surface">surface</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ tournament.name }}</td>
+                                        <td>{{ tournament.address }} {{ tournament.city }} {{ tournament.country }}</td>
+                                        <td>Du {{ tournament.startDate|localizeddate('medium','none', 'fr') }} au {{ tournament.endDate|date('d-m') }}</td>
+                                        <td>{{ tournament.category }}</td>
+                                        <td>{{ tournament.division }}</td>
+                                        <td>{{ tournament.surface }}</td>
+                                        <td>
+                                            <a class="accordion-toggle" data-toggle="collapse-next" data-parent="#accordion">
+                                            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">joueurs</button>
+                                            </a>
+
+                                            {% if is_granted('ROLE_MEMBER') %}
+                                                <a class="btn btn-default" type="button" href="{{ path('fb_tournament_update', {'id': tournament.id}) }}">
+                                                    <span class="glyphicon glyphicon-pencil"></span>
+                                                </a>
+                                                <a class="btn btn-danger" type="button" href="{{ path('fb_tournament_delete', {'id': tournament.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                </a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                </div>
+                <div class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                            <tr>
+                            </thead>
+                            <tbody>
+                            {% for player in tournament.players %}
+                                <tr>
+                                    <td>{{ player.lastname }}</td>
+                                    <td>{{ player.firstname }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+  {#              <table class="table table-condensed" style="border-collapse:collapse">
+
+                    <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th data-field="name">Nom</th>
+                        <th data-field="place">Lieu</th>
+                        <th data-field="date">Date</th>
+                        <th data-field="category">Catégory</th>
+                        <th data-field="division">Division</th>
+                        <th data-field="surface">surface</th>
+
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for tournament in listTournament %}
+                        <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+                            <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+                            <td>{{ tournament.name }}</td>
+                            <td>{{ tournament.address }} {{ tournament.city }} {{ tournament.country }}</td>
+                            <td>Du {{ tournament.startDate|localizeddate('medium','none', 'fr') }} au {{ tournament.endDate|date('d-m') }}</td>
+                            <td>{{ tournament.category }}</td>
+                            <td>{{ tournament.division }}</td>
+                            <td>{{ tournament.surface }}</td>
+                            <td>
+                                {% if is_granted('ROLE_MEMBER') %}
+                                    <a class="btn btn-default" type="button" href="{{ path('fb_tournament_update', {'id': tournament.id}) }}">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>
+                                    <a class="btn btn-danger" type="button" href="{{ path('fb_tournament_delete', {'id': tournament.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            {% for player in tournament.players %}
+                            <td colspan="12" class="hiddenRow"><div class="accordian-body collapse" id="demo1">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>Prénom</th>
+                                        <tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>{{ player.lastname }}</td>
+                                            <td>{{ player.firstname }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div> </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                    <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+                        <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+                        <td>OBS Name</td>
+                        <td>OBS Description</td>
+                        <td>hpcloud</td>
+                        <td>nova</td>
+                        <td> created</td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="hiddenRow"><div class="accordian-body collapse" id="demo1">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr><td><a href="WorkloadURL">Workload link</a></td><td>Bandwidth: Dandwidth Details</td><td>OBS Endpoint: end point</td></tr>
+                                    <tr><th>Access Key</th><th>Secret Key</th><th>Status </th><th> Created</th><th> Expires</th><th>Actions</th></tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr><td>access-key-1</td><td>secretKey-1</td><td>Status</td><td>some date</td><td>some date</td><td><a href="#" class="btn btn-default btn-sm">
+                                                <i class="glyphicon glyphicon-cog"></i></a></td></tr>
+
+
+
+                                    </tbody>
+                                </table>
+
+                            </div> </td>
+                    </tr>
+                    <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+                        <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+                        <td>OBS Name</td>
+                        <td>OBS Description</td>
+                        <td>hpcloud</td>
+                        <td>nova</td>
+                        <td> created</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="hiddenRow"><div id="demo2" class="accordian-body collapse">Demo2</div></td>
+                    </tr>
+                    <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
+                        <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+                        <td>OBS Name</td>
+                        <td>OBS Description</td>
+                        <td>hpcloud</td>
+                        <td>nova</td>
+                        <td> created</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="hiddenRow"><div id="demo3" class="accordian-body collapse">Demo3</div></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -65,6 +244,9 @@
                     <td>{{ tournament.division }}</td>
                     <td>{{ tournament.surface }}</td>
                     <td>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
+                            joueurs
+                        </button>
                         {% if is_granted('ROLE_MEMBER') %}
                             <a class="btn btn-default" type="button" href="{{ path('fb_tournament_update', {'id': tournament.id}) }}">
                                 <span class="glyphicon glyphicon-pencil"></span>
@@ -75,8 +257,43 @@
                         {% endif %}
                     </td>
                 </tr>
+                {% for player in tournament.players %}
+                <tr>
+                    <td class="">
+                        <div class="">{{ player.firstname }}</div>
+                    </td>
+                </tr>
+                {% endfor %}
             {% endfor %}
             </tbody>
         </table>
     </div>
+<!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal --> #}
 {% endblock %}
+

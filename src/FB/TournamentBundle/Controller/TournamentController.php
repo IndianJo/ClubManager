@@ -33,7 +33,7 @@ class TournamentController extends Controller
             $tournaments = $em->getRepository('FBTournamentBundle:Tournament')->findBy(array('season' => $form->get('name')->getData()->getId()));
         else
             $tournaments = $em->getRepository('FBTournamentBundle:Tournament')->findAll();
-        return $this->render('FBTournamentBundle:Tournament:index.html.twig', array('listTournament' => $tournaments, 'form' => $form->CreateView()));
+        return $this->render('FBTournamentBundle:Tournament:index.html.twig', array('listTournament' => $tournaments, 'form' => $form->CreateView() ));
     }
 
     /**

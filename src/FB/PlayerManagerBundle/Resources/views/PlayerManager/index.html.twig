@@ -44,7 +44,7 @@
                 <td>{{ player.streetnumber }} {{ player.street }} {{ player.cP }} {{ player.city }}</td>
                 <td>{{ player.email }}</td>
                 <td>{% for gameset in player.gameSets %}
-                        {{ gameset.number }}
+                        {{ gameset.number }},
                     {% endfor %}</td>
                 <td>
                     {% if is_granted('ROLE_MEMBER') %}
