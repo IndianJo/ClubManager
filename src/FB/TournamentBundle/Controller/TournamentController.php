@@ -126,4 +126,9 @@ class TournamentController extends Controller
         return $this->redirect($this->generateUrl('fb_tournament_home', array('listTournament' => $tournaments)));
     }
 
+    public function calendarAction()
+    {
+        return $this->render('FBTournamentBundle:Tournament:calendar.html.twig');
+    }
+
 }

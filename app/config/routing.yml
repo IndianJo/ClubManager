@@ -35,3 +35,11 @@ sonata_user:
 sonata_user_impersonating:
     pattern:  /
     defaults: { _controller: SonataPageBundle:Page:catchAll }
+
+# FOS Js Routing bundle
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+# Calendar bundle
+adesigns_calendar:
+    resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"

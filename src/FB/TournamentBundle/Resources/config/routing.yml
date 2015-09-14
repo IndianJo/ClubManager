@@ -14,6 +14,10 @@ fb_tournament_delete:
     path:    /delete/{id}
     defaults: { _controller: FBTournamentBundle:Tournament:delete }
 
+fb_tournament_calendar:
+    path:   /calendar
+    defaults: { _controller: FBTournamentBundle:Tournament:calendar }
+
 fb_season_home:
     path:    /season
     defaults: { _controller: FBTournamentBundle:Season:index }

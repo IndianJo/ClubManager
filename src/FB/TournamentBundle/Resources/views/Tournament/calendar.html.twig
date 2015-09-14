@@ -1,0 +1,23 @@
+{# src\FB\TournamentBundle\Resources\views\Tournament\calendar.html.twig#}
+
+{% extends "FBClubManagerBundle::layout.html.twig" %}
+{% block title %}
+   Tournament calendar - {{ parent() }}
+{% endblock %}
+
+{% block headerWelcome %}
+    Tournaments
+{% endblock %}
+{% block headerMessage %}
+    <p> Calendrier des tournois</p>
+{% endblock %}
+{% block breacrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path ('fb_clubmanager_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li><a href="{{ path ('fb_tournament_home') }}">Tournois</a></li>
+        <li class="active">Calendrier</li>
+    </ol>
+{% endblock %}
+{% block fbclubmanager_body %}
+    {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
+{% endblock %}

@@ -38,7 +38,11 @@ class AppKernel extends Kernel
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
-            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle()
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+
+            //Calendar
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new \ADesigns\CalendarBundle\ADesignsCalendarBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
