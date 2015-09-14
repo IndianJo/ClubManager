@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "65c3c38cf7b59e56da3306ef3ebdb9c6",
+    "hash": "76f9072b21bdd16cc9bf03567a4724ba",
     "packages": [
         {
             "name": "adesigns/calendar-bundle",
-            "version": "1.1",
+            "version": "1.2-beta",
             "target-dir": "ADesigns/CalendarBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adesigns/calendar-bundle.git",
-                "reference": "1bd71821f2ca727671967ab8b5e05425145b7c11"
+                "reference": "443f3fe2f501b148f2c203978edc8a0a95f7c9d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adesigns/calendar-bundle/zipball/1bd71821f2ca727671967ab8b5e05425145b7c11",
-                "reference": "1bd71821f2ca727671967ab8b5e05425145b7c11",
+                "url": "https://api.github.com/repos/adesigns/calendar-bundle/zipball/443f3fe2f501b148f2c203978edc8a0a95f7c9d1",
+                "reference": "443f3fe2f501b148f2c203978edc8a0a95f7c9d1",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "fullcalendar",
                 "jquery calendar"
             ],
-            "time": "2014-04-24 15:48:09"
+            "time": "2014-07-28 13:28:09"
         },
         {
             "name": "cocur/slugify",
@@ -3087,7 +3087,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/user-bundle": 20
+        "friendsofsymfony/user-bundle": 20,
+        "adesigns/calendar-bundle": 10
     },
     "prefer-stable": false,
     "prefer-lowest": false,

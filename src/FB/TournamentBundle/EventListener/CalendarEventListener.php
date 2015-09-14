@@ -44,7 +44,9 @@ class CalendarEventListener
             // create an event with a start/end time, or an all day event
 
             if ($tournamentEvent->getStartDate() != $tournamentEvent->getEndDate()) {
-                $eventEntity = new EventEntity($tournamentEvent->getName(), $tournamentEvent->getStartDate(), $tournamentEvent->getEndDate());
+                $end = $tournamentEvent->getEndDate();
+                $end->setTime(00, 00, 01);
+                $eventEntity = new EventEntity($tournamentEvent->getName(), $tournamentEvent->getStartDate(), $end);
             } else {
                 $eventEntity = new EventEntity($tournamentEvent->getName(), $tournamentEvent->getStartDate(), null, true);
             }

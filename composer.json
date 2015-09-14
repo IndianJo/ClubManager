@@ -32,7 +32,7 @@
         "sonata-project/easy-extends-bundle": "2.1.9",
 
         "friendsofsymfony/jsrouting-bundle": "~1.5",
-        "adesigns/calendar-bundle": "~1.1"
+        "adesigns/calendar-bundle": "1.2-beta"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
