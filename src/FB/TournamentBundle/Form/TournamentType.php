@@ -21,10 +21,8 @@ class TournamentType extends AbstractType
             ->add('city',       'text')
             ->add('country',    'country', array('preferred_choices' => array('FR')))
             ->add('startDate',  'date', array(
-                'data' => $date,
                 'format' => 'dd-MMM-y'))
             ->add('endDate',    'date', array(
-                'data' => $date,
                 'format' => 'dd-MMM-y'))
             ->add('category',   'choice', array('choices' => array(
                 'Open'=>'Open',

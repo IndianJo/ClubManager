@@ -14,14 +14,11 @@ class SeasonType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $date = new \DateTime();
         $builder
             ->add('name',       'text')
             ->add('startDate',  'date', array(
-                'data' => $date,
                 'format' => 'dd-MMM-y'))
             ->add('endDate',    'date', array(
-                'data' => $date,
                 'format' => 'dd-MMM-y'))
             ->add('Save',       'submit')
         ;
