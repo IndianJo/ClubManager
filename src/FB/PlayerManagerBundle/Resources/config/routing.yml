@@ -10,7 +10,11 @@ fb_playermanager_add:
 fb_playermanager_update:
    path:    /update/{id}
    defaults: { _controller: FBPlayerManagerBundle:PlayerManager:update }
+   requirements:
+        id: \d+
 
 fb_playermanager_delete:
   path:    /delete/{id}
   defaults: { _controller: FBPlayerManagerBundle:PlayerManager:delete }
+  requirements:
+          id: \d+

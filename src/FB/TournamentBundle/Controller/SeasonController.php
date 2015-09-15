@@ -54,53 +54,42 @@ class SeasonController extends Controller
     }
 
     /**
-     * @param $id
+     * @param $season
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Security("has_role('ROLE_MEMBER')")
      */
-    public function updateAction($id, Request $request)
+    public function updateAction(Season $season, Request $request)
     {
-        // récupération de l'entity manager
-        $em = $this->getDoctrine()->getManager();
-        $season = $em->getRepository('FBTournamentBundle:Season')->find($id);
 
-        if ($season === null)
-            throw new NotFoundHttpException("La saison d'id".$id." n'existe pas");
-        else
-        {
-            $form = $this->get('form.factory')->create(new SeasonType(), $season);
-            $form->handleRequest($request);
+        $form = $this->get('form.factory')->create(new SeasonType(), $season);
+        $form->handleRequest($request);
 
-            if ($form->isValid()){
-                $em->persist($season);
-                $em->flush();
-                $this->get('session')->getFlashBag()->add('notice', 'Saison mis à jour');
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($season);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('notice', 'Saison mis à jour');
 
-                // récupération des infos de la bases
-                $seasons = $em->getRepository('FBTournamentBundle:Season')->findAll();
-                //affichage de la liste des set de maillot
-                return $this->redirect($this->generateUrl('fb_season_home', array('listSeasons' => $seasons)));
-            }
+            // récupération des infos de la bases
+            $seasons = $em->getRepository('FBTournamentBundle:Season')->findAll();
+
+            //affichage de la liste des set de maillot
+            return $this->redirect($this->generateUrl('fb_season_home', array('listSeasons' => $seasons)));
         }
+
         return $this->render('FBTournamentBundle:Season:update.html.twig', array('form' => $form->createView()));
     }
 
     /**
-     * @param $id
+     * @param $season
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Security("has_role('ROLE_MEMBER')")
      */
-    public function deleteAction($id, Request $request)
+    public function deleteAction(Season $season, Request $request)
     {
-        // Récupération de la saison
         $em = $this->getDoctrine()->getManager();
-        $season = $em->getRepository('FBTournamentBundle:Season')->find($id);
-
-        if ($season === null)
-            throw new NotFoundHttpException("La saison d'id".$id." n'existe pas");
-
         // delete season
         $em->remove($season);
         $em->flush();

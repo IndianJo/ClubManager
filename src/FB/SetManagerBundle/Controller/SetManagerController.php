@@ -54,11 +54,8 @@ class SetManagerController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Security("has_role('ROLE_MEMBER')")
      */
-    public function updateAction($id, Request $request)
+    public function updateAction(GameSet $gameSet, Request $request)
     {
-        // Récupération du jeu de maillot
-        $gameSet = $this->getDoctrine()->getManager()->getRepository('FBSetManagerBundle:GameSet')->find($id);
-
         // Et on construit le formBuilder
         $form = $this->get('form.factory')->create(new GameSetType(), $gameSet);
 
@@ -88,17 +85,13 @@ class SetManagerController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Security("has_role('ROLE_MEMBER')")
      */
-    public function deleteAction($id)
+    public function deleteAction(GameSet $gameSet)
     {
         // Récupération du maillot
         $em = $this->getDoctrine()->getManager();
-        $gameset = $em->getRepository('FBSetManagerBundle:GameSet')->find($id);
-
-        if ($gameset === null)
-            throw new NotFoundHttpException("Le set de maillot d'id".$id." n'existe pas");
 
         // delete gameset
-        $em->remove($gameset);
+        $em->remove($gameSet);
         $em->flush();
         $this->get('session')->getFlashBag()->add('success', 'jeu de maillot supprimer');
 

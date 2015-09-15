@@ -70,51 +70,42 @@ class TournamentController extends Controller
     }
 
     /**
-     * @param $id
+     * @param $tournament
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Security("has_role('ROLE_MEMBER')")
      */
-    public function updateAction($id, Request $request)
+    public function updateAction(Tournament $tournament, Request $request)
     {
         // récupération de l'entity manager
         $em = $this->getDoctrine()->getManager();
-        $tournament = $em->getRepository('FBTournamentBundle:Tournament')->find($id);
 
-        if ($tournament === null)
-            throw new NotFoundHttpException("Le tournoi d'id".$id." n'existe pas");
-        else
-        {
-            $form = $this->get('form.factory')->create(new TournamentType(), $tournament);
-            $form->handleRequest($request);
+        $form = $this->get('form.factory')->create(new TournamentType(), $tournament);
+        $form->handleRequest($request);
 
-            if ($form->isValid()){
-                $em->persist($tournament);
-                $em->flush();
-                $this->get('session')->getFlashBag()->add('notice', 'Tournoi mis à jour');
+        if ($form->isValid()) {
+            $em->persist($tournament);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('notice', 'Tournoi mis à jour');
 
-                // récupération des infos de la bases
-                $tournaments = $em->getRepository('FBTournamentBundle:Tournament')->findAll();
-                //affichage de la liste des set de maillot
-                return $this->redirect($this->generateUrl('fb_tournament_home', array('listTournament' => $tournaments)));
-            }
+            // récupération des infos de la bases
+            $tournaments = $em->getRepository('FBTournamentBundle:Tournament')->findAll();
+
+            //affichage de la liste des set de maillot
+            return $this->redirect($this->generateUrl('fb_tournament_home', array('listTournament' => $tournaments)));
         }
+
         return $this->render('FBTournamentBundle:Tournament:update.html.twig', array('form' => $form->createView()));
     }
 
     /**
-     * @param $id
+     * @param $tournament
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Security("has_role('ROLE_MEMBER')")
      */
-    public function deleteAction($id)
+    public function deleteAction(Tournament $tournament)
     {
-        // Récupération du tournoi
         $em = $this->getDoctrine()->getManager();
-        $tournament = $em->getRepository('FBTournamentBundle:Tournament')->find($id);
-
-        if ($tournament === null)
-            throw new NotFoundHttpException("Le tournoi d'id".$id." n'existe pas");
 
         // delete tournament
         $em->remove($tournament);

@@ -6,7 +6,11 @@ fb_setmanager_home:
 fb_setmanager_update:
     path:    /update/{id}
     defaults: { _controller: FBSetManagerBundle:SetManager:update }
+    requirements:
+        id: \d+
 
 fb_setmanager_delete:
     path:   /delete/{id}
     defaults: { _controller: FBSetManagerBundle:SetManager:delete }
+    requirements:
+            id: \d+

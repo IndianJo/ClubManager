@@ -42,8 +42,6 @@ class PlayerManagerController extends Controller
         // On fait le lien Requête<->formulaire
         $form->handleRequest($request);
         
-        //echo '<pre>'.print_r($request->request->get('fb_playermanagerbundle_player')['saveexit'], true).'</pre>';
-
         // on vérife la validité des donnnées du formulaire
         if($form->isValid()){
             // sauvegarde dans la BDD
@@ -71,14 +69,10 @@ class PlayerManagerController extends Controller
      * Use to delete player on database.
      * @Security("has_role('ROLE_MEMBER')")
      */
-    public function deleteAction($id)
+    public function deleteAction(Player $player)
     {
         // Récupération du joueurs
         $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('FBPlayerManagerBundle:Player')->find($id);
-
-        if ($player === null)
-            throw new NotFoundHttpException("Le joueurs d'id".$id." n'existe pas");
 
         // delete the player
         $em->remove($player);
@@ -94,11 +88,8 @@ class PlayerManagerController extends Controller
      * Use to update player on database.
      * @Security("has_role('ROLE_MEMBER')")
      */
-    public function updateAction(Request $request, $id)
+    public function updateAction(Request $request, Player $player)
     {
-        // Récupération du joueurs
-        $player = $this->getDoctrine()->getManager()->getRepository('FBPlayerManagerBundle:Player')->find($id);
-
         // Et on construit le formBuilder a partir de l'entité
         $form = $this->get('form.factory')->create(new PlayerType(), $player);
 

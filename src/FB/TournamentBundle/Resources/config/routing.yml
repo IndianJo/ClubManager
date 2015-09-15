@@ -9,10 +9,14 @@ fb_tournament_add:
 fb_tournament_update:
     path:    /update/{id}
     defaults: { _controller: FBTournamentBundle:Tournament:update }
+    requirements:
+        id: \d+
 
 fb_tournament_delete:
     path:    /delete/{id}
     defaults: { _controller: FBTournamentBundle:Tournament:delete }
+    requirements:
+        id: \d+
 
 fb_tournament_calendar:
     path:   /calendar
@@ -25,3 +29,5 @@ fb_season_home:
 fb_season_update:
     path:   /season/update/{id}
     defaults: { _controller: FBTournamentBundle:Season:update }
+    requirements:
+        id: \d+
