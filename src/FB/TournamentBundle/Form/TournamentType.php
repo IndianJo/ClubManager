@@ -14,13 +14,18 @@ class TournamentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $date = new \DateTime();
         $builder
             ->add('name',       'text')
             ->add('address',    'text')
             ->add('city',       'text')
             ->add('country',    'country', array('preferred_choices' => array('FR')))
-            ->add('startDate',  'date')
-            ->add('endDate',    'date')
+            ->add('startDate',  'date', array(
+                'data' => $date,
+                'format' => 'dd-MMM-y'))
+            ->add('endDate',    'date', array(
+                'data' => $date,
+                'format' => 'dd-MMM-y'))
             ->add('category',   'choice', array('choices' => array(
                 'Open'=>'Open',
                 'Mixte'=>'Mixte',

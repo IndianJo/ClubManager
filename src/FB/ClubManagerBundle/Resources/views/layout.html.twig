@@ -15,6 +15,7 @@
         {# Calendar style sheet#}
         <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
         <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.print.css') }}" />
+
     {% endblock %}
 </head>
 
@@ -64,7 +65,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tournois <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path ('fb_tournament_calendar') }}">Calendrier</a></li>
-                        <li><a href="{{ path ('fb_tournament_home') }}">Gérer les tournois</a></li>
+                        <li><a href="{{ path ('fb_tournament_home') }}">Liste des tournois</a></li>
                         {% if is_granted('ROLE_MEMBER') %}
                             <li><a href="{{ path('fb_tournament_add') }}">Ajouter un tournoi</a></li>
                         {% endif %}
@@ -121,12 +122,13 @@
 
     {#calendar bundle#}
     <script type="text/javascript" src="{{ asset('bundles/fbclubmanager/js/main.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-2.1.1.min.js') }}"></script>
+    {#<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-2.1.1.min.js') }}"></script>#}
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-ui.custom.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/moment/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar-lang-all.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
+
 {% endblock %}
 
 </body>
