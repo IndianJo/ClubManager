@@ -110,17 +110,17 @@
         <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
     </footer>
 </div>
-
 {% block javascripts %}
     {#Bootstrap#}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
     {#FOS Routing bundle#}
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script type="text/javascript" src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 
     {#calendar bundle#}
+    <script type="text/javascript" src="{{ asset('bundles/fbclubmanager/js/main.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-2.1.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-ui.custom.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/moment/moment.min.js') }}"></script>
@@ -130,7 +130,4 @@
 {% endblock %}
 
 </body>
-{% javascripts '@FBClubManagerBundle/Resources/public/js/main.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
 </html>
