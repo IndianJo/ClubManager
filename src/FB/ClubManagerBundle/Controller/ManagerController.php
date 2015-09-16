@@ -9,7 +9,7 @@
 
 namespace FB\ClubManagerBundle\Controller;
 
-use Symfony\Component\BrowserKit\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 //use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -17,13 +17,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ManagerController extends Controller
 {
     /**
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
        return $this->render('FBClubManagerBundle:ClubManager:index.html.twig');
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function forumAction()
     {
         $this->get('session')->getFlashBag()->add('info', 'Le forum n\' est pas encore intégré');
