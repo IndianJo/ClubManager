@@ -43,10 +43,10 @@
                     <td>{{ season.startDate|date('d-m') }}</td>
                     <td>{{ season.endDate|date('d-m') }}</td>
                     <td>
-                        <a class="btn btn-default" type="button" href="{{ path('fb_season_update', {'id': season.id}) }}">
+                        <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_season_update', {'id': season.id}) }}" title="Modifier l'élément" data-toggle="tooltip">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
-                        <a class="btn btn-danger" type="button" href="{{ path('fb_tournament_delete', {'id': season.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
+                        <a class="btn btn-sm btn-danger" type="button" href="{{ path('fb_tournament_delete', {'id': season.id}) }}" title="Supprimer l'élément" data-toggle="tooltip" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
                             <span class="glyphicon glyphicon-trash"></span>
                         </a>
                     </td>

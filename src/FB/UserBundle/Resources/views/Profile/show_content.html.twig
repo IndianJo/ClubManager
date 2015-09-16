@@ -1,20 +1,31 @@
 <div class="fos_user_user_show">
-
-    <div class="well">
-        <form class="form-horizontal" role="form">
-            <div class="form-group">
-                <label class="control-label col-sm-2">{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }} :</label>
-                <div class="col-sm-3">
-                    <input class="form-control" type="text" value="{{ user.username }}" disabled>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ user.username }}</h3>
+            </div>
+            <div class="panel-body">
+                <div class=" col-md-9 col-lg-9 ">
+                    <table class="table table-user-information">
+                        <tbody>
+                        <tr>
+                            <td>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }} :</td>
+                            <td>{{ user.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }} :</td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" >{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }} :</label>
-                <div class="col-sm-3">
-                    <input class="form-control" type="text" value="{{ user.email }}" disabled>
-                </div>
+            <div class="panel-footer">
+                <a href="{{ path('fos_user_profile_edit') }}" title="Editer cet utilistateur" data-toggle="tooltip" type="button"
+                   class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Modifier</a>
+                <a title="supprimer cet utilisateur" data-toggle="tooltip" type="button"
+                   class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i> Supprimer</a>
             </div>
-        </form>
+        </div>
     </div>
-    <a class="btn btn-default" type="button" href="{{ path('fos_user_profile_edit') }}">Modifier</a>
 </div>

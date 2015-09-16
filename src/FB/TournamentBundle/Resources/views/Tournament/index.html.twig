@@ -25,14 +25,13 @@
 
     {# Les erreurs générales du formulaire. #}
     {{ form_errors(form) }}
-        <div class="form-group">
+        <div class="form-group form-group-sm">
             {{ form_label(form.name, "Saisons : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
             {{ form_errors(form.name) }}
             <div class="col-sm-4">
                 {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
             </div>
-    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-           {{ form_widget(form.filter, {'attr': {'class': 'btn btn-primary' } }) }}
+           {{ form_widget(form.filter, {'attr': {'class': 'btn btn-sm btn-primary' } }) }}
         </div>
 
     {# Génération automatique des champs pas encore écrits.
@@ -69,14 +68,14 @@
                                         <td>{{ tournament.surface }}</td>
                                         <td>
                                             <a class="accordion-toggle" data-toggle="collapse-next" data-parent="#accordion">
-                                            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">joueurs</button>
+                                            <button class="btn btn-sm btn-primary" title="Liste des joueurs" data-toggle="tooltip">joueurs</button>
                                             </a>
 
                                             {% if is_granted('ROLE_MEMBER') %}
-                                                <a class="btn btn-default" type="button" href="{{ path('fb_tournament_update', {'id': tournament.id}) }}">
+                                                <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_tournament_update', {'id': tournament.id}) }}" title="Modifier l'élément" data-toggle="tooltip">
                                                     <span class="glyphicon glyphicon-pencil"></span>
                                                 </a>
-                                                <a class="btn btn-danger" type="button" href="{{ path('fb_tournament_delete', {'id': tournament.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
+                                                <a class="btn btn-sm btn-danger" type="button" href="{{ path('fb_tournament_delete', {'id': tournament.id}) }}" title="Supprimer l'élément" data-toggle="tooltip" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
                                                     <span class="glyphicon glyphicon-trash"></span>
                                                 </a>
                                             {% endif %}

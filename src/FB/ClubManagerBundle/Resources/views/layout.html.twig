@@ -40,7 +40,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
             </button>
-            <a class="navbar-brand" rel="home" href="{{ path ('fb_clubmanager_home') }}">ClubManager</a>
+            <a class="navbar-brand" rel="home" href="{{ path ('fb_clubmanager_home') }}" title="Retour à l'accueil" data-toggle="tooltip"> ClubManager</a>
         </div>
 
         <div class="collapse navbar-collapse">
@@ -49,28 +49,28 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Joueurs <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path ('fb_playermanager_home') }}">Gérer les joueurs</a></li>
+                        <li><a href="{{ path ('fb_playermanager_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Gérer les joueurs</a></li>
                         {% if is_granted('ROLE_MEMBER') %}
-                        <li><a href="{{ path('fb_playermanager_add') }}">Ajouter un joueur</a></li>
+                        <li><a href="{{ path('fb_playermanager_add') }}"><i class="glyphicon glyphicon-plus-sign"></i> Ajouter un joueur</a></li>
                         {% endif %}
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Maillots <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path ('fb_setmanager_home') }}">Gérer les maillots</a></li>
+                        <li><a href="{{ path ('fb_setmanager_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Gérer les maillots</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tournois <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path ('fb_tournament_calendar') }}">Calendrier</a></li>
-                        <li><a href="{{ path ('fb_tournament_home') }}">Liste des tournois</a></li>
+                        <li><a href="{{ path ('fb_tournament_calendar') }}"><i class="glyphicon glyphicon-calendar"></i>Calendrier</a></li>
+                        <li><a href="{{ path ('fb_tournament_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Liste des tournois</a></li>
                         {% if is_granted('ROLE_MEMBER') %}
-                            <li><a href="{{ path('fb_tournament_add') }}">Ajouter un tournoi</a></li>
+                            <li><a href="{{ path('fb_tournament_add') }}"><i class="glyphicon glyphicon-plus-sign"></i> Ajouter un tournoi</a></li>
                         {% endif %}
                         <li class="divider"></li>
-                        <li><a href="{{ path('fb_season_home') }}">Gérer les saisons</a></li>
+                        <li><a href="{{ path('fb_season_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Gérer les saisons</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -83,11 +83,11 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }} <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> {{ app.user.username }} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>
-                            <li><a href="{{ path('fos_user_profile_edit') }}">Edit Profile</a></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+                            <li><a href="{{ path('fos_user_profile_show') }}"><i class="glyphicon glyphicon-list-alt"></i> Profile</a></li>
+                            <li><a href="{{ path('fos_user_profile_edit') }}"><i class="glyphicon glyphicon-edit"></i> Edit Profile</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="glyphicon glyphicon-log-out"></i> Déconnexion</a></li>
                         </ul>
                     </li>
                     {% else %}

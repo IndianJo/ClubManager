@@ -1,43 +1,56 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="well">
-    {# <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
-    </form>
-    <h1> test override </h1>
-    {{ form_widget(form) }} #}
+<div class="fos_user_user_show" xmlns="http://www.w3.org/1999/html">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Modification du profil</h3>
+                </div>
+                <div class="panel-body">
+                        {# <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+                        </form>
+                        <h1> test override </h1>
+                        {{ form_widget(form) }} #}
 
-    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-    {# Les erreurs générales du formulaire. #}
-    {{ form_errors(form) }}
+                        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                        {# Les erreurs générales du formulaire. #}
+                        {{ form_errors(form) }}
 
 
 
-    <div class="form-group">
-        {{ form_label(form.username, "Nom d'utilisateur", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.username) }}
-        <div class="col-sm-3">
-            {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                        <div class="form-group has-feedback has-feedback-left">
+                            {{ form_label(form.username, "Nom d'utilisateur", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                            {{ form_errors(form.username) }}
+                            <div class="col-sm-7">
+                                {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                                <i class="form-control-feedback glyphicon glyphicon-user"></i>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback has-feedback-left">
+                            {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                            {{ form_errors(form.email) }}
+                            <div class="col-sm-7">
+                                {{ form_widget(form.email, {'attr': {'class': 'form-control'} }) }}
+                                <i class="form-control-feedback glyphicon glyphicon-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback has-feedback-left">
+                            {{ form_label(form.current_password, "Mot de passe actuel", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                            {{ form_errors(form.current_password) }}
+                            <div class="col-sm-7">
+                                {{ form_widget(form.current_password, {'attr': {'class': 'form-control'}}) }}
+                                <i class="form-control-feedback glyphicon glyphicon-lock"></i>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-sm btn-warning" type="submit"><i class="glyphicon glyphicon-ok"></i> {{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}</button>
+                    <a class="btn btn-sm btn-default" type="button" href="{{ path('fos_user_profile_show') }}"><i class="glyphicon glyphicon-remove"></i> Annuler</a>
+                </div>
+            </div>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+
         </div>
     </div>
-    <div class="form-group">
-        {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.email) }}
-        <div class="col-sm-3">
-            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
-    <div class="form-group">
-        {{ form_label(form.current_password, "Mot de passe actuel", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.current_password) }}
-        <div class="col-sm-3">
-            {{ form_widget(form.current_password, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
-    <div class="form-group">
-        <input class="btn btn-default" type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />
-        <a class="btn btn-default" type="button" href="{{ path('fos_user_profile_show') }}">Annuler</a>
-    </div>
-    {{ form_rest(form) }}
-    {{ form_end(form) }}
-
-</div>

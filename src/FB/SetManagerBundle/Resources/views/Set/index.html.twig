@@ -42,10 +42,10 @@
                     <td>{{ (GameSet.player is not null) ? GameSet.player.firstname }}</td>
                     <td>
                     {% if is_granted('ROLE_MEMBER') %}
-                            <a class="btn btn-default" type="button" href="{{ path('fb_setmanager_update', {'id': GameSet.id}) }}">
+                            <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_setmanager_update', {'id': GameSet.id}) }}" title="Modifier l'élément" data-toggle="tooltip">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a>
-                            <a class="btn btn-danger" type="button" href="{{ path('fb_setmanager_delete', {'id': GameSet.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
+                            <a class="btn btn-sm btn-danger" type="button" href="{{ path('fb_setmanager_delete', {'id': GameSet.id}) }}" title="Supprimer l'élément data-toggle="tooltip" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </a>
                     {% endif %}
