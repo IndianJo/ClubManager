@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>An error occured</title>
+
+        {# On charge le CSS de bootstrap depuis le site directement #}
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/simplex/bootstrap.min.css" rel="stylesheet" integrity="sha256-4nVETqQoIoCwuephcXpJ501G8B5sgBHb1ZsKU/D476I= sha512-cfSmkkLRDAcUNaJxRRWopCyEGX43UkWCAOl2wErYMBGOQVWwOsZ7IFuXScF9H/6nMGbmsgV4m5/xYfesyvHTxw==" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="error-template">
+                    <h1>Oops!</h1>
+
+                    <h2>Une erreur c'est produite</h2>
+
+                    <div class="error-details">
+                        Quelque chose est cassé.
+                        <br/>
+                        Nous allons y remédier dès que possible. Désolé pour la gêne occasionnée.
+                    </div>
+                    <div class="error-actions">
+                        <a href="{{ path('fb_playermanager_home') }}" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>Retour à l'accueil</a>
+                        <a href="" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contacter le Support </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
