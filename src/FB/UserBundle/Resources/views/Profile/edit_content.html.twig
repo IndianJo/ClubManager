@@ -13,20 +13,29 @@
 
 
     <div class="form-group">
-        {{ form_label(form.username, "Nom", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_label(form.username, "Nom d'utilisateur", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.username) }}
         <div class="col-sm-3">
             {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
         </div>
+    </div>
+    <div class="form-group">
         {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.email) }}
         <div class="col-sm-3">
             {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>
-
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />
+    <div class="form-group">
+        {{ form_label(form.current_password, "Mot de passe actuel", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.current_password) }}
+        <div class="col-sm-3">
+            {{ form_widget(form.current_password, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-default" type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />
+        <a class="btn btn-default" type="button" href="{{ path('fos_user_profile_show') }}">Annuler</a>
     </div>
     {{ form_rest(form) }}
     {{ form_end(form) }}
