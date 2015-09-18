@@ -91,12 +91,12 @@ class Player
 
     public function __construct()
     {
-        $this->setPhonenumber(0000000000);
+        $this->setPhonenumber(0606060606);
         $this->setStreet("inconnu");
-        $this->setStreetnumber(00);
+        $this->setStreetnumber(0);
         $this->setCP(25000);
         $this->setCity("Besancon");
-        $this->setEmail("");
+        $this->setEmail("ucv@ucv.com");
     }
 
     /**
@@ -329,5 +329,10 @@ class Player
     public function getGameSets()
     {
         return $this->GameSets;
+    }
+
+    public function displayName()
+    {
+        return sprintf('%s - %s', $this->firstname, $this->lastname);
     }
 }

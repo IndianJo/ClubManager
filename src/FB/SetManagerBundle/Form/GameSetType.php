@@ -16,16 +16,33 @@ class GameSetType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        //$em = $this->getDoctrine()->getManager();
-        //$players = $em->getRepository('FBPlayerManagerBundle:Player')->findAll();
+        $number = array();
+        for ($i = 1; $i<100; $i++){
+            $number[$i] = $i;
+        }
         $builder
-            ->add('number', 'number')
-            ->add('size', 'choice', array('choices' => array('S'=>'S', 'M'=>'M', 'L'=>'L', 'XL'=>'XL', 'XXL'=>'XXL')))
-            ->add('sexe','choice', array('choices' => array('Men'=>'Men', 'Women' => 'Women')))
-            ->add('player', 'entity', array( 'class' => 'FB\PlayerManagerBundle\Entity\Player',
-                    'property' => 'firstname',
-                    'empty_value' => 'Sélectionner un joueur',
-                    'required' => false))
+            ->add('number', 'choice', array(
+                'choices' => $options['attr']
+                ))
+            ->add('size', 'choice', array(
+                'choices' => array(
+                    'S'=>'S',
+                    'M'=>'M',
+                    'L'=>'L',
+                    'XL'=>'XL',
+                    'XXL'=>'XXL'
+                )))
+            ->add('sexe','choice', array(
+                'choices' => array(
+                    'Men'=>'Men',
+                    'Women' => 'Women'
+                )))
+            ->add('player', 'entity', array(
+                'class' => 'FB\PlayerManagerBundle\Entity\Player',
+                'property' => 'displayName',
+                'empty_value' => 'Sélectionner un joueur',
+                'required' => false
+            ))
             ->add('save', 'submit')
         ;
     }
