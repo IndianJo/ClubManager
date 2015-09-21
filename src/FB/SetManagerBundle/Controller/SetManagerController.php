@@ -17,14 +17,14 @@ class SetManagerController extends Controller
     {
         $gameSet = new GameSet();
 
-        // Création du formulaire
-        $form = $this->get('form.factory')->create(new GameSetType(), $gameSet);
-
         // récupération de l'entity manager
         $em = $this->getDoctrine()->getManager();
 
         // récupération de la liste des maillots stockés en BDD
         $GameSets = $em->getRepository('FBSetManagerBundle:GameSet')->findAll();
+
+        // Création du formulaire
+        $form = $this->get('form.factory')->create(new GameSetType(), $gameSet, array('attr' => $this->freeNumber() ));
 
         // On fait le lien Requête<->formulaire
         $form->handleRequest($request);
@@ -48,6 +48,27 @@ class SetManagerController extends Controller
         return $this->render('@FBSetManager/Set/index.html.twig', array('listGameSet' => $GameSets,'form' => $form->createView()));
     }
 
+    /**
+     * @return array that contain available game set number
+     */
+    private function freeNumber()
+    {
+        $numbers = array();
+        $freeNumber = array();
+        for ($i = 1; $i<100; $i++){
+            $numbers[$i] = $i;
+        }
+
+        foreach ($numbers as $number){
+            $this->getDoctrine()->getManager()->getRepository('FBSetManagerBundle:GameSet')->findBy(
+                array('number' => $number));
+            if (!$this->getDoctrine()->getManager()->getRepository('FBSetManagerBundle:GameSet')->findBy(
+                array('number' => $number))){
+                array_push($freeNumber, $number);
+            }
+        }
+        return $freeNumber;
+    }
     /**
      * @param $id
      * @param Request $request
