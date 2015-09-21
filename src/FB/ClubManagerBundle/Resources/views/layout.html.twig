@@ -27,122 +27,125 @@
 </head>
 
 <body>
-<div class="container">
-    <div id="header" class="jumbotron">
-        <h1> {% block headerWelcome%} Welcome in Club Manager {% endblock %}</h1>
-        <p> {% block headerMessage %}
-            Ce projet est propulsé par Symfony2,
-            et construit grâce au MOOC OpenClassrooms et SensioLabs.
-            {% endblock %}
-        </p>
-    </div>
-     {% block breacrumb %}
-        <ol class="breadcrumb">
-            <li class="active"><span class="glyphicon glyphicon-home"></span></li>
-        </ol>
-    {% endblock %}
-    <nav class="navbar navbar-default" role="navigation">
-
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-            </button>
-            <a class="navbar-brand" rel="home" href="{{ path ('fb_clubmanager_home') }}" title="Retour à l'accueil" data-toggle="tooltip"> ClubManager</a>
+<div id="wrap">
+    <div class="container">
+        <div id="header" class="jumbotron">
+            <h1> {% block headerWelcome%} Welcome in Club Manager {% endblock %}</h1>
+            <p> {% block headerMessage %}
+                Ce projet est propulsé par Symfony2,
+                et construit grâce au MOOC OpenClassrooms et SensioLabs.
+                {% endblock %}
+            </p>
         </div>
+         {% block breacrumb %}
+            <ol class="breadcrumb">
+                <li class="active"><span class="glyphicon glyphicon-home"></span></li>
+            </ol>
+        {% endblock %}
+        <nav class="navbar navbar-default" role="navigation">
 
-        <div class="collapse navbar-collapse">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" rel="home" href="{{ path ('fb_clubmanager_home') }}" title="Retour à l'accueil" data-toggle="tooltip"> ClubManager</a>
+            </div>
 
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Joueurs <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ path ('fb_playermanager_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Gérer les joueurs</a></li>
-                        {% if is_granted('ROLE_MEMBER') %}
-                        <li><a href="{{ path('fb_playermanager_add') }}"><i class="glyphicon glyphicon-plus-sign"></i> Ajouter un joueur</a></li>
-                        {% endif %}
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Maillots <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ path ('fb_setmanager_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Gérer les maillots</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tournois <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ path ('fb_tournament_calendar') }}"><i class="glyphicon glyphicon-calendar"></i>Calendrier</a></li>
-                        <li><a href="{{ path ('fb_tournament_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Liste des tournois</a></li>
-                        {% if is_granted('ROLE_MEMBER') %}
-                            <li><a href="{{ path('fb_tournament_add') }}"><i class="glyphicon glyphicon-plus-sign"></i> Ajouter un tournoi</a></li>
-                        {% endif %}
-                        <li class="divider"></li>
-                        <li><a href="{{ path('fb_season_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Gérer les saisons</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Forum <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ path ('fb_clubmanager_forum') }}">Accéder au forum</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <div class="collapse navbar-collapse">
+
+                <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> {{ app.user.username }} <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Joueurs <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('fos_user_profile_show') }}"><i class="glyphicon glyphicon-list-alt"></i> Profile</a></li>
-                            <li><a href="{{ path('fos_user_profile_edit') }}"><i class="glyphicon glyphicon-edit"></i> Edit Profile</a></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="glyphicon glyphicon-log-out"></i> Déconnexion</a></li>
+                            <li><a href="{{ path ('fb_playermanager_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Gérer les joueurs</a></li>
+                            {% if is_granted('ROLE_MEMBER') %}
+                            <li><a href="{{ path('fb_playermanager_add') }}"><i class="glyphicon glyphicon-plus-sign"></i> Ajouter un joueur</a></li>
+                            {% endif %}
                         </ul>
                     </li>
-                    {% else %}
-                        <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
-                        <li><a href="{{ path('fos_user_registration_register') }}">S'enregister</a></li>
-                    {% endif %}
-            </ul>
-        </div>
-    </nav>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Maillots <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path ('fb_setmanager_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Gérer les maillots</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tournois <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path ('fb_tournament_calendar') }}"><i class="glyphicon glyphicon-calendar"></i>Calendrier</a></li>
+                            <li><a href="{{ path ('fb_tournament_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Liste des tournois</a></li>
+                            {% if is_granted('ROLE_MEMBER') %}
+                                <li><a href="{{ path('fb_tournament_add') }}"><i class="glyphicon glyphicon-plus-sign"></i> Ajouter un tournoi</a></li>
+                            {% endif %}
+                            <li class="divider"></li>
+                            <li><a href="{{ path('fb_season_home') }}"><i class="glyphicon glyphicon-dashboard"></i> Gérer les saisons</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Forum <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path ('fb_clubmanager_forum') }}">Accéder au forum</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> {{ app.user.username }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('fos_user_profile_show') }}"><i class="glyphicon glyphicon-list-alt"></i> Profile</a></li>
+                                <li><a href="{{ path('fos_user_profile_edit') }}"><i class="glyphicon glyphicon-edit"></i> Edit Profile</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}"><i class="glyphicon glyphicon-log-out"></i> Déconnexion</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                            <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                            <li><a href="{{ path('fos_user_registration_register') }}">S'enregister</a></li>
+                        {% endif %}
+                </ul>
+            </div>
+        </nav>
 
-    <div id="content">
-            {{ include ('FBClubManagerBundle::flashbag.html.twig') }}
-            {% block fbclubmanager_body %}
-            {% endblock %}
+        <div id="content">
+                {{ include ('FBClubManagerBundle::flashbag.html.twig') }}
+                {% block fbclubmanager_body %}
+                {% endblock %}
         </div>
+
+        <hr>
     </div>
-
-    <hr>
-
-    <footer>
-        <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
-    </footer>
 </div>
+<div id="footer">
+    <div class="container">
+        <p class="text-muted credit">Made by <a href="#">Joseph Mesny</a> </p>
+    </div>
+</div>
+
 {% block javascripts %}
-    {#Bootstrap#}
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        {#Bootstrap#}
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-    {# DataTables#}
-    <script type="text/javascript" src="https://cdn.datatables.net/r/bs/dt-1.10.9,r-1.0.7/datatables.min.js"></script>
+        {# DataTables#}
+        <script type="text/javascript" src="https://cdn.datatables.net/r/bs/dt-1.10.9,r-1.0.7/datatables.min.js"></script>
 
-{% endblock %}
+    {% endblock %}
 
-{% javascripts '@FBClubManagerBundle/Resources/public/js/*' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% javascripts '@FBClubManagerBundle/Resources/public/js/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
 
-    {#FOS Routing bundle#}
-    <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script type="text/javascript" src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        {#FOS Routing bundle#}
+        <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script type="text/javascript" src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 
-    {#calendar bundle
-    <script type="text/javascript" src="{{ asset('bundles/fbclubmanager/js/main.js') }}"></script>#}
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-ui.custom.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/moment/moment.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar-lang-all.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
+        {#calendar bundle
+        <script type="text/javascript" src="{{ asset('bundles/fbclubmanager/js/main.js') }}"></script>#}
+        <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-ui.custom.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/moment/moment.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar-lang-all.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
 
-{% endjavascripts %}
+    {% endjavascripts %}
 </body>
 </html>
