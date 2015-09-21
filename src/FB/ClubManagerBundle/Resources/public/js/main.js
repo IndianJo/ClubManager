@@ -15,5 +15,6 @@ $('body').on('click', '[data-toggle=collapse-next]', function (e) {
     $target.collapse('toggle');
 });
 $(document).ready( function () {
-    $('#filteredTable').DataTable();
+    $('#filteredTable').DataTable({
+    })
 } );

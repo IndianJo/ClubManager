@@ -23,7 +23,6 @@
         {{ include ('FBSetManagerBundle:Set:form.html.twig') }}
     {% endif %}
     <h2>Liste des maillots</h2>
-    <div class="table-responsive">
         <table id="filteredTable" class="display table table-striped">
             <thead>
             <tr>
@@ -31,7 +30,7 @@
                 <th data-field="size">Taille</th>
                 <th data-field="sexe">Genre</th>
                 <th data-field="player">Joueur</th>
-                <th data-field="button"></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -55,5 +54,4 @@
             {% endfor %}
             </tbody>
         </table>
-    </div>
 {% endblock %}
