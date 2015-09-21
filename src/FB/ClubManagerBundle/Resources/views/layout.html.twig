@@ -10,15 +10,20 @@
 
     {% block stylesheets %}
         {# On charge le CSS de bootstrap depuis le site directement #}
-        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/simplex/bootstrap.min.css" rel="stylesheet" integrity="sha256-4nVETqQoIoCwuephcXpJ501G8B5sgBHb1ZsKU/D476I= sha512-cfSmkkLRDAcUNaJxRRWopCyEGX43UkWCAOl2wErYMBGOQVWwOsZ7IFuXScF9H/6nMGbmsgV4m5/xYfesyvHTxw==" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/simplex/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+        {# DataTables CSS#}
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs/dt-1.10.9,r-1.0.7/datatables.min.css"/>
+
+    {% endblock %}
+
+    {% stylesheets '@FBClubManagerBundle/Resources/public/css/*' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
 
         {# Calendar style sheet#}
         <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
         <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.print.css') }}" />
-
-        {# DataTables CSS#}
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs/dt-1.10.9,r-1.0.7/datatables.min.css"/>
-    {% endblock %}
+    {% endstylesheets %}
 </head>
 
 <body>
@@ -118,22 +123,26 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
+    {# DataTables#}
+    <script type="text/javascript" src="https://cdn.datatables.net/r/bs/dt-1.10.9,r-1.0.7/datatables.min.js"></script>
+
+{% endblock %}
+
+{% javascripts '@FBClubManagerBundle/Resources/public/js/*' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+
     {#FOS Routing bundle#}
     <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script type="text/javascript" src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 
-    {#calendar bundle#}
-    <script type="text/javascript" src="{{ asset('bundles/fbclubmanager/js/main.js') }}"></script>
-    {#<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-2.1.1.min.js') }}"></script>#}
+    {#calendar bundle
+    <script type="text/javascript" src="{{ asset('bundles/fbclubmanager/js/main.js') }}"></script>#}
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-ui.custom.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/moment/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar-lang-all.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
 
-    {# DataTables#}
-    <script type="text/javascript" src="https://cdn.datatables.net/r/bs/dt-1.10.9,r-1.0.7/datatables.min.js"></script>
-{% endblock %}
-
+{% endjavascripts %}
 </body>
 </html>

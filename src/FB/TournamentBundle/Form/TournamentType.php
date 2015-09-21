@@ -48,7 +48,6 @@ class TournamentType extends AbstractType
             ))
             ->add('players', 'entity', array( 'class' => 'FB\PlayerManagerBundle\Entity\Player',
                 'property' => 'displayName',
-                'empty_value' => 'Sélectionner un joueur',
                 'required' => false,
                 'multiple' => true,
                 'query_builder' => function(EntityRepository $er)

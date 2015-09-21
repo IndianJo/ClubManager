@@ -18,3 +18,9 @@ $(document).ready( function () {
     $('#filteredTable').DataTable({
     })
 } );
+$('#fb_tournamentbundle_tournament_players').tokenize({
+    displayDropdownOnFocus: true,
+    newElements: false,
+    nbDropdownElements: 100,
+    placeholder: 'Sélectionner un joueur'
+});
