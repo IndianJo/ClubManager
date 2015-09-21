@@ -12,6 +12,7 @@ use FB\PlayerManagerBundle\Entity\Player;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
+
 class PlayerManagerController extends Controller
 {
     /**
@@ -22,8 +23,8 @@ class PlayerManagerController extends Controller
         // récupération de l'entity manager
         $em = $this->getDoctrine()->getManager();
 
-        // récupération de la liste des joueurs stckés en BDD
-        $players = $em->getRepository('FBPlayerManagerBundle:Player')->findAll();
+        // récupération de la liste des joueurs stockés en BDD
+        $players = $em->getRepository('FBPlayerManagerBundle:Player')->findAllPlayers();
 
         return $this->render('@FBPlayerManager/PlayerManager/index.html.twig', array('listPlayers' => $players));
     }

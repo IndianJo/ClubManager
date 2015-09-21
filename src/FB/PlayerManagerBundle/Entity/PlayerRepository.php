@@ -12,4 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class PlayerRepository extends EntityRepository
 {
+    public function findAllPlayers()
+    {
+        return $this->createQueryBuilder('Player')
+            ->where('Player.firstname != :fname ')
+            ->andWhere('Player.lastname != :lname')
+            ->setParameter('fname', 'club')
+            ->setParameter('lname', 'ucv')
+            ->getQuery()
+            ->getResult();
+    }
 }
