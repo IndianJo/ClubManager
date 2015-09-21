@@ -14,3 +14,6 @@ $('body').on('click', '[data-toggle=collapse-next]', function (e) {
     var $target = $(this).parents('.panel').find('.panel-collapse');
     $target.collapse('toggle');
 });
+$(document).ready( function () {
+    $('#filteredTable').DataTable();
+} );
