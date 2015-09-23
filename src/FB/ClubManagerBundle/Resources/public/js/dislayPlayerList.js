@@ -1,3 +1,6 @@
+// On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
+var index = 0;
+
 $(document).ready(function() {
     var $container = $('div#fb_tournamentbundle_tournament_teams');
 
@@ -11,13 +14,10 @@ $(document).ready(function() {
         e.preventDefault(); // évite qu'un # apparaisse dans l'URL
         return false;
     });
-
-    // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
-    var index = $container.find(':input').length;
-
+    index = $container.find(':input').length;
     // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un.
     if (index == 0) {
-        addTeam($container);
+        //addTeam($container);
     } else {
         // Pour chaque équipe déjà existante, on ajoute un lien de suppression
         $container.children('div').each(function() {
@@ -46,8 +46,7 @@ $(document).ready(function() {
     // La fonction qui ajoute un lien de suppression d'une équipe
     function addDeleteLink($prototype) {
         // Création du lien
-        $deleteLink = $('<a href="#" class="btn btn-sm btn-danger">Supprimer</a>');
-
+        $deleteLink = $('<a href="#" class="btn btn-sm btn-danger" type="button" title="Supprimer l\'élément" data-toggle="tooltip" onclick="return confirm(\'Etes-vous sûr de vouloir supprimer cet élément ?\')">Supprimer</a>');
         // Ajout du lien
         $prototype.append($deleteLink);
 
