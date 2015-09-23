@@ -17,9 +17,13 @@ class SeasonType extends AbstractType
         $builder
             ->add('name',       'text')
             ->add('startDate',  'date', array(
-                'format' => 'dd/MMM/y'))
+                'widget' => 'single_text',
+                'format' => 'dd/MM/yyyy',
+            ))
             ->add('endDate',    'date', array(
-                'format' => 'dd/MMM/y'))
+                'widget' => 'single_text',
+                'format' => 'dd/MM/yyyy',
+            ))
             ->add('Save',       'submit')
         ;
     }

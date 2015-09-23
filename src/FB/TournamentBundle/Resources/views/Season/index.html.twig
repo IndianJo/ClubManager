@@ -40,8 +40,8 @@
             {% for season in listSeasons %}
                 <tr>
                     <td>{{ season.name }}</td>
-                    <td>{{ season.startDate|date('d-m') }}</td>
-                    <td>{{ season.endDate|date('d-m') }}</td>
+                    <td>{{ season.startDate|localizeddate('medium', 'none') }}</td>
+                    <td>{{ season.endDate|localizeddate('medium', 'none') }}</td>
                     <td>
                         <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_season_update', {'id': season.id}) }}" title="Modifier l'élément" data-toggle="tooltip">
                             <span class="glyphicon glyphicon-pencil"></span>

@@ -22,10 +22,14 @@ class TournamentType extends AbstractType
             ->add('address',    'text')
             ->add('city',       'text')
             ->add('country',    'country', array('preferred_choices' => array('FR')))
-            ->add('startDate',  'date', array(
-                'format' => 'dd-MMM-y'))
-            ->add('endDate',    'date', array(
-                'format' => 'dd-MMM-y'))
+            ->add('startDate', 'date', array(
+                    'widget' => 'single_text',
+                    'format' => 'dd/MM/yyyy',
+                ))
+            ->add('endDate', 'date', array(
+                    'widget' => 'single_text',
+                    'format' => 'dd/MM/yyyy',
+                ))
             ->add('category',   'choice', array('choices' => array(
                 'Open'=>'Open',
                 'Mixte'=>'Mixte',

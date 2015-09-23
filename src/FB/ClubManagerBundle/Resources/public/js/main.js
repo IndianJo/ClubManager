@@ -18,9 +18,12 @@ $(document).ready( function () {
     $('#filteredTable').DataTable({
     })
 } );
+// use to add multi tocken in multi select box
 $('select[multiple=multiple]').tokenize({
     displayDropdownOnFocus: true,
     newElements: false,
     nbDropdownElements: 100,
     placeholder: 'Sélectionner un joueur'
 });
+
+$('.datepicker').datepicker();
