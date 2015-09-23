@@ -33,13 +33,7 @@
             </div>
            {{ form_widget(form.filter, {'attr': {'class': 'btn btn-sm btn-primary' } }) }}
         </div>
-
-    {# Génération automatique des champs pas encore écrits.
-       Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
-       et tous les champs cachés (type « hidden »).
     {{ form_rest(form) }}
-
-    {# Fermeture de la balise <form> du formulaire HTML #}
     {{ form_end(form) }}
     </div>
     <div>
@@ -89,15 +83,36 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Nom</th>
+                                <th>Equipe</th>
+{#
                                 <th>Prénom</th>
+#}
                             <tr>
                             </thead>
                             <tbody>
-                            {% for player in tournament.players %}
+                            {% for team in tournament.teams %}
                                 <tr>
-                                    <td>{{ player.lastname }}</td>
-                                    <td>{{ player.firstname }}</td>
+                                    <td>{{ team.name }}</td>
+
+                                    <td>
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    Joueurs
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for player in team.players %}
+                                                <tr>
+                                                    <td>{{ player.displayName }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </td>
+
                                 </tr>
                             {% endfor %}
                             </tbody>

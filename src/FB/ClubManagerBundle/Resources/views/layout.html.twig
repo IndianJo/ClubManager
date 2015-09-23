@@ -129,23 +129,23 @@
         {# DataTables#}
         <script type="text/javascript" src="https://cdn.datatables.net/r/bs/dt-1.10.9,r-1.0.7/datatables.min.js"></script>
 
-    {% endblock %}
+{% endblock %}
 
-    {% javascripts '@FBClubManagerBundle/Resources/public/js/*' %}
+{% javascripts  '@FBClubManagerBundle/Resources/public/js/jquery.tokenize.js'
+                '@FBClubManagerBundle/Resources/public/js/main.js'    %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
 
         {#FOS Routing bundle#}
         <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script type="text/javascript" src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 
-        {#calendar bundle
-        <script type="text/javascript" src="{{ asset('bundles/fbclubmanager/js/main.js') }}"></script>#}
+        {#calendar bundle#}
         <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-ui.custom.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/moment/moment.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar-lang-all.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
 
-    {% endjavascripts %}
+{% endjavascripts %}
 </body>
 </html>

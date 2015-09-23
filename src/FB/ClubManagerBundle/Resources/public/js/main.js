@@ -18,7 +18,7 @@ $(document).ready( function () {
     $('#filteredTable').DataTable({
     })
 } );
-$('#fb_tournamentbundle_tournament_players').tokenize({
+$('#fb_tournamentbundle_tournament_teams_0_players').tokenize({
     displayDropdownOnFocus: true,
     newElements: false,
     nbDropdownElements: 100,

@@ -21,3 +21,7 @@
 {% block fbclubmanager_body %}
     {{ include ('FBTournamentBundle:Tournament:form.html.twig') }}
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/fbclubmanager/js/dislayPlayerList.js') }}"></script>
+{% endblock %}

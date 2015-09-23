@@ -93,9 +93,9 @@ class Tournament
     private $season;
 
     /**
-     * @ORM\ManyToMany(targetEntity="FB\PlayerManagerBundle\Entity\Player", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="FB\TournamentBundle\Entity\Team", cascade={"persist"})
      */
-    private $players;
+    private $teams;
 
     /**
      * Get id
@@ -341,39 +341,39 @@ class Tournament
      */
     public function __construct()
     {
-        $this->players = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add players
+     * Add teams
      *
-     * @param \FB\PlayerManagerBundle\Entity\Player $player
+     * @param Team $team
      * @return Tournament
      */
-    public function addPlayer(\FB\PlayerManagerBundle\Entity\Player $player)
+    public function addTeam(Team $team)
     {
-        $this->players[] = $player;
+        $this->teams[] = $team;
 
         return $this;
     }
 
     /**
-     * Remove players
+     * Remove team
      *
-     * @param \FB\PlayerManagerBundle\Entity\Player $player
+     * @param Team $team
      */
-    public function removePlayer(\FB\PlayerManagerBundle\Entity\Player $player)
+    public function removeTeam(Team $team)
     {
-        $this->players->removeElement($player);
+        $this->teams->removeElement($team);
     }
 
     /**
-     * Get players
+     * Get teams
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getPlayers()
+    public function getTeams()
     {
-        return $this->players;
+        return $this->teams;
     }
 }

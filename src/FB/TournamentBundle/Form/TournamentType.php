@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use FB\PlayerManagerBundle\Entity\Player;
+use FB\TournamentBundle\Entity\Team;
 
 class TournamentType extends AbstractType
 {
@@ -46,18 +46,11 @@ class TournamentType extends AbstractType
                 'property' => 'name',
                 'empty_value' => 'Sélectionner une saison',
             ))
-            ->add('players', 'entity', array( 'class' => 'FB\PlayerManagerBundle\Entity\Player',
-                'property' => 'displayName',
-                'required' => false,
-                'multiple' => true,
-                'query_builder' => function(EntityRepository $er)
-                {
-                    return $er->createQueryBuilder('Player')
-                        ->where('Player.firstname != :fname ')
-                        ->andWhere('Player.lastname != :lname')
-                        ->setParameter('fname', 'club')
-                        ->setParameter('lname', 'ucv');
-                }))
+            ->add('teams', 'collection', array(
+                'type'          => new TeamType(),
+                'allow_add'     => true,
+                'allow_delete'  => true,
+            ))
             ->add('save', 'submit')
         ;
     }
