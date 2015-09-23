@@ -71,11 +71,23 @@
         </div>
     </div>
 
+{#{% for team in form.teams %}
     <div class="form-group">
-        {{ form_label(form.teams, "Liste des équipes", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        {{ form_errors(form.surface) }}
-            {{ form_widget(form.teams, {'attr': {'class': 'col-sm-4 tokenize-sample'}}) }}
+        {{ form_label(team.name, "Nom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_widget(team.name) }}
     </div>
+    <div class="form-group">
+        {{ form_label(team.players, "Joueurs", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_widget(team.players) }}
+    </div>
+{% endfor %}#}
+
+
+        <div class="form-group">
+            {{ form_label(form.teams, "Liste des équipes", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {{ form_errors(form.teams) }}
+            {{ form_widget(form.teams, {'attr': {'class': 'col-sm-4 tokenize-sample'}}) }}
+        </div>
 
     <div class="form-group">
         <div class="span7 text-center">
