@@ -1,4 +1,6 @@
 services:
-#    fb_user.example:
-#        class: FB\UserBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    app_user.form.registration.form.type:
+        class: FB\UserBundle\Form\RegistrationType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+              - { name: form.type, alias: app_user_registration }

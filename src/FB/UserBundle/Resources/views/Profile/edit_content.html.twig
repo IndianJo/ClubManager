@@ -43,6 +43,17 @@
                             </div>
                         </div>
 
+{#
+{% include ("FOSUserBundle:Registration:register_content.html.twig")with {'form.player':player} %}
+                    <div class="form-group">
+                        {{ form_label(form.player, "Prénom", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                        {{ form_errors(form.player) }}
+                        <div class="col-sm-3">
+                            {{ form_widget(form.player, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+#}
+
                 </div>
                 <div class="panel-footer">
                     <button class="btn btn-sm btn-warning" type="submit"><i class="glyphicon glyphicon-ok"></i> {{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}</button>
