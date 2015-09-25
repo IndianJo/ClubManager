@@ -89,6 +89,11 @@ class Player
      */
     private $GameSets;
 
+    /**
+     * @ORM\OneToOne(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat", cascade={"persist", "remove"} )
+     */
+    private $ThrowStat;
+
     public function __construct()
     {
         $this->setPhonenumber(0606060606);
@@ -334,5 +339,28 @@ class Player
     public function displayName()
     {
         return sprintf('%s - %s', $this->firstname, $this->lastname);
+    }
+
+    /**
+     * Set ThrowStat
+     *
+     * @param \FB\PlayerManagerBundle\Entity\ThrowStat $throwStat
+     * @return Player
+     */
+    public function setThrowStat(\FB\PlayerManagerBundle\Entity\ThrowStat $throwStat = null)
+    {
+        $this->ThrowStat = $throwStat;
+
+        return $this;
+    }
+
+    /**
+     * Get ThrowStat
+     *
+     * @return \FB\PlayerManagerBundle\Entity\ThrowStat 
+     */
+    public function getThrowStat()
+    {
+        return $this->ThrowStat;
     }
 }
