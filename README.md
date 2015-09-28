@@ -32,5 +32,5 @@ php app/console doctrine:schema:update --force
 ```
 Add testdata on database : 
 ```
-php app/console doctrine:fixtures:load
+use the *clubmanager.sql* file to insert test value in database (via PhpMySql and Query executor)
 ```
