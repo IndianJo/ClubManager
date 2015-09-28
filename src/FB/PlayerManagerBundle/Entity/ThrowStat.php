@@ -5,7 +5,7 @@ namespace FB\PlayerManagerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ThrowStat
+ * BackThrow
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="FB\PlayerManagerBundle\Entity\ThrowStatRepository")

@@ -114,4 +114,9 @@ class PlayerManagerController extends Controller
 
         return $this->render('FBPlayerManagerBundle:PlayerManager:update.html.twig', array('form' => $form->createView()));
     }
+
+    public function detailAction (Request $request, Player $player)
+    {
+        return $this->render('@FBPlayerManager/PlayerManager/detail.html.html.twig', array('player' => $player));
+    }
 }

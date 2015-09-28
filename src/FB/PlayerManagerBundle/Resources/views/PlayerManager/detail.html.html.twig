@@ -1,0 +1,70 @@
+{# src\FB\PlayerManagerBundle\Resources\views\PlayerManager\detail.html.twig#}
+
+{% extends "FBClubManagerBundle::layout.html.twig" %}
+{% block title %}
+    Player detail - {{ parent() }}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+{% endblock %}
+
+{% block headerWelcome %}
+    Player detail
+{% endblock %}
+{% block headerMessage %}
+    <p> Détail du joueur</p>
+{% endblock %}
+{% block breacrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path ('fb_clubmanager_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li><a href="{{ path ('fb_playermanager_home') }}">Joueurs</a></li>
+        <li class="active">Détail</li>
+    </ol>
+{% endblock %}
+{% block fbclubmanager_body %}
+    <h2> {{ player.displayName }}</h2>
+
+    <div>
+        <label>Nom : {{ player.lastname }}</label>
+    </div>
+    <div>
+        <label>Prénom : {{ player.firstname }}</label>
+    </div>
+    <div>
+        <h5>Adresse  : </h5>
+        <div class="container">
+            <div>
+                <label> {{ player.streetnumber }}, {{ player.street }} </label>
+            </div>
+            <div>
+                <label> {{ player.cP }} {{  player.city }}</label>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <label>Email : {{ player.email }}</label>
+    </div>
+    <div>
+        <h5>Distance de lancé : </h5>
+        <div class="container">
+            {% if player.backThrow is not null %}
+                <div>
+                    <label>Revers : {{ player.BackThrow.distance }}m</label>
+                    <label> au {{ player.backThrow.testDate|localizeddate('medium','none', 'fr') }}</label>
+                </div>
+            {% endif %}
+            {% if player.sideThrow is not null %}
+                <div>
+                    <label>Coup droit : {{ player.sideThrow.distance }}m </label>
+                    <label> au {{ player.sideThrow.testDate|localizeddate('medium','none', 'fr') }}</label>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+{% endblock %}

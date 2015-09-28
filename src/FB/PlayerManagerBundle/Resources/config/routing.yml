@@ -18,3 +18,9 @@ fb_playermanager_delete:
   defaults: { _controller: FBPlayerManagerBundle:PlayerManager:delete }
   requirements:
           id: \d+
+
+fb_playermanager_detail:
+  path:    /detail/{id}
+  defaults: { _controller: FBPlayerManagerBundle:PlayerManager:detail }
+  requirements:
+          id: \d+

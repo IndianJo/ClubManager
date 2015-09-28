@@ -46,6 +46,9 @@
                         {{ gameset.number }},
                     {% endfor %}</td>
                 <td>
+                    <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_playermanager_detail', {'id': player.id}) }}" title="Détails" data-toggle="tooltip">
+                        <span class="glyphicon glyphicon-zoom-in"></span>
+                    </a>
                     {% if is_granted('ROLE_MEMBER') %}
                         <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_playermanager_update', {'id': player.id}) }}" title="Modifier l'élément" data-toggle="tooltip">
                             <span class="glyphicon glyphicon-pencil"></span>

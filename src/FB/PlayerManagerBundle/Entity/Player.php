@@ -92,7 +92,12 @@ class Player
     /**
      * @ORM\OneToOne(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat", cascade={"persist", "remove"} )
      */
-    private $ThrowStat;
+    private $BackThrow;
+
+    /**
+     * @ORM\OneToOne(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat", cascade={"persist", "remove"} )
+     */
+    private $sideThrow;
 
     public function __construct()
     {
@@ -342,25 +347,48 @@ class Player
     }
 
     /**
-     * Set ThrowStat
+     * Set BackThrow
      *
      * @param \FB\PlayerManagerBundle\Entity\ThrowStat $throwStat
      * @return Player
      */
-    public function setThrowStat(\FB\PlayerManagerBundle\Entity\ThrowStat $throwStat = null)
+    public function setBackThrow(\FB\PlayerManagerBundle\Entity\ThrowStat $throwStat = null)
     {
-        $this->ThrowStat = $throwStat;
+        $this->BackThrow = $throwStat;
 
         return $this;
     }
 
     /**
-     * Get ThrowStat
+     * Get BackThrow
      *
      * @return \FB\PlayerManagerBundle\Entity\ThrowStat 
      */
-    public function getThrowStat()
+    public function getBackThrow()
     {
-        return $this->ThrowStat;
+        return $this->BackThrow;
+    }
+
+    /**
+     * Set sideThrow
+     *
+     * @param \FB\PlayerManagerBundle\Entity\ThrowStat $sideThrow
+     * @return Player
+     */
+    public function setSideThrow(\FB\PlayerManagerBundle\Entity\ThrowStat $sideThrow = null)
+    {
+        $this->sideThrow = $sideThrow;
+
+        return $this;
+    }
+
+    /**
+     * Get sideThrow
+     *
+     * @return \FB\PlayerManagerBundle\Entity\ThrowStat 
+     */
+    public function getSideThrow()
+    {
+        return $this->sideThrow;
     }
 }

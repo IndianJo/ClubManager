@@ -23,6 +23,8 @@ class PlayerType extends AbstractType
             ->add('city',           'text')
             ->add('cp',             'number')
             ->add('email',          'email')
+            ->add('BackThrow',      new ThrowStatType())
+            ->add('SideThrow',      new ThrowStatType())
             //->add('GameSets',       'entity', array('class'=> 'FB\SetManagerBundle\Entity\GameSet', 'property'=> 'number'))
             ->add('save',           'submit')
             ->add('saveexit',       'submit')
