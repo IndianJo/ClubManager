@@ -90,12 +90,12 @@ class Player
     private $GameSets;
 
     /**
-     * @ORM\OneToOne(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat", cascade={"persist", "remove"} )
+     * @ORM\ManyToOne(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat")
      */
     private $BackThrow;
 
     /**
-     * @ORM\OneToOne(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat", cascade={"persist", "remove"} )
+     * @ORM\ManyToOne(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat")
      */
     private $sideThrow;
 
@@ -341,6 +341,11 @@ class Player
         return $this->GameSets;
     }
 
+    /**
+     * Player name display on the interface
+     *
+     * @return string
+     */
     public function displayName()
     {
         return sprintf('%s - %s', $this->firstname, $this->lastname);

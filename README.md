@@ -31,5 +31,5 @@ next generate tables :
 php app/console doctrine:schema:update --force
 ```
 Add testdata on database : 
-use the *clubmanager.sql* file to insert test value in database (via PhpMySql and Query executor)
+use *ClumManager_user.sql* to create user and groupe and *clubmanager.sql* to insert test value in database (via PhpMySql and Query executor)
 

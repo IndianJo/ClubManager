@@ -61,10 +61,24 @@
                     <label> au {{ player.sideThrow.testDate|localizeddate('medium','none', 'fr') }}</label>
                 </div>
             {% endif %}
+            {% if player.backThrow is not null or player.sideThrow is not null %}
+                <div class="ct-chart ct-golden-section" id="chart1"></div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+    <script>
+        // Initialize a Line chart in the container with the ID chart1
+        new Chartist.Line('#chart1', {
+            labels: [1, 2, 3, 4],
+            series: [
+                [0, {{ (player.backThrow is not null) ? player.backThrow.distance }}],
+                [0, 1, 2]]
+        });
+
+    </script>
 {% endblock %}
