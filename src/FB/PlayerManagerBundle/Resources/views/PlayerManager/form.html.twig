@@ -70,6 +70,28 @@
             {{ form_widget(form.GameSets, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>#}
+    <div class="form-group has-feedback has-feedback-left">
+        <h4> Distance de lancée : </h4>
+        <div class="form-group">
+            {{ form_label(form.throwDistance.backDistance, "Distance revers (en métre)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {{ form_errors(form.throwDistance.backDistance) }}
+            <div class="col-sm-2">
+                {{ form_widget(form.throwDistance.backDistance, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            {{ form_label(form.throwDistance.sideDistance, "Distance coup droit (en mètre)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {{ form_errors(form.throwDistance.sideDistance) }}
+            <div class="col-sm-2">
+                {{ form_widget(form.throwDistance.sideDistance, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        {{ form_label(form.throwDistance.testDate, "Date de mesure", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.throwDistance.testDate) }}
+        <div class="col-sm-3">
+            {{ form_widget(form.throwDistance.testDate, {'attr': {'class': 'form-control datepicker'}}) }}
+            <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
+        </div>
+    </div>
 
     <div class="span7 text-center">
         {{ form_widget(form.save, {'label': 'Sauvegarder', 'attr': { 'class': 'btn btn-primary' } }) }}

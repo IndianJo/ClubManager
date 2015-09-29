@@ -49,19 +49,13 @@
     <div>
         <h5>Distance de lancé : </h5>
         <div class="container">
-            {% if player.backThrow is not null %}
+            {% if player.throwDistance is not null %}
                 <div>
-                    <label>Revers : {{ player.BackThrow.distance }}m</label>
-                    <label> au {{ player.backThrow.testDate|localizeddate('medium','none', 'fr') }}</label>
+                    <label>Revers : {{ player.throwDistance.backDistance }}m</label>
+                    </br>
+                    <label>Coup droit : {{ player.throwDistance.sideDistance }}m </label>
+                    <label> au {{ player.throwDistance.testDate|localizeddate('medium','none', 'fr') }}</label>
                 </div>
-            {% endif %}
-            {% if player.sideThrow is not null %}
-                <div>
-                    <label>Coup droit : {{ player.sideThrow.distance }}m </label>
-                    <label> au {{ player.sideThrow.testDate|localizeddate('medium','none', 'fr') }}</label>
-                </div>
-            {% endif %}
-            {% if player.backThrow is not null or player.sideThrow is not null %}
                 <div class="ct-chart ct-golden-section" id="chart1"></div>
             {% endif %}
         </div>
@@ -73,11 +67,11 @@
 
     <script>
         // Initialize a Line chart in the container with the ID chart1
-        new Chartist.Line('#chart1', {
-            labels: [1, 2, 3, 4],
+        new Chartist.Bar('#chart1', {
+            labels: ["{{ player.throwDistance.testDate|localizeddate('medium','none', 'fr') }}"],
             series: [
-                [0, {{ (player.backThrow is not null) ? player.backThrow.distance }}],
-                [0, 1, 2]]
+                [{{ (player.throwDistance.backDistance is not null) ? player.throwDistance.backDistance }}],
+                [{{ (player.throwDistance.sideDistance is not null) ? player.throwDistance.sideDistance }}]]
         });
 
     </script>

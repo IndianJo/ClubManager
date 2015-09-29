@@ -15,8 +15,12 @@ class ThrowStatType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('distance')
-            ->add('testDate')
+            ->add('backDistance', 'text')
+            ->add('sideDistance', 'text')
+            ->add('testDate', 'date', array(
+        'widget' => 'single_text',
+        'format' => 'dd/MM/yyyy',
+    ))
         ;
     }
     

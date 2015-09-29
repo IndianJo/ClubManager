@@ -5,7 +5,7 @@ namespace FB\PlayerManagerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * BackThrow
+ * throwDistance
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="FB\PlayerManagerBundle\Entity\ThrowStatRepository")
@@ -24,10 +24,17 @@ class ThrowStat
     /**
      * @var integer
      *
-     * @ORM\Column(name="distance", type="integer")
+     * @ORM\Column(name="backDistance", type="integer")
      */
-    private $distance;
+    private $backDistance;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sideDistance", type="integer")
+     */
+
+    private $sideDistance;
     /**
      * @var \DateTime
      *
@@ -47,26 +54,26 @@ class ThrowStat
     }
 
     /**
-     * Set distance
+     * Set backDistance
      *
-     * @param integer $distance
+     * @param integer $backDistance
      * @return ThrowStat
      */
-    public function setDistance($distance)
+    public function setBackDistance($backDistance)
     {
-        $this->distance = $distance;
+        $this->backDistance = $backDistance;
 
         return $this;
     }
 
     /**
-     * Get distance
+     * Get backDistance
      *
      * @return integer 
      */
-    public function getDistance()
+    public function getBackDistance()
     {
-        return $this->distance;
+        return $this->backDistance;
     }
 
     /**
@@ -90,5 +97,28 @@ class ThrowStat
     public function getTestDate()
     {
         return $this->testDate;
+    }
+
+    /**
+     * Set sideDistance
+     *
+     * @param integer $sideDistance
+     * @return ThrowStat
+     */
+    public function setSideDistance($sideDistance)
+    {
+        $this->sideDistance = $sideDistance;
+
+        return $this;
+    }
+
+    /**
+     * Get sideDistance
+     *
+     * @return integer 
+     */
+    public function getSideDistance()
+    {
+        return $this->sideDistance;
     }
 }

@@ -90,14 +90,9 @@ class Player
     private $GameSets;
 
     /**
-     * @ORM\ManyToOne(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat")
+     * @ORM\ManyToOne(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat", cascade={"persist", "remove"})
      */
-    private $BackThrow;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat")
-     */
-    private $sideThrow;
+    private $throwDistance;
 
     public function __construct()
     {
@@ -352,48 +347,26 @@ class Player
     }
 
     /**
-     * Set BackThrow
+     * Set throwDistance
      *
      * @param \FB\PlayerManagerBundle\Entity\ThrowStat $throwStat
      * @return Player
      */
-    public function setBackThrow(\FB\PlayerManagerBundle\Entity\ThrowStat $throwStat = null)
+    public function setThrowDistance(\FB\PlayerManagerBundle\Entity\ThrowStat $throwStat = null)
     {
-        $this->BackThrow = $throwStat;
+        $this->throwDistance = $throwStat;
 
         return $this;
     }
 
     /**
-     * Get BackThrow
+     * Get throwDistance
      *
      * @return \FB\PlayerManagerBundle\Entity\ThrowStat 
      */
-    public function getBackThrow()
+    public function getThrowDistance()
     {
-        return $this->BackThrow;
+        return $this->throwDistance;
     }
 
-    /**
-     * Set sideThrow
-     *
-     * @param \FB\PlayerManagerBundle\Entity\ThrowStat $sideThrow
-     * @return Player
-     */
-    public function setSideThrow(\FB\PlayerManagerBundle\Entity\ThrowStat $sideThrow = null)
-    {
-        $this->sideThrow = $sideThrow;
-
-        return $this;
-    }
-
-    /**
-     * Get sideThrow
-     *
-     * @return \FB\PlayerManagerBundle\Entity\ThrowStat 
-     */
-    public function getSideThrow()
-    {
-        return $this->sideThrow;
-    }
 }
