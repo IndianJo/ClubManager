@@ -61,8 +61,7 @@ class CalendarEventListener
 
             $eventEntity->setFgColor('#FFFFFF'); //set the foreground color of the event's label
 
-            // Todo add dynamic way to defind url
-            $eventEntity->setUrl('update/'.$tournamentEvent->getId()); // url to send user to when event label is clicked
+            $eventEntity->setUrl('update/'.$tournamentEvent->getId()); // url to send user when event label is clicked
 
             //finally, add the event to the CalendarEvent for displaying on the calendar
             $calendarEvent->addEvent($eventEntity);
