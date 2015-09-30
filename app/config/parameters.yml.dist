@@ -16,7 +16,7 @@ parameters:
     mailer_password:   ~
 
     # A secret key that's used to generate certain security-related tokens
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            62c19059f92978bfd457c047beb4046e639e969e
 
     # Define the country use for local setting (language, time date...)
     locale:
