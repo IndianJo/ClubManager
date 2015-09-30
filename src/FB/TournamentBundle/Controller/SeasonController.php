@@ -26,23 +26,23 @@ class SeasonController extends Controller
     {
         $season = new Season();
 
-        // Création du formulaire de saisie
+        // CrÃ©ation du formulaire de saisie
         $form = $this->get('form.factory')->create(new SeasonType(), $season);
 
-        // récupération de l'entity manager
+        // rÃ©cupÃ©ration de l'entity manager
         $em = $this->getDoctrine()->getManager();
 
-        // On fait le lien Requête<->formulaire
+        // On fait le lien RequÃªte<->formulaire
         $form->handleRequest($request);
 
-        // on vérife la validité des donnnées du formulaire
+        // on vÃ©rife la validitÃ© des donnnÃ©es du formulaire
         if($form->isValid()){
             // sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($season);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('notice', 'Saison enregitrée');
+            $this->get('session')->getFlashBag()->add('notice', 'Saison enregitrÃ©e');
 
             //Clear the form
             unset($season);
@@ -51,7 +51,7 @@ class SeasonController extends Controller
             $form = $this->get('form.factory')->create(new SeasonType(), $season);
         }
 
-        // récupération de la liste des saisons stockés en BDD
+        // rÃ©cupÃ©ration de la liste des saisons stockÃ©s en BDD
         $seasons = $em->getRepository('FBTournamentBundle:Season')->findAll();
 
         return $this->render('FBTournamentBundle:Season:index.html.twig', array('listSeasons' => $seasons, 'form' => $form->createView()));
@@ -73,9 +73,9 @@ class SeasonController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($season);
             $em->flush();
-            $this->get('session')->getFlashBag()->add('notice', 'Saison mis à jour');
+            $this->get('session')->getFlashBag()->add('notice', 'Saison mis Ã  jour');
 
-            // récupération des infos de la bases
+            // rÃ©cupÃ©ration des infos de la bases
             $seasons = $em->getRepository('FBTournamentBundle:Season')->findAll();
 
             //affichage de la liste des set de maillot
@@ -98,7 +98,7 @@ class SeasonController extends Controller
         $em->remove($season);
         $em->flush();
 
-        // récupération des infos de la bases
+        // rÃ©cupÃ©ration des infos de la bases
         $seasons = $em->getRepository('FBTournamentBundle:Season')->findAll();
         //affichage de la liste des jeu de maillot
         return $this->redirect($this->generateUrl('fb_season_home', array('listSeasons' => $seasons)));

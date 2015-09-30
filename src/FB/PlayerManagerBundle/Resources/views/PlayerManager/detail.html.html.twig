@@ -24,6 +24,14 @@
 {% endblock %}
 {% block fbclubmanager_body %}
     <h2> {{ player.displayName }}</h2>
+    {% if is_granted('ROLE_MEMBER') %}
+            <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_playermanager_update', {'id': player.id}) }}" title="Modifier l'élément" data-toggle="tooltip">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <a class="btn btn-sm btn-danger" type="button" href="{{ path('fb_playermanager_delete', {'id': player.id}) }}" title="Supprimer l'élément" data-toggle="tooltip" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+    {% endif %}
 
     <div>
         <label>Nom : {{ player.lastname }}</label>
