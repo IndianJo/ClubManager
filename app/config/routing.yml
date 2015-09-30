@@ -32,10 +32,6 @@ sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix:   /admin
 
-sonata_user_impersonating:
-    pattern:  /
-    defaults: { _controller: SonataPageBundle:Page:catchAll }
-
 # FOS Js Routing bundle
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
