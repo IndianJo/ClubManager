@@ -17,15 +17,16 @@
 
         {# datepicker#}
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/ui-lightness/jquery-ui.css" type="text/css" />
+
+        {% stylesheets '@FBClubManagerBundle/Resources/public/css/*' %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+
+            {# Calendar style sheet#}
+            <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
+            <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.print.css') }}" />
+        {% endstylesheets %}
     {% endblock %}
 
-    {% stylesheets '@FBClubManagerBundle/Resources/public/css/*' %}
-        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-
-        {# Calendar style sheet#}
-        <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
-        <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.print.css') }}" />
-    {% endstylesheets %}
 </head>
 
 <body>
@@ -132,25 +133,17 @@
         <script type="text/javascript" src="https://cdn.datatables.net/r/bs/dt-1.10.9,r-1.0.7/datatables.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
+
+    {% javascripts  '@FBClubManagerBundle/Resources/public/js/jquery.tokenize.js'
+                    '@FBClubManagerBundle/Resources/public/js/main.js'
+                    '@FBClubManagerBundle/Resources/public/js/jquery.ui.datepicker-fr.js'%}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+
+            {#FOS Routing bundle#}
+            <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script type="text/javascript" src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    {% endjavascripts %}
 {% endblock %}
 
-{% javascripts  '@FBClubManagerBundle/Resources/public/js/jquery.tokenize.js'
-                '@FBClubManagerBundle/Resources/public/js/main.js'
-                '@FBClubManagerBundle/Resources/public/js/jquery.ui.datepicker-fr.js'%}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-
-        {#FOS Routing bundle#}
-        <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-        <script type="text/javascript" src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-
-        {#calendar bundle#}
-        {#Try to disable to use the full jquery-ui needed for other fonctionality
-         <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-ui.custom.min.js') }}"></script>#}
-        <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/moment/moment.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar-lang-all.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
-
-{% endjavascripts %}
 </body>
 </html>

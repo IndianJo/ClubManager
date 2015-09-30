@@ -4,6 +4,13 @@
 {% block title %}
    Tournament calendar - {{ parent() }}
 {% endblock %}
+    {% block stylesheets %}
+        {{ parent() }}
+        {# Calendar style sheet#}
+        <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.print.css') }}" />
+
+    {% endblock %}
 
 {% block headerWelcome %}
     Tournaments
@@ -20,4 +27,14 @@
 {% endblock %}
 {% block fbclubmanager_body %}
     {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/moment/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/fullcalendar-lang-all.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
+
 {% endblock %}
