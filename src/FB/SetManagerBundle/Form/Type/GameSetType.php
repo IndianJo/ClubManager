@@ -1,6 +1,6 @@
 <?php
 
-namespace FB\SetManagerBundle\Form;
+namespace FB\SetManagerBundle\Form\Type;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;

@@ -5,7 +5,7 @@ namespace FB\SetManagerBundle\Controller;
 
 
 use FB\SetManagerBundle\Entity\GameSet;
-use FB\SetManagerBundle\Form\GameSetType;
+use FB\SetManagerBundle\Form\Type\GameSetType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

@@ -4,7 +4,7 @@
 namespace FB\PlayerManagerBundle\Controller;
 
 
-use FB\PlayerManagerBundle\Form\PlayerType;
+use FB\PlayerManagerBundle\Form\Type\PlayerType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\BrowserKit\Response;

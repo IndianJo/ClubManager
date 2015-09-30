@@ -1,6 +1,6 @@
 <?php
 
-namespace FB\TournamentBundle\Form;
+namespace FB\TournamentBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

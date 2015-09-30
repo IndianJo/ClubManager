@@ -1,6 +1,6 @@
 <?php
 
-namespace FB\TournamentBundle\Form;
+namespace FB\TournamentBundle\Form\Type;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;

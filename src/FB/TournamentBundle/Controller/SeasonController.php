@@ -10,7 +10,7 @@ namespace FB\TournamentBundle\Controller;
 
 
 use FB\TournamentBundle\Entity\Season;
-use FB\TournamentBundle\Form\SeasonType;
+use FB\TournamentBundle\Form\Type\SeasonType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

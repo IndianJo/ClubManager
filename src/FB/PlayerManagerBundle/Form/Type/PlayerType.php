@@ -1,6 +1,6 @@
 <?php
-// src\FB\PlayerManagerBundle\Form\PlayerType.php
-namespace FB\PlayerManagerBundle\Form;
+// src\FB\PlayerManagerBundle\Form\Type\PlayerType.php
+namespace FB\PlayerManagerBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
