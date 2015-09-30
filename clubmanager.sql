@@ -127,3 +127,4 @@ INSERT INTO `tournament` (`name`, `address`, `city`, `country`, `startDate`, `en
   ('KYF', 'gymnase inconnu', 'Erstein', 'FR', '2015-10-31', '2015-11-01', 'Feminin', 'Amical', 'Indoor', 3),
   ('Gaggloo', 'inconu', 'Bern', 'CH', '2015-11-14', '2015-11-15', 'Open', 'Amical', 'Indoor', 3),
   ('Gaggloo', 'inconu', 'Bern', 'CH', '2015-11-14', '2015-11-15', 'Feminin', 'Amical', 'Indoor', 3);
+  

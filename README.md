@@ -32,4 +32,3 @@ php app/console doctrine:schema:update --force
 ```
 Add testdata on database : 
 use *ClumManager_user.sql* to create user and groupe and *clubmanager2.0.sql* to insert test value in database (via PhpMySql and Query executor)
-
