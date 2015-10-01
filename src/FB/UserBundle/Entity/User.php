@@ -30,3 +30,4 @@ class User extends BaseUser
      */
     protected $groups;
 }
+
