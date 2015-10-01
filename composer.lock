@@ -3039,16 +3039,16 @@
         },
         {
             "name": "willdurand/negotiation",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Negotiation.git",
-                "reference": "8a84c5956e765f432542fc52a8c6e9aff4508eb3"
+                "reference": "2a59f2376557303e3fa91465ab691abb82945edf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/8a84c5956e765f432542fc52a8c6e9aff4508eb3",
-                "reference": "8a84c5956e765f432542fc52a8c6e9aff4508eb3",
+                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/2a59f2376557303e3fa91465ab691abb82945edf",
+                "reference": "2a59f2376557303e3fa91465ab691abb82945edf",
                 "shasum": ""
             },
             "require": {
@@ -3057,7 +3057,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -3071,7 +3071,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -3084,7 +3084,7 @@
                 "header",
                 "negotiation"
             ],
-            "time": "2015-07-28 13:10:50"
+            "time": "2015-10-01 07:42:40"
         }
     ],
     "packages-dev": [],
