@@ -90,9 +90,9 @@ class Player
     private $GameSets;
 
     /**
-     * @ORM\ManyToOne(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat", cascade={"persist", "remove"})
-     */
-    private $throwDistance;
+     * (targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat", cascade={"persist", "remove"})
+
+    private $throwDistance;*/
 
     public function __construct()
     {

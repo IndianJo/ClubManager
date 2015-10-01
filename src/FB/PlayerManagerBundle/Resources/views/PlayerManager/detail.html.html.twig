@@ -57,15 +57,25 @@
     <div>
         <h5>Distance de lancé : </h5>
         <div class="container">
-            {% if player.throwDistance is not null %}
+            {% for throwDistance in throwDistances %}
                 <div>
-                    <label>Revers : {{ player.throwDistance.backDistance }}m</label>
+                    <label>Revers : {{ throwDistance.backDistance }}m</label>
                     </br>
-                    <label>Coup droit : {{ player.throwDistance.sideDistance }}m </label>
-                    <label> au {{ player.throwDistance.testDate|localizeddate('medium','none', 'fr') }}</label>
+                    <label>Coup droit : {{ throwDistance.sideDistance }}m </label>
+                    <label> au {{ throwDistance.testDate|localizeddate('medium','none', 'fr') }}</label>
                 </div>
-                <div class="ct-chart ct-golden-section" id="chart1"></div>
-            {% endif %}
+            {% endfor %}
+            <div class="ct-chart ct-golden-section" id="chart1"></div>
+            {#
+                        {% if player.throwDistance is not null %}
+                            <div>
+                                <label>Revers : {{ player.throwDistance.backDistance }}m</label>
+                                </br>
+                                <label>Coup droit : {{ player.throwDistance.sideDistance }}m </label>
+                                <label> au {{ player.throwDistance.testDate|localizeddate('medium','none', 'fr') }}</label>
+                            </div>
+                        {% endif %}
+            #}
         </div>
     </div>
 {% endblock %}
@@ -74,12 +84,15 @@
     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 
     <script>
+        var label = {{ label|json_encode|raw }};
+        var back = {{ back|json_encode }};
+        var side = {{ back|json_encode }};
         // Initialize a Line chart in the container with the ID chart1
         new Chartist.Bar('#chart1', {
-            labels: ["{{ player.throwDistance.testDate|localizeddate('medium','none', 'fr') }}"],
+            labels: label,
             series: [
-                [{{ (player.throwDistance.backDistance is not null) ? player.throwDistance.backDistance }}],
-                [{{ (player.throwDistance.sideDistance is not null) ? player.throwDistance.sideDistance }}]]
+                back,
+                side]
         });
 
     </script>

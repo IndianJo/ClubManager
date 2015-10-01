@@ -42,6 +42,11 @@ class ThrowStat
      */
     private $testDate;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="FB\PlayerManagerBundle\Entity\Player")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $player;
 
     /**
      * Get id
@@ -120,5 +125,28 @@ class ThrowStat
     public function getSideDistance()
     {
         return $this->sideDistance;
+    }
+
+    /**
+     * Set player
+     *
+     * @param \FB\PlayerManagerBundle\Entity\Player $player
+     * @return ThrowStat
+     */
+    public function setPlayer(\FB\PlayerManagerBundle\Entity\Player $player = null)
+    {
+        $this->player = $player;
+
+        return $this;
+    }
+
+    /**
+     * Get player
+     *
+     * @return \FB\PlayerManagerBundle\Entity\Player 
+     */
+    public function getPlayer()
+    {
+        return $this->player;
     }
 }
