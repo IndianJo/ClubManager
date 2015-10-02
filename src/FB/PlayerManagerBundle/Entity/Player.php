@@ -90,9 +90,9 @@ class Player
     private $GameSets;
 
     /**
-     * (targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat", cascade={"persist", "remove"})
-
-    private $throwDistance;*/
+     * @ORM\OneToMany(targetEntity="FB\PlayerManagerBundle\Entity\ThrowStat", mappedBy="player", cascade={"persist", "remove"})
+     */
+    private $throwDistances;
 
     public function __construct()
     {
@@ -347,26 +347,41 @@ class Player
     }
 
     /**
-     * Set throwDistance
+     * Add throwDistance
      *
-     * @param \FB\PlayerManagerBundle\Entity\ThrowStat $throwStat
+     * @param ThrowStat $throwDistances
      * @return Player
      */
-    public function setThrowDistance(\FB\PlayerManagerBundle\Entity\ThrowStat $throwStat = null)
+    public function addThrowDistance(ThrowStat $throwDistances)
     {
-        $this->throwDistance = $throwStat;
+        $this->throwDistances[] = $throwDistances;
+
+        //Link the player to his throw stat
+        $throwDistances->setPlayer($this);
 
         return $this;
     }
 
     /**
-     * Get throwDistance
+     * Remove throwDistance
      *
-     * @return \FB\PlayerManagerBundle\Entity\ThrowStat 
+     * @param ThrowStat $throwDistances
      */
-    public function getThrowDistance()
+    public function removeThrowDistance(ThrowStat $throwDistances)
     {
-        return $this->throwDistance;
+        $this->throwDistances->removeElement($throwDistances);
+
+        // delete linked throw stat
+        $throwDistances->setPlayer(null);
     }
 
+    /**
+     * Get throwDistances
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getThrowDistances()
+    {
+        return $this->throwDistances;
+    }
 }

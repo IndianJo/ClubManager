@@ -43,7 +43,7 @@ class ThrowStat
     private $testDate;
 
     /**
-     * @ORM\ManyToOne(targetEntity="FB\PlayerManagerBundle\Entity\Player")
+     * @ORM\ManyToOne(targetEntity="FB\PlayerManagerBundle\Entity\Player", inversedBy="throwDistances")
      * @ORM\JoinColumn(nullable=true)
      */
     private $player;
