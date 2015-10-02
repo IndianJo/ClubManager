@@ -3,6 +3,7 @@
 
 namespace FB\PlayerManagerBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FB\SetManagerBundle\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -102,6 +103,7 @@ class Player
         $this->setCP(25000);
         $this->setCity("Besancon");
         $this->setEmail("ucv@ucv.com");
+        $this->throwDistances = new ArrayCollection();
     }
 
     /**

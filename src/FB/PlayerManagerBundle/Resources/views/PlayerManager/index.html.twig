@@ -44,7 +44,8 @@
                 <td>{{ player.email }}</td>
                 <td>{% for gameset in player.gameSets %}
                         {{ gameset.number }},
-                    {% endfor %}</td>
+                    {% endfor %}
+                </td>
                 <td>
                     <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_playermanager_detail', {'id': player.id}) }}" title="Détails" data-toggle="tooltip">
                         <span class="glyphicon glyphicon-zoom-in"></span>

@@ -4,6 +4,7 @@
 namespace FB\PlayerManagerBundle\Controller;
 
 
+use FB\PlayerManagerBundle\Entity\ThrowStat;
 use FB\PlayerManagerBundle\Form\Type\PlayerType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -100,6 +101,8 @@ class PlayerManagerController extends Controller
         // on vérife la validité des donnnées du formulaire
         if($form->isValid()){
             // sauvegarde dans la BDD
+            $throwStat = $form["throwDistances"]->getData();
+            $form->get('throwDistances')->get('player')->setData($player->getId());
             $em = $this->getDoctrine()->getManager();
             $em->persist($player);
             $em->flush();

@@ -18,10 +18,14 @@ class ThrowStatType extends AbstractType
             ->add('backDistance', 'text')
             ->add('sideDistance', 'text')
             ->add('testDate', 'date', array(
-        'widget' => 'single_text',
-        'format' => 'dd/MM/yyyy',
-    ))
-        ;
+                'widget' => 'single_text',
+                'format' => 'dd/MM/yyyy',
+                ))
+            ->add('player', 'entity', array(
+                'class' => 'FB\PlayerManagerBundle\Entity\Player',
+                'property' => 'id',
+                'empty_value' => 'Sélectionner un joueur',
+                'required' => false));
     }
     
     /**

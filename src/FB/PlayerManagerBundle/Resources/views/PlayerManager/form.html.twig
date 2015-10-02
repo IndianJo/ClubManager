@@ -84,18 +84,42 @@
             <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
         </div>
     </div>#}
+    <div class="form-group has-feedback has-feedback-left">
+        {% for throwDistance in form.throwDistances %}
+        <div class="form-group">
+            {{ form_label(throwDistance.backDistance, "Distance revers (en métre)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {{ form_errors(throwDistance.backDistance) }}
+            <div class="col-sm-2">
+                {{ form_widget(throwDistance.backDistance, {'attr': {'class': 'form-control'}}) }}
+            </div>
 
-    <div class="span7 text-center">
-        {{ form_widget(form.save, {'label': 'Sauvegarder', 'attr': { 'class': 'btn btn-primary' } }) }}
-
-        {{ form_widget(form.saveexit, {'label': 'Sauvegarder et quitter', 'attr': {'class': 'btn btn-primary' } }) }}
-        <a class="btn btn-primary" type="button" href="{{ path('fb_playermanager_home') }}">Annuler</a>
+            {{ form_label(throwDistance.sideDistance, "Distance coup droit (en mètre)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {{ form_errors(throwDistance.sideDistance) }}
+            <div class="col-sm-2">
+                {{ form_widget(throwDistance.sideDistance, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        {{ form_label(throwDistance.testDate, "Date de mesure", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(throwDistance.testDate) }}
+        <div class="col-sm-3">
+            {{ form_widget(throwDistance.testDate, {'attr': {'class': 'form-control datepicker'}}) }}
+            <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
+        </div>
+        {% endfor %}
     </div>
-    {# Génération automatique des champs pas encore écrits.
-       Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
-       et tous les champs cachés (type « hidden »).
-    {{ form_rest(form) }}
 
-    {# Fermeture de la balise <form> du formulaire HTML #}
+
+        <div class="span7 text-center">
+            {{ form_widget(form.save, {'label': 'Sauvegarder', 'attr': { 'class': 'btn btn-primary' } }) }}
+
+            {{ form_widget(form.saveexit, {'label': 'Sauvegarder et quitter', 'attr': {'class': 'btn btn-primary' } }) }}
+            <a class="btn btn-primary" type="button" href="{{ path('fb_playermanager_home') }}">Annuler</a>
+        </div>
+        {# Génération automatique des champs pas encore écrits.
+           Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+           et tous les champs cachés (type « hidden »).
+        {{ form_rest(form) }}
+
+        {# Fermeture de la balise <form> du formulaire HTML #}
     {{ form_end(form) }}
 </div>

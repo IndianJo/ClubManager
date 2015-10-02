@@ -2,8 +2,10 @@
 
 namespace FB\TournamentBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use FB\PlayerManagerBundle\Entity\Player;
 
 /**
  * Team
@@ -72,16 +74,16 @@ class Team
      */
     public function __construct()
     {
-        $this->players = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->players = new ArrayCollection();
     }
 
     /**
      * Add players
      *
-     * @param \FB\PlayerManagerBundle\Entity\Player $player
+     * @param Player $player
      * @return Tournament
      */
-    public function addPlayer(\FB\PlayerManagerBundle\Entity\Player $player)
+    public function addPlayer(Player $player)
     {
         $this->players[] = $player;
 
@@ -91,9 +93,9 @@ class Team
     /**
      * Remove players
      *
-     * @param \FB\PlayerManagerBundle\Entity\Player $player
+     * @param Player $player
      */
-    public function removePlayer(\FB\PlayerManagerBundle\Entity\Player $player)
+    public function removePlayer(Player $player)
     {
         $this->players->removeElement($player);
     }
