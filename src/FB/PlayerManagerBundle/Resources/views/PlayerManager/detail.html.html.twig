@@ -86,7 +86,7 @@
     <script>
         var label = {{ label|json_encode|raw }};
         var back = {{ back|json_encode }};
-        var side = {{ back|json_encode }};
+        var side = {{ side|json_encode }};
         // Initialize a Line chart in the container with the ID chart1
         new Chartist.Bar('#chart1', {
             labels: label,
