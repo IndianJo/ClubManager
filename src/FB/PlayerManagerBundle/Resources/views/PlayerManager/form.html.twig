@@ -84,32 +84,46 @@
             <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
         </div>
     </div>#}
-    <div class="form-group has-feedback has-feedback-left">
+    <div id="player_throw_distances">
         {% for throwDistance in form.throwDistances %}
-        <div class="form-group">
-            {{ form_label(throwDistance.backDistance, "Distance revers (en métre)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-            {{ form_errors(throwDistance.backDistance) }}
-            <div class="col-sm-2">
-                {{ form_widget(throwDistance.backDistance, {'attr': {'class': 'form-control'}}) }}
-            </div>
+            <div id="player_throw_distances_{{ loop.index }}">
+                <div class="form-group has-feedback has-feedback-left">
+                    {{ form_label(throwDistance.testDate, "Le", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(throwDistance.testDate) }}
+                    <div class="col-sm-3">
+                        {{ form_widget(throwDistance.testDate, {'attr': {'class': 'form-control datepicker'}}) }}
+                        <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(throwDistance.backDistance, "Distance revers (en métre)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    {{ form_errors(throwDistance.backDistance) }}
+                    <div class="col-sm-2">
+                        {{ form_widget(throwDistance.backDistance, {'attr': {'class': 'form-control'}}) }}
+                    </div>
 
-            {{ form_label(throwDistance.sideDistance, "Distance coup droit (en mètre)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-            {{ form_errors(throwDistance.sideDistance) }}
-            <div class="col-sm-2">
-                {{ form_widget(throwDistance.sideDistance, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_label(throwDistance.sideDistance, "Distance coup droit (en mètre)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    {{ form_errors(throwDistance.sideDistance) }}
+                    <div class="col-sm-2">
+                        {{ form_widget(throwDistance.sideDistance, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(throwDistance.player, "", {'label_attr': {'class': 'col-sm-3 control-label' , 'style': 'display: none'}}) }}
+                    {{ form_errors(throwDistance.player) }}
+                    <div class="col-sm-2">
+                        {{ form_widget(throwDistance.player, {'attr': {'class': 'form-control', 'style': 'display: none'}}) }}
+                    </div>
+                </div>
             </div>
-        </div>
-        {{ form_label(throwDistance.testDate, "Date de mesure", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(throwDistance.testDate) }}
-        <div class="col-sm-3">
-            {{ form_widget(throwDistance.testDate, {'attr': {'class': 'form-control datepicker'}}) }}
-            <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
-        </div>
         {% endfor %}
+    </div>
+    <div id="fb_playermanagerbundle_player_throwDistances" data-prototype="{{ form_widget(form.throwDistances.vars.prototype)|e }}">
     </div>
 
 
-        <div class="span7 text-center">
+
+    <div class="span7 text-center">
             {{ form_widget(form.save, {'label': 'Sauvegarder', 'attr': { 'class': 'btn btn-primary' } }) }}
 
             {{ form_widget(form.saveexit, {'label': 'Sauvegarder et quitter', 'attr': {'class': 'btn btn-primary' } }) }}

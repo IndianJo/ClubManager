@@ -95,16 +95,7 @@ class PlayerManagerController extends Controller
         // Et on construit le formBuilder a partir de l'entité
         $form = $this->get('form.factory')->create(new PlayerType(), $player);
 
-        //on récupère la liste des paramètres de la requête
-        $parameters = $request->request->get('fb_playermanagerbundle_player');
-        // on parcours la liste des paramètre pour mettre à jours l'id du joueur dans la stat de lancée
-        if ($parameters['throwDistances'] != null) {
-            foreach ($parameters['throwDistances'] as &$throwDistance) {
-                $throwDistance['player'] = $player->getId();
-            }
-        }
-        // mise a jours des paramères de la requêtes
-        $request->request->set('fb_playermanagerbundle_player' ,$parameters);
+        $this->throwStatUpdate($request, $player);
 
         // On fait le lien Requête<->formulaire
         $form->handleRequest($request);
@@ -149,5 +140,23 @@ class PlayerManagerController extends Controller
             'label' => $label,
             'back' => $back,
             'side' => $side));
+    }
+
+    /**
+     * @param Request $request
+     * @param Player $player
+     */
+    private function throwStatUpdate(Request &$request,Player $player)
+    {
+        //on récupère la liste des paramètres de la requête
+        $parameters = $request->request->get('fb_playermanagerbundle_player');
+        // on parcours la liste des paramètre pour mettre à jours l'id du joueur dans la stat de lancée
+        if ($parameters['throwDistances'] != null) {
+            foreach ($parameters['throwDistances'] as &$throwDistance) {
+                $throwDistance['player'] = $player->getId();
+            }
+        }
+        // mise a jours des paramères de la requêtes
+        $request->request->set('fb_playermanagerbundle_player' ,$parameters);
     }
 }

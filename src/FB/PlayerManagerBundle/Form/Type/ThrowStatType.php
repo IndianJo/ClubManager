@@ -24,7 +24,7 @@ class ThrowStatType extends AbstractType
             ->add('player', 'entity', array(
                 'class' => 'FB\PlayerManagerBundle\Entity\Player',
                 'property' => 'id',
-                'empty_value' => 'Sélectionner un joueur',
+                'empty_value' => 'SÃ©lectionner un joueur',
                 'required' => false));
     }
     

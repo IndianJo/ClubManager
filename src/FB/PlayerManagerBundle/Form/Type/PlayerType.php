@@ -25,6 +25,7 @@ class PlayerType extends AbstractType
             ->add('email',          'email')
             ->add('throwDistances', 'collection',array(
                 'type'          => new ThrowStatType(),
+                'prototype'     => true,
                 'allow_add'     => true,
                 'allow_delete'  => true
             ))
