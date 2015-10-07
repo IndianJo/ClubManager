@@ -55,6 +55,12 @@
         <label>Email : {{ player.email }}</label>
     </div>
     <div>
+        <h5>Tournois joués: </h5>
+        {% for team in player.teams %}
+            <label>{{ team.tournament.name }} {% if not loop.last %}, {% endif %} </label>
+        {% endfor %}
+    </div>
+    <div>
         <h5>Distance de lancé : </h5>
         <div class="container">
             {% for throwDistance in throwDistances %}

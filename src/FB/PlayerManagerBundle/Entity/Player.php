@@ -5,7 +5,8 @@ namespace FB\PlayerManagerBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use FB\SetManagerBundle\Entity;
+use FB\SetManagerBundle\Entity\GameSet;
+use FB\TournamentBundle\Entity\Team;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -95,6 +96,11 @@ class Player
      */
     private $throwDistances;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="FB\TournamentBundle\Entity\Team", mappedBy="players", cascade={"persist"})
+     */
+    private $teams;
+
     public function __construct()
     {
         $this->setPhonenumber(0606060606);
@@ -104,6 +110,7 @@ class Player
         $this->setCity("Besancon");
         $this->setEmail("ucv@ucv.com");
         $this->throwDistances = new ArrayCollection();
+        $this->teams = new ArrayCollection();
     }
 
     /**
@@ -385,5 +392,38 @@ class Player
     public function getThrowDistances()
     {
         return $this->throwDistances;
+    }
+
+    /**
+     * Add teams
+     *
+     * @param Team $team
+     * @return Player
+     */
+    public function addTeam(Team $team)
+    {
+        $this->teams[] = $team;
+
+        return $this;
+    }
+
+    /**
+     * Remove teams
+     *
+     * @param Team $team
+     */
+    public function removeTeam(Team $team)
+    {
+        $this->teams->removeElement($team);
+    }
+
+    /**
+     * Get teams
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTeams()
+    {
+        return $this->teams;
     }
 }

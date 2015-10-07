@@ -37,6 +37,12 @@ class Team
     private $players;
 
     /**
+     * @ORM\ManyToOne(targetEntity="FB\TournamentBundle\Entity\Tournament", inversedBy="teams")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $tournament;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -110,4 +116,27 @@ class Team
         return $this->players;
     }
 
+
+    /**
+     * Set tournament
+     *
+     * @param Tournament $tournament
+     * @return Team
+     */
+    public function setTournament(Tournament $tournament)
+    {
+        $this->tournament = $tournament;
+
+        return $this;
+    }
+
+    /**
+     * Get tournament
+     *
+     * @return Tournament
+     */
+    public function getTournament()
+    {
+        return $this->tournament;
+    }
 }

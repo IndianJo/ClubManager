@@ -33,6 +33,8 @@ class PlayerManagerController extends Controller
     /**
      * Use to add new player in database.
      * @Security("has_role('ROLE_MEMBER')")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function addAction(Request $request)
     {
@@ -70,6 +72,8 @@ class PlayerManagerController extends Controller
     /**
      * Use to delete player on database.
      * @Security("has_role('ROLE_MEMBER')")
+     * @param Player $player
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Player $player)
     {
@@ -89,6 +93,9 @@ class PlayerManagerController extends Controller
     /**
      * Use to update player on database.
      * @Security("has_role('ROLE_MEMBER')")
+     * @param Request $request
+     * @param Player $player
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function updateAction(Request $request, Player $player)
     {
@@ -117,7 +124,11 @@ class PlayerManagerController extends Controller
         return $this->render('FBPlayerManagerBundle:PlayerManager:update.html.twig', array('form' => $form->createView()));
     }
 
-    public function detailAction (Request $request, Player $player)
+    /**
+     * @param Player $player
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function detailAction (Player $player)
     {
         // récupération de l'entity manager
         $em = $this->getDoctrine()->getManager();

@@ -91,7 +91,7 @@ Date:   Mon Sep 14 16:22:07 2015 +0200
 Author: Joseph <joseph.mesny@gmail.com>
 Date:   Mon Sep 14 15:17:08 2015 +0200
 
-    Add calendar view for tournaments
+    Add calendar view for tournament
     Add Calendar bundle to display tournament in calendar view
 
 [33mcommit fb397ad46ebd90375b017ebcdbe0938185b650e8[m

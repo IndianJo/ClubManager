@@ -12,4 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class TeamRepository extends EntityRepository
 {
+    /**
+     * @param $player
+     * @return array|\Doctrine\ORM\QueryBuilder
+     */
+    function findByPlayers($player){
+        $query = $this
+            ->createQueryBuilder('a')
+            ->select('a')
+            ->leftJoin('a.players', 'c')
+            ->addSelect('c');
+        $query = $query->add('where', $query->expr()->in('c', ':c'))
+            ->setParameter('c', $player)
+            ->getQuery()
+            ->getResult();
+        return $query;
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace FB\TournamentBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -93,7 +94,7 @@ class Tournament
     private $season;
 
     /**
-     * @ORM\ManyToMany(targetEntity="FB\TournamentBundle\Entity\Team", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="FB\TournamentBundle\Entity\Team", mappedBy="tournament")
      */
     private $teams;
 
@@ -317,10 +318,10 @@ class Tournament
     /**
      * Set season
      *
-     * @param \FB\TournamentBundle\Entity\Season $season
+     * @param Season $season
      * @return Tournament
      */
-    public function setSeason(\FB\TournamentBundle\Entity\Season $season)
+    public function setSeason(Season $season)
     {
         $this->season = $season;
 
@@ -341,7 +342,7 @@ class Tournament
      */
     public function __construct()
     {
-        $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->teams = new ArrayCollection();
     }
 
     /**
@@ -353,7 +354,7 @@ class Tournament
     public function addTeam(Team $team)
     {
         $this->teams[] = $team;
-
+        $team->setTournament($this);
         return $this;
     }
 
