@@ -31,7 +31,7 @@ next generate tables :
 php app/console doctrine:schema:update --force
 ```
 Import data : 
-import data from  *dump\dumpCM_(date).sql*
+import data from [dump folder](https://github.com/IndianJo/ClubManager/tree/master/dump)
 
 ```
 shell> mysql < dump.sql
