@@ -310,10 +310,10 @@ class Player
     /**
      * Add GameSets
      *
-     * @param Entity\GameSet $gameSet
+     * @param GameSet $gameSet
      * @return Player
      */
-    public function addGameSet(Entity\GameSet $gameSet)
+    public function addGameSet(GameSet $gameSet)
     {
         $this->GameSets[] = $gameSet;
 
@@ -326,9 +326,9 @@ class Player
     /**
      * Remove GameSets
      *
-     * @param Entity\GameSet $gameSet
+     * @param GameSet $gameSet
      */
-    public function removeGameSet(Entity\GameSet $gameSet)
+    public function removeGameSet(GameSet $gameSet)
     {
         $this->GameSets->removeElement($gameSet);
 
