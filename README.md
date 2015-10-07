@@ -30,5 +30,10 @@ next generate tables :
 ```
 php app/console doctrine:schema:update --force
 ```
-Add testdata on database : 
-use *ClumManager_user.sql* to create user and groupe and *clubmanager2.0.sql* to insert test value in database (via PhpMySql and Query executor)
+Import data : 
+import data from  *dump\dumpCM_(date).sql*
+
+```
+shell> mysql < dump.sql
+```
+more information about this command https://dev.mysql.com/doc/refman/5.6/en/reloading-sql-format-dumps.html
