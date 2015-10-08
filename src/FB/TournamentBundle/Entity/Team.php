@@ -32,7 +32,7 @@ class Team
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="FB\PlayerManagerBundle\Entity\Player", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="FB\PlayerManagerBundle\Entity\Player", inversedBy="teams", cascade={"persist"})
      */
     private $players;
 
