@@ -162,7 +162,7 @@ class PlayerManagerController extends Controller
         //on récupère la liste des paramètres de la requête
         $parameters = $request->request->get('fb_playermanagerbundle_player');
         // on parcours la liste des paramètre pour mettre à jours l'id du joueur dans la stat de lancée
-        if ($parameters['throwDistances'] != null) {
+        if ($parameters['throwDistances'] !== null) {
             foreach ($parameters['throwDistances'] as &$throwDistance) {
                 $throwDistance['player'] = $player->getId();
             }

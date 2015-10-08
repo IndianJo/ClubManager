@@ -65,10 +65,11 @@
         <div class="container">
             {% for throwDistance in throwDistances %}
                 <div>
+                    <label> au {{ throwDistance.testDate|localizeddate('medium','none', 'fr') }}</label>
+                    </br>
                     <label>Revers : {{ throwDistance.backDistance }}m</label>
                     </br>
                     <label>Coup droit : {{ throwDistance.sideDistance }}m </label>
-                    <label> au {{ throwDistance.testDate|localizeddate('medium','none', 'fr') }}</label>
                 </div>
             {% endfor %}
             <div class="ct-chart ct-golden-section" id="chart1"></div>
