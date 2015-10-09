@@ -43,6 +43,7 @@ class AppKernel extends Kernel
             //Calendar
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new \ADesigns\CalendarBundle\ADesignsCalendarBundle(),
+            new FB\SessionManagerBundle\FBSessionManagerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
