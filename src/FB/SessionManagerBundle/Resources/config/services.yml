@@ -1,0 +1,4 @@
+services:
+#    fb_session_manager.example:
+#        class: FB\SessionManagerBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
