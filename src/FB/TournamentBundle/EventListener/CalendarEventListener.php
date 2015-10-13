@@ -45,7 +45,6 @@ class CalendarEventListener
 
             if ($tournamentEvent->getStartDate() != $tournamentEvent->getEndDate()) {
                 $end = $tournamentEvent->getEndDate();
-                $end->setTime(00, 00, 01);
                 $eventEntity = new EventEntity($tournamentEvent->getName(), $tournamentEvent->getStartDate(), $end);
             } else {
                 $eventEntity = new EventEntity($tournamentEvent->getName(), $tournamentEvent->getStartDate(), null, true);

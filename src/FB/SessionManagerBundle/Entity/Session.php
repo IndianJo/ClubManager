@@ -3,6 +3,7 @@
 namespace FB\SessionManagerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FB\TournamentBundle\Entity\Team;
 
 /**
  * Session
@@ -41,6 +42,12 @@ class Session
      * @ORM\Column(name="surface", type="string", length=255)
      */
     private $surface;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="FB\TournamentBundle\Entity\Team", mappedBy="$session", cascade={"persist"})
+     */
+    private $teams;
 
     public function __construct()
     {
@@ -122,5 +129,38 @@ class Session
     public function getTrainingEnd()
     {
         return $this->trainingEnd;
+    }
+
+    /**
+     * Add team
+     *
+     * @param Team $team
+     * @return Session
+     */
+    public function addTeam(Team $team)
+    {
+        $this->teams[] = $team;
+        $team->setSession($this);
+        return $this;
+    }
+
+    /**
+     * Remove team
+     *
+     * @param Team $team
+     */
+    public function removeTeam(Team $team)
+    {
+        $this->teams->removeElement($team);
+    }
+
+    /**
+     * Get teams
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTeams()
+    {
+        return $this->teams;
     }
 }

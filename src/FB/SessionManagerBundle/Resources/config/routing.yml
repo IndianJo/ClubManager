@@ -1,3 +1,7 @@
-fb_session_manager_homepage:
+fb_session_home:
     path:     /
     defaults: { _controller: FBSessionManagerBundle:SessionManager:index }
+
+fb_session_add:
+    path:     /add
+    defaults: { _controller: FBSessionManagerBundle:SessionManager:add }

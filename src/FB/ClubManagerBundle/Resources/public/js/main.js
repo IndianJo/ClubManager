@@ -26,4 +26,13 @@ $('select[multiple=multiple]').tokenize({
     placeholder: 'Sélectionner un joueur'
 });
 
-$('.datepicker').datepicker();
+$('.datepicker').datepicker({
+    beforeShowDay: function(date) {
+        var day = date.getDay();
+        if (day == 1 || day == 3 || day == 4) {
+            return [true];
+        } else {
+            return [false];
+        }
+    }
+});

@@ -4,6 +4,7 @@ namespace FB\TournamentBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use FB\SessionManagerBundle\Entity\Session;
 use Symfony\Component\Validator\Constraints as Assert;
 use FB\PlayerManagerBundle\Entity\Player;
 
@@ -38,9 +39,15 @@ class Team
 
     /**
      * @ORM\ManyToOne(targetEntity="FB\TournamentBundle\Entity\Tournament", inversedBy="teams")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $tournament;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="FB\SessionManagerBundle\Entity\Session", inversedBy="teams")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $session;
 
     /**
      * Get id
@@ -138,5 +145,28 @@ class Team
     public function getTournament()
     {
         return $this->tournament;
+    }
+
+    /**
+     * Set session
+     *
+     * @param Session $session
+     * @return Team
+     */
+    public function setSession(Session $session = null)
+    {
+        $this->session = $session;
+
+        return $this;
+    }
+
+    /**
+     * Get session
+     *
+     * @return Session
+     */
+    public function getSession()
+    {
+        return $this->session;
     }
 }
