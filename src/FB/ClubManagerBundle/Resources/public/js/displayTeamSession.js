@@ -32,7 +32,7 @@ $(document).ready(function() {
         // - le texte "__name__" qu'il contient par le numéro du champ
         var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, '')
             .replace(/__name__/g, index));
-        
+
         // On ajoute au prototype un lien pour pouvoir supprimer l'équipe
         addDeleteLink($prototype);
 

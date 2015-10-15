@@ -9,6 +9,7 @@ use FB\SessionManagerBundle\Entity\Session;
 use FB\TournamentBundle\Entity\Team;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class SessionManagerController extends Controller
 {
@@ -34,10 +35,11 @@ class SessionManagerController extends Controller
         if($form->isValid()){
 
             // on déduis les horaires d'entrainement en fonction du jours.
-            $sessionDay = date("w", $session->getTrainingStart());
-            $start  = $session->getTrainingStart();
-            $end = $start;
-            if ($sessionDay == 4){
+            $date = $session->getTrainingStart()->format('Y-m-d');
+            $sessionDay = date('l', strtotime($date));
+            $start  = date_create($date);
+            $end = date_create($date);
+            if ($sessionDay == 'Thursday'){
                 $start->setTime(21,00,00);
                 $end->setTime(22,30,00);
                 $session->setSurface('Indoor');
