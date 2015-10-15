@@ -1,6 +1,6 @@
 fb_session_manager:
     resource: "@FBSessionManagerBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /session
 
 fb_tournament:
     resource: "@FBTournamentBundle/Resources/config/routing.yml"

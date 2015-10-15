@@ -43,7 +43,7 @@
                 <td>{{ player.streetnumber }} {{ player.street }} {{ player.cP }} {{ player.city }}</td>
                 <td>{{ player.email }}</td>
                 <td>{% for gameset in player.gameSets %}
-                        {{ gameset.number }},
+                        {{ gameset.number }}{% if not loop.last %}, {% endif %}
                     {% endfor %}
                 </td>
                 <td>

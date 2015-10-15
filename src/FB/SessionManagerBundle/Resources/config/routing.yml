@@ -11,3 +11,16 @@ fb_session_detail:
     defaults: { _controller: FBSessionManagerBundle:SessionManager:detail }
     requirements:
          id: \d+
+
+fb_session_update:
+    path:   /update/{id}
+    defaults: { _controller: FBSessionManagerBundle:SessionManager:update }
+    requirements:
+        id: \d+
+
+fb_session_delete:
+    path:   /delete/{id}
+    defaults: { _controller: FBSessionManagerBundle:SessionManager:delete }
+    requirements:
+        id: \d+
+

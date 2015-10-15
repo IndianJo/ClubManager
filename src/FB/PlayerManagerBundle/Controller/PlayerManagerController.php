@@ -130,16 +130,10 @@ class PlayerManagerController extends Controller
      */
     public function detailAction (Player $player)
     {
-        // récupération de l'entity manager
-        $em = $this->getDoctrine()->getManager();
-
-        // récupération de la liste des joueurs stockés en BDD
-        $throwDistances = $em->getRepository('FBPlayerManagerBundle:ThrowStat')->findBy(array('player' => $player->getId()));
-
         $label = array();
         $back = array();
         $side = array();
-        foreach ($throwDistances as $throwDistance){
+        foreach ($player->getThrowDistances() as $throwDistance){
             $label[] = $throwDistance->getTestDate()->format('d-m-Y');
             $back[] = $throwDistance->getBackDistance();
             $side[] = $throwDistance->getSideDistance();
@@ -147,7 +141,6 @@ class PlayerManagerController extends Controller
 
         return $this->render('@FBPlayerManager/PlayerManager/detail.html.html.twig', array(
             'player' => $player,
-            'throwDistances' => $throwDistances,
             'label' => $label,
             'back' => $back,
             'side' => $side));

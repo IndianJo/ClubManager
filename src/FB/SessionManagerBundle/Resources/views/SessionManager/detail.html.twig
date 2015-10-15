@@ -18,4 +18,45 @@
     </ol>
 {% endblock %}
 {% block fbclubmanager_body %}
+    <h2>Entrainement du  {{ session.trainingStart|localizeddate('medium', 'none') }}
+        {% if is_granted('ROLE_MEMBER') %}
+            <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_session_update', {'id': session.id}) }}" title="Modifier l'élément" data-toggle="tooltip">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <a class="btn btn-sm btn-danger" type="button" href="{{ path('fb_session_delete', {'id': session.id}) }}" title="Supprimer l'élément" data-toggle="tooltip" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+        {% endif %}
+    </h2>
+    <div>
+        <br/>
+        <label>Séance : {{ session.surface }}</label>
+    </div>
+    <div>
+        <h4>Joueurs présent : </h4>
+        {% if session.teams is not null %}
+            {% for team in session.teams %}
+                <h6></h6>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                {{ team.name }}
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for player in team.players %}
+                            <tr>
+                                <td>{{ player.displayName }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+            {% endfor %}
+        {% else %}
+            <p>Aucune écquipe renseigné pour cette séance</p>
+        {% endif %}
+    </div>
+
 {% endblock %}

@@ -1,0 +1,22 @@
+{# src\FB\SessionManagerBundle\Resources\views\SessionManager\add.html.html.twig#}
+
+{% extends "FBClubManagerBundle::layout.html.twig" %}
+{% block title %}
+    Update session - {{ parent() }}
+{% endblock %}
+
+{% block headerWelcome %}
+   Update session
+{% endblock %}
+{% block headerMessage %}
+    <p> Modifier la séance</p>
+{% endblock %}
+{% block breacrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path ('fb_clubmanager_home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li class="active">Modifier</li>
+    </ol>
+{% endblock %}
+{% block fbclubmanager_body %}
+{% endblock %}
+

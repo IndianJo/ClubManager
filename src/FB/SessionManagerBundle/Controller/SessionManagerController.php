@@ -9,7 +9,6 @@ use FB\SessionManagerBundle\Entity\Session;
 use FB\TournamentBundle\Entity\Team;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class SessionManagerController extends Controller
 {
@@ -75,7 +74,17 @@ class SessionManagerController extends Controller
 
     public function detailAction(Session $session)
     {
-        return $this->render('FBSessionManagerBundle:SessionManager:detail.html.twig', array(
-            'session' => $session));
+        return $this->render('FBSessionManagerBundle:SessionManager:detail.html.twig', array('session' => $session));
     }
+
+    public function updateAction(Session $session)
+    {
+        return $this->render('FBSessionManagerBundle:SessionManager:update.html.twig');
+    }
+
+    public function deleteAction(Session $session)
+    {
+        return $this->render('FBTournamentBundle:Tournament:calendar.html.twig');
+    }
+
 }
