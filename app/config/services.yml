@@ -11,4 +11,4 @@ services:
       class: FB\TournamentBundle\EventListener\CalendarEventListener
       tags:
               - { name: kernel.event_listener, event: calendar.load_events, method: loadEvents }
-      arguments: ['@doctrine.orm.entity_manager']
+      arguments: ['@doctrine.orm.entity_manager', '@router']

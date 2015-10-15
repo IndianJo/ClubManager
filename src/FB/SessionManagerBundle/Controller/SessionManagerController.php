@@ -72,4 +72,10 @@ class SessionManagerController extends Controller
 
         return $this->render('FBSessionManagerBundle:SessionManager:add.html.twig', array('form' => $form->createView()));
     }
+
+    public function detailAction(Session $session)
+    {
+        return $this->render('FBSessionManagerBundle:SessionManager:detail.html.twig', array(
+            'session' => $session));
+    }
 }

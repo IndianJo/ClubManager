@@ -5,3 +5,9 @@ fb_session_home:
 fb_session_add:
     path:     /add
     defaults: { _controller: FBSessionManagerBundle:SessionManager:add }
+
+fb_session_detail:
+    path:     /detail/{id}
+    defaults: { _controller: FBSessionManagerBundle:SessionManager:detail }
+    requirements:
+         id: \d+
