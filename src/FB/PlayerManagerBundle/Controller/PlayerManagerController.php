@@ -159,8 +159,8 @@ class PlayerManagerController extends Controller
             foreach ($parameters['throwDistances'] as &$throwDistance) {
                 $throwDistance['player'] = $player->getId();
             }
+            // mise a jours des paramères de la requêtes
+            $request->request->set('fb_playermanagerbundle_player' ,$parameters);
         }
-        // mise a jours des paramères de la requêtes
-        $request->request->set('fb_playermanagerbundle_player' ,$parameters);
     }
 }

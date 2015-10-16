@@ -38,13 +38,13 @@ class Team
     private $players;
 
     /**
-     * @ORM\ManyToOne(targetEntity="FB\TournamentBundle\Entity\Tournament", inversedBy="teams")
+     * @ORM\ManyToOne(targetEntity="FB\TournamentBundle\Entity\Tournament", inversedBy="teams", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $tournament;
 
     /**
-     * @ORM\ManyToOne(targetEntity="FB\SessionManagerBundle\Entity\Session", inversedBy="teams")
+     * @ORM\ManyToOne(targetEntity="FB\SessionManagerBundle\Entity\Session", inversedBy="teams", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $session;

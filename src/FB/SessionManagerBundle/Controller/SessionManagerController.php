@@ -12,16 +12,23 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SessionManagerController extends Controller
 {
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction()
     {
         return $this->render('FBClubManagerBundle:ClubManager:index.html.twig');
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function addAction(Request $request)
     {
         $session = new Session();
         $team = new Team();
-        $team->setName('Exterieur');
+        $team->setName('Non-joueurs');
         $session->addTeam($team);
 
         // Création du formulaire de saisie
@@ -32,23 +39,7 @@ class SessionManagerController extends Controller
 
         // on vérife la validité des donnnées du formulaire
         if($form->isValid()){
-
-            // on déduis les horaires d'entrainement en fonction du jours.
-            $date = $session->getTrainingStart()->format('Y-m-d');
-            $sessionDay = date('l', strtotime($date));
-            $start  = date_create($date);
-            $end = date_create($date);
-            if ($sessionDay == 'Thursday'){
-                $start->setTime(21,00,00);
-                $end->setTime(22,30,00);
-                $session->setSurface('Indoor');
-            }else{
-                $start->setTime(20,00,00);
-                $end->setTime(22,00,00);
-                $session->setSurface('Outdoor');
-            }
-            $session->setTrainingStart($start);
-            $session->setTrainingEnd($end);
+            $this->setTrainingSchedule($session);
 
             // sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
@@ -72,19 +63,110 @@ class SessionManagerController extends Controller
         return $this->render('FBSessionManagerBundle:SessionManager:add.html.twig', array('form' => $form->createView()));
     }
 
+    /**
+     * @param Session $session
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function detailAction(Session $session)
     {
         return $this->render('FBSessionManagerBundle:SessionManager:detail.html.twig', array('session' => $session));
     }
 
-    public function updateAction(Session $session)
+    /**
+     * @param Request $request
+     * @param Session $session
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function updateAction(Request $request, Session $session)
     {
-        return $this->render('FBSessionManagerBundle:SessionManager:update.html.twig');
+        $form = $this->get('form.factory')->create(new SessionType(), $session);
+
+        $this->teamUpdate($request, $session);
+
+        // On fait le lien Requête<->formulaire
+        $form->handleRequest($request);
+
+        // on vérife la validité des donnnées du formulaire
+        if($form->isValid()){
+
+            //set the training time
+            $this->setTrainingSchedule($session);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($session);
+            $em->flush();
+
+            $this->get('session')->getFlashBag()->add('success', 'séance mise à jour');
+
+            //affichage de la liste des joueurs
+            return $this->redirect($this->generateUrl('fb_session_detail', array('id' => $session->getId())));
+        }
+
+        return $this->render('FBSessionManagerBundle:SessionManager:update.html.twig', array('form' => $form->createView()));
     }
 
+    /**
+     * @param Session $session
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function deleteAction(Session $session)
     {
         return $this->render('FBTournamentBundle:Tournament:calendar.html.twig');
+    }
+
+    /**
+     * use to auto update team session link in case of add or update team for a session
+     * @param Request $request
+     * @param Session $session
+     */
+    private function teamUpdate(Request &$request,Session $session)
+    {
+        $findTeam = false;
+        //on récupère la liste des paramètres de la requête
+        $parameters = $request->request->get('fb_sessionmanagerbundle_session');
+
+        if ($parameters['teams'] != null) {
+/*            // on compare la liste des équipes du formulaire avec celle de la base afin de supprimer les équipes en trop.
+            foreach ($session->getTeams() as &$sTeam)
+            {
+                foreach ($parameters['teams'] as &$team) {
+                    if ($sTeam->getId() == $team['id'])
+                        $findTeam = true;
+                }
+                if (!$findTeam)
+                    $sTeam = null;
+            }*/
+            // on parcours la liste des paramètre pour mettre à jour l'id de la session des équipes
+            foreach ($parameters['teams'] as &$team) {
+                $team['session'] = $session->getId();
+            }
+            // mise a jours des paramères de la requêtes
+            $request->request->set('fb_sessionmanagerbundle_session' ,$parameters);
+        }
+    }
+
+    /**
+     * Use to automatically set the start and end training time according to the training day.
+     * @param $session
+     */
+    public function setTrainingSchedule($session)
+    {
+        // on déduis les horaires d'entrainement en fonction du jours.
+        $date = $session->getTrainingStart()->format('Y-m-d');
+        $sessionDay = date('l', strtotime($date));
+        $start = date_create($date);
+        $end = date_create($date);
+        if ($sessionDay == 'Thursday') {
+            $start->setTime(21, 00, 00);
+            $end->setTime(22, 30, 00);
+            $session->setSurface('Indoor');
+        } else {
+            $start->setTime(20, 00, 00);
+            $end->setTime(22, 00, 00);
+            $session->setSurface('Outdoor');
+        }
+        $session->setTrainingStart($start);
+        $session->setTrainingEnd($end);
     }
 
 }

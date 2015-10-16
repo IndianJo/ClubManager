@@ -44,7 +44,7 @@ class Session
     private $surface;
 
     /**
-     * @ORM\OneToMany(targetEntity="FB\TournamentBundle\Entity\Team", mappedBy="session", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="FB\TournamentBundle\Entity\Team", mappedBy="session", cascade={"persist", "remove"})
      */
     private $teams;
 

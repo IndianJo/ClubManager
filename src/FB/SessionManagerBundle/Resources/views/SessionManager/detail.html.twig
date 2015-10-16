@@ -18,7 +18,7 @@
     </ol>
 {% endblock %}
 {% block fbclubmanager_body %}
-    <h2>Entrainement du  {{ session.trainingStart|localizeddate('medium', 'none') }}
+    <h2>Entrainement du  {{ session.trainingStart|localizeddate('full', 'none') }}
         {% if is_granted('ROLE_MEMBER') %}
             <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_session_update', {'id': session.id}) }}" title="Modifier l'élément" data-toggle="tooltip">
                 <span class="glyphicon glyphicon-pencil"></span>
@@ -30,10 +30,10 @@
     </h2>
     <div>
         <br/>
-        <label>Séance : {{ session.surface }}</label>
+        <label>Séance : {{ session.surface }} de {{ session.trainingStart|localizeddate ('none', 'short') }} a {{ session.trainingEnd|localizeddate ('none', 'short') }}</label>
     </div>
     <div>
-        <h4>Joueurs présent : </h4>
+        <h4>Présents : </h4>
         {% if session.teams is not null %}
             {% for team in session.teams %}
                 <h6></h6>

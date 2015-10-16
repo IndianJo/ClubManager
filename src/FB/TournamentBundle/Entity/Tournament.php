@@ -94,7 +94,7 @@ class Tournament
     private $season;
 
     /**
-     * @ORM\OneToMany(targetEntity="FB\TournamentBundle\Entity\Team", mappedBy="tournament")
+     * @ORM\OneToMany(targetEntity="FB\TournamentBundle\Entity\Team", mappedBy="tournament", cascade={"persist"})
      */
     private $teams;
 

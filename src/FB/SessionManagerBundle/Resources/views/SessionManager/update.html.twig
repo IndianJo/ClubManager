@@ -18,5 +18,10 @@
     </ol>
 {% endblock %}
 {% block fbclubmanager_body %}
+    {{ include ('FBSessionManagerBundle:SessionManager:form.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/fbclubmanager/js/displayTeamSession.js') }}"></script>
 {% endblock %}
 
