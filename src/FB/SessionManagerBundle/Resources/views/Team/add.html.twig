@@ -1,15 +1,15 @@
-{# src\FB\SessionManagerBundle\Resources\views\SessionManager\add.html.html.twig#}
+{# src\FB\SessionManagerBundle\Resources\views\Team\add.html.twig #}
 
 {% extends "FBClubManagerBundle::layout.html.twig" %}
 {% block title %}
-    Add session - {{ parent() }}
+    Add session team - {{ parent() }}
 {% endblock %}
 
 {% block headerWelcome %}
-    Add new Session
+    Add team for session
 {% endblock %}
 {% block headerMessage %}
-    <p> Ajouter une nouvelle séance</p>
+    <p> Ajouter une équipe à séance</p>
 {% endblock %}
 {% block breacrumb %}
     <ol class="breadcrumb">
@@ -18,5 +18,5 @@
     </ol>
 {% endblock %}
 {% block fbclubmanager_body %}
-    {{ include ('FBSessionManagerBundle:SessionManager:form.html.twig') }}
+    {{ include ('FBSessionManagerBundle:Team:form.html.twig') }}
 {% endblock %}

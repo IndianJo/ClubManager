@@ -6,6 +6,7 @@ namespace FB\SessionManagerBundle\Controller;
 
 use FB\SessionManagerBundle\Form\SessionType;
 use FB\SessionManagerBundle\Entity\Session;
+use FB\SessionManagerBundle\Form\TeamType;
 use FB\TournamentBundle\Entity\Team;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,9 +28,6 @@ class SessionManagerController extends Controller
     public function addAction(Request $request)
     {
         $session = new Session();
-        $team = new Team();
-        $team->setName('Non-joueurs');
-        $session->addTeam($team);
 
         // Création du formulaire de saisie
         $form = $this->get('form.factory')->create(new SessionType(), $session);
@@ -39,6 +37,12 @@ class SessionManagerController extends Controller
 
         // on vérife la validité des donnnées du formulaire
         if($form->isValid()){
+            //on ajoute la team "non-joueur"
+            $team = new Team();
+            $team->setName('Non-joueurs');
+            $session->addTeam($team);
+
+            //Calcul du détail de la séance
             $this->setTrainingSchedule($session);
 
             // sauvegarde dans la BDD
@@ -48,16 +52,8 @@ class SessionManagerController extends Controller
 
             $this->get('session')->getFlashBag()->add('notice', 'Séance enregitré');
 
-            //Clear the form
-            unset($session);
-            unset($form);
-
-            $session = new Session();
-            $team = new Team();
-            $team->setName('Exterieur');
-            $session->addTeam($team);
-
-            $form = $this->get('form.factory')->create(new SessionType(), $session);
+            // L'utilisateur est renvoyé vers la page d'update de la séance pour pouvoir créer / ajouter les équipes
+            return $this->redirect($this->generateUrl('fb_session_update', array('id' => $session->getId())));
         }
 
         return $this->render('FBSessionManagerBundle:SessionManager:add.html.twig', array('form' => $form->createView()));
@@ -88,7 +84,6 @@ class SessionManagerController extends Controller
 
         // on vérife la validité des donnnées du formulaire
         if($form->isValid()){
-
             //set the training time
             $this->setTrainingSchedule($session);
 
@@ -101,10 +96,51 @@ class SessionManagerController extends Controller
             //affichage de la liste des joueurs
             return $this->redirect($this->generateUrl('fb_session_detail', array('id' => $session->getId())));
         }
-
-        return $this->render('FBSessionManagerBundle:SessionManager:update.html.twig', array('form' => $form->createView()));
+        return $this->render('FBSessionManagerBundle:SessionManager:update.html.twig', array('form' => $form->createView(), 'session' => $session));
     }
 
+    public function addTeamAction(Request $request)
+    {
+        $team = new Team();
+
+        // Création du formulaire de saisie
+        $form = $this->get('form.factory')->create(new TeamType(), $team);
+
+        // On fait le lien Requête<->formulaire
+        $form->handleRequest($request);
+
+        // on vérife la validité des donnnées du formulaire
+        if($form->isValid()){
+
+            // sauvegarde dans la BDD
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($team);
+            $em->flush();
+
+            $this->get('session')->getFlashBag()->add('notice', 'Equipe enregitré');
+        }
+
+        return $this->render('FBSessionManagerBundle:Team:add.html.twig', array('form' => $form->createView()));
+    }
+
+    public function updateTeamAction(Request  $request, Team $team)
+    {
+        $form = $this->get('form.factory')->create(new TeamType(), $team);
+
+        // On fait le lien Requête<->formulaire
+        $form->handleRequest($request);
+
+        // on vérife la validité des donnnées du formulaire
+        if($form->isValid()){
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($team);
+            $em->flush();
+
+            $this->get('session')->getFlashBag()->add('success', 'équipe mise à jour');
+        }
+        return $this->render('FBSessionManagerBundle:Team:update.html.twig', array('form' => $form->createView()));
+    }
     /**
      * @param Session $session
      * @return \Symfony\Component\HttpFoundation\Response
@@ -149,7 +185,7 @@ class SessionManagerController extends Controller
      * Use to automatically set the start and end training time according to the training day.
      * @param $session
      */
-    public function setTrainingSchedule($session)
+    private function setTrainingSchedule($session)
     {
         // on déduis les horaires d'entrainement en fonction du jours.
         $date = $session->getTrainingStart()->format('Y-m-d');

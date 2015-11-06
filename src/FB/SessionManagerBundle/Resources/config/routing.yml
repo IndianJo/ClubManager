@@ -24,3 +24,14 @@ fb_session_delete:
     requirements:
         id: \d+
 
+fb_session_team_add:
+    path: /addteam
+    defaults: { _controller: FBSessionManagerBundle:SessionManager:addTeam }
+    requirements:
+        id: \d+
+
+fb_session_team_update:
+    path: /updateteam/{id}
+    defaults: { _controller: FBSessionManagerBundle:SessionManager:updateTeam }
+    requirements:
+        id: \d+

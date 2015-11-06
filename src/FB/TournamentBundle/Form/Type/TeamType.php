@@ -32,11 +32,6 @@ class TeamType extends AbstractType
                       ->setParameter('lname', 'ucv');
               }
             ))
-            ->add('session', 'entity', array(
-                'class' => 'FB\SessionManagerBundle\Entity\Session',
-                'property' => 'id',
-                'empty_value' => '',
-                'required' => false))
         ;
     }
     

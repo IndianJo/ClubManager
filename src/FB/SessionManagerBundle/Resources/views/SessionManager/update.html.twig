@@ -19,6 +19,47 @@
 {% endblock %}
 {% block fbclubmanager_body %}
     {{ include ('FBSessionManagerBundle:SessionManager:form.html.twig') }}
+
+    <div>
+        <h4>Equipe :
+            <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_session_team_add') }}" title="Ajouter une équipe" data-toggle="tooltip">
+                <span class="glyphicon glyphicon-plus-sign"></span>
+            </a>
+        </h4>
+        {% if session.teams is not null %}
+            {% for team in session.teams %}
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>
+                            {{ team.name }}
+                            {% if is_granted('ROLE_MEMBER') %}
+                                {# update_team ling#}
+                                <a class="btn btn-sm btn-default" type="button" href="{{ path('fb_session_team_update', {'id': team.id}) }}" title="Modifier l'élément" data-toggle="tooltip">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+                                {# delete_team link #}
+                                <a class="btn btn-sm btn-danger" type="button" href="{{ path('fb_clubmanager_home', {'id': team.id}) }}" title="Supprimer l'élément" data-toggle="tooltip" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet élément ?')">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            {% endif %}
+
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for player in team.players %}
+                        <tr>
+                            <td>{{ player.displayName }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endfor %}
+        {% else %}
+            <p>Aucune écquipe renseigné pour cette séance</p>
+        {% endif %}
+    </div>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
