@@ -27,3 +27,4 @@ $('select[multiple=multiple]').tokenize({
 });
 
 $('.datepicker').datepicker();
+
